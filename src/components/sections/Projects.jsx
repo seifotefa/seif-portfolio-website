@@ -43,7 +43,7 @@ export const Projects = () => {
         "A professional website designed and developed for a local window washing company to showcase services and handle customer inquiries online.",
         tech: ["HTML", "Tailwind CSS", "JavaScript"],
         category: "work",
-        github: null,
+        github: "https://bangyourhead.ca",
     },
     
     {

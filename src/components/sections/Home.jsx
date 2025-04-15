@@ -10,7 +10,7 @@ export const Home = () => {
         "a product manager intern",
         "a teaching assistant",
         "a tv show fanatic",
-        "most likely listening to music right now",
+        "i'm most likely listening to music right now",
         "an agency founder",
     ]
 
