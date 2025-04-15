@@ -8,7 +8,6 @@ This is a personal developer portfolio built with **React**, **Tailwind CSS**, a
 ## 🌐 Live Demo
 
 👉 [https://seifotefa.com](https://seifotefa.com)  
-*(Replace with your deployed URL)*
 
 ---
 
@@ -40,7 +39,7 @@ To Run Locally:
    ```bash
    git clone https://github.com/yourusername/portfolio-site.git
    cd portfolio-site
-
+```bash
 npm install
 
 npm run dev
