@@ -18,7 +18,7 @@ export const Projects = () => {
         "A full-stack booking system built with JavaScript, PHP, and MySQL for a local business (as part of a course).",
         tech: ["JavaScript", "PHP", "MySQL"],
         category: "school", 
-        github: "https://github.com/seifotefa/bangyourheadbooking":,
+        github: "https://github.com/seifotefa/bangyourheadbooking",
     },
     {
         name: "MatrixSolver",
