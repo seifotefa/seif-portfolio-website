@@ -18,7 +18,7 @@ export const Projects = () => {
         "A full-stack booking system built with JavaScript, PHP, and MySQL for a local business (as part of a course).",
         tech: ["JavaScript", "PHP", "MySQL"],
         category: "school", 
-        github: null,
+        github: "https://github.com/seifotefa/bangyourheadbooking":,
     },
     {
         name: "MatrixSolver",
@@ -51,7 +51,7 @@ export const Projects = () => {
       description: "A personal portfolio showcasing skills, projects, and contact information (Hint: You're looking at it).",
       tech: ["React", "Tailwind CSS"],
       category: "personal",
-      github: "https://github.com/username/portfolio",
+      github: "https://github.com/seifotefa/seif-portfolio-website",
     },
   ];
 
