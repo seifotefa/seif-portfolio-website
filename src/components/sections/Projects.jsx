@@ -13,7 +13,7 @@ export const Projects = () => {
     github: "https://github.com/seifotefa/EvenMatch-2048-in-C",
     },
      {
-        name: "Spark and Prepper!",
+        name: "Spark and Prepper",
         description:
         "A full-stack studying platform that takes your lectures and notes and turns them into condensed study guides, with a mock exam, cheat sheet, and flashcard generator, and an AI tutor chatbot.",
         tech: ["JavaScript", "React", "Node.js", "Express.js", "Firebase", "Gemini API"],
