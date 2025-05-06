@@ -6,12 +6,9 @@ export const Home = () => {
         "a software engineer",
         "a computer science student",
         "a fullstack developer",
-        "a huge soccer fan",
+        "a soccer fan",
         "a product manager intern",
         "a teaching assistant",
-        "a tv show fanatic",
-        "i'm most likely listening to music right now",
-        "an agency founder",
     ]
 
     const names =[
