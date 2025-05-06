@@ -79,7 +79,7 @@ export const Home = () => {
 
             {/* Resume */}
             <a
-                href="/assets/SeifOResume.pdf" // or external link
+                href="/assets/Seif_Otefa (1).pdf" // or external link
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-purple-500 transition-colors"
