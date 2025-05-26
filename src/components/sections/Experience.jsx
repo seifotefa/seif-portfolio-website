@@ -4,7 +4,7 @@ import { ExperienceCard } from "../ExperienceCard"; // You'll build this next
 export const Experience = () => {
   const experiences = [
     {
-        date: "april 2025 - present",
+        date: "april 2025 - may 2025",
         title: "Section Leader",
         company: "Stanford University",
         companyLink:"https://codeinplace.stanford.edu/",
@@ -13,7 +13,7 @@ export const Experience = () => {
         skills: ["Python", "Karel", "Teaching"],
       },
     {
-      date: "march 2025 - present",
+      date: "march 2025 - may 2025",
       title: "Product Management Intern",
       company: "MoVA Realities",
       companyLink:"https://www.movarts.com/",
