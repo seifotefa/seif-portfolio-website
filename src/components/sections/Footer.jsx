@@ -2,12 +2,12 @@ import { FaGithub, FaLinkedin, FaFileAlt } from "react-icons/fa";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#111111] border-t border-gray-800 text-gray-500 text-sm py-6 px-4">
+    <footer className="bg-[#fff] border-t border-[#e5e5e5] text-[#444] text-sm py-6 px-4">
       <div className="max-w-screen-xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
         {/* Left: Name and meta */}
         <div className="text-center sm:text-left">
           <p>&copy; {new Date().getFullYear()} Seif Otefa. All rights reserved.</p>
-          <p className="text-xs text-gray-600">Last updated: May 2025</p>
+          <p className="text-xs text-gray-600">Last updated: June 2025</p>
         </div>
 
         {/* Right: Social Icons */}

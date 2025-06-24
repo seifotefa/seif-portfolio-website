@@ -29,9 +29,9 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen scroll-mt-24 bg-[#111111] text-gray-300 px-6 md:px-12 py-20"
+      className="scroll-mt-24 bg-[#fff] text-[#111]"
     >
-      <div className="max-w-xl mx-auto text-center">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 py-20 text-center mt-24">
         <h2 className="text-3xl font-bold mb-6">contact me</h2>
         <p className="mb-8 text-gray-400 text-lg">
           if you want to work with me, or have any inquiries, please send me a message and i will get back to you soon.
@@ -59,21 +59,21 @@ export const Contact = () => {
                 name="name"
                 placeholder="Your Name"
                 required
-                className="w-full bg-[#181A1F] border border-gray-700 text-gray-300 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
                 />
                 <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
                 required
-                className="w-full bg-[#181A1F] border border-gray-700 text-gray-300 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
                 />
                 <textarea
                 name="message"
                 rows="5"
                 placeholder="What's up?"
                 required
-                className="w-full bg-[#181A1F] border border-gray-700 text-gray-300 px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600"
                 ></textarea>
                 <button
                 type="submit"

@@ -1,19 +1,18 @@
 import { useState } from 'react';
-
-
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <nav className="bg-[#111111] border-b border-[#2a2a2a] sticky top-0 z-50">
+        <nav className="bg-[#fff] border-b border-[#e5e5e5] sticky top-0 z-50">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             {/* Logo */}
-            <a href="#" className="flex items-center space-x-1">
-              <span className="text-2xl font-semibold text-[#e0e0e0]">seif</span>
+            <Link to="/" className="flex items-center space-x-1">
+              <span className="text-2xl font-semibold text-[#111]">seif</span>
               <span className="text-2xl font-semibold text-[#8b5cf6]">otefa</span>
-            </a>
+            </Link>
     
             {/* Mobile Toggle Button */}
             <button
@@ -28,25 +27,25 @@ export const Navbar = () => {
     
             {/* Navigation Links */}
             <div className={`${menuOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-default">
-              <ul className="font-medium flex flex-col p-4 mt-4 border border-[#1a1a1a] rounded-lg bg-[#111111] md:flex-row md:space-x-8 md:mt-0 md:border-0">
+              <ul className="font-medium flex flex-col p-4 mt-4 border border-[#e5e5e5] rounded-lg bg-[#fff] md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
-                  <a href="#" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#e0e0e0] rounded-sm hover:bg-[#1a1a1a] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">home</a>
+                  <Link to="/" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">home</Link>
                 </li>
                 <li>
-                  <a href="#about" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#e0e0e0] rounded-sm hover:bg-[#1a1a1a] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">about</a>
+                  <Link to="/about" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">about</Link>
                 </li>
                 <li>
-                  <a href="#experience" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#e0e0e0] rounded-sm hover:bg-[#1a1a1a] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">experience</a>
+                  <Link to="/experience" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">experience</Link>
                 </li>
                 <li>
-                  <a href="#projects" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#e0e0e0] rounded-sm hover:bg-[#1a1a1a] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">projects</a>
+                  <Link to="/projects" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">projects</Link>
                 </li>
                 <li>
-                  <a href="#contact" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#e0e0e0] rounded-sm hover:bg-[#1a1a1a] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">contact</a>
+                  <Link to="/contact" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">contact</Link>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
       );
-    };
+};

@@ -64,15 +64,18 @@ export const Projects = () => {
   ];
 
   const [filter, setFilter] = useState("all");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredProjects =
     filter === "all"
       ? projectlist
       : projectlist.filter((p) => p.category === filter);
 
+  const projectsToShow = showAll ? filteredProjects : filteredProjects.slice(0, 6);
+
   return (
-    <section id="projects" className="min-h-screen scroll-mt-24 bg-[#111111] text-gray-300 px-6 md:px-12 py-20">
-      <div className="max-w-6xl mx-auto text-center">
+    <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111]">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-8 mt-16 mb-12 text-center">
         <h2 className="text-3xl font-bold mb-8">projects</h2>
 
         {/* Filters */}
@@ -80,9 +83,9 @@ export const Projects = () => {
           {["all", "school", "work", "personal"].map((cat) => (
             <button
               key={cat}
-              onClick={() => setFilter(cat)}
+              onClick={() => { setFilter(cat); setShowAll(false); }}
               className={`px-4 py-2 rounded-full border ${
-                filter === cat ? "bg-purple-600 text-white" : "border-gray-600 text-gray-400"
+                filter === cat ? "bg-purple-600 text-white" : "border-[#e5e5e5] text-[#888]"
               } hover:bg-purple-700 hover:text-white transition`}
             >
               {cat}
@@ -90,35 +93,52 @@ export const Projects = () => {
           ))}
         </div>
 
-        {/* Grid of Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <div key={index} className="bg-[#181A1F] border border-gray-700 rounded-lg p-6 shadow-md text-left">
-              <h3 className="text-xl font-semibold text-[#e0e0e0] mb-2">{project.name}</h3>
-              <p className="text-sm text-gray-400 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="bg-gray-700 border border-gray-600 text-sm px-3 py-1 rounded-full text-gray-300"
+        <div className="flex flex-col items-center gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start w-full">
+            {projectsToShow.map((project, index) => (
+              <div key={index} className="bg-[#f3f3f3] border border-[#e5e5e5] rounded-lg p-3 text-left h-full min-h-[300px]">
+                <h3 className="text-xl font-semibold text-[#111] mb-2">{project.name}</h3>
+                <p className="text-sm text-gray-400 mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="bg-[#ede9fe] border border-[#c4b5fd] text-[#5b21b6] text-sm px-3 py-1 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-purple-500 underline underline-offset-2 transition"
                   >
-                    {tech}
-                  </span>
-                ))}
+                    View
+                    <FiExternalLink className="w-3 h-3 mb-[1px]" />
+                  </a>
+                )}
               </div>
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-purple-500 underline underline-offset-2 transition"
-                >
-                  View
-                  <FiExternalLink className="w-3 h-3 mb-[1px]" />
-                </a>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
+          {filteredProjects.length > 6 && !showAll && (
+            <button
+              className="px-6 py-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 transition"
+              onClick={() => setShowAll(true)}
+            >
+              view all
+            </button>
+          )}
+          {showAll && filteredProjects.length > 6 && (
+            <button
+              className="px-6 py-2 rounded-full bg-gray-200 text-[#5b21b6] hover:bg-gray-300 transition"
+              onClick={() => setShowAll(false)}
+            >
+              show less
+            </button>
+          )}
         </div>
       </div>
     </section>

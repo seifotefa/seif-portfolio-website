@@ -6,7 +6,7 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
     return (
       <div className="relative w-full max-w-2xl px-4 sm:px-6">
         {/* Card */}
-        <div className="bg-[#181A1F] border border-gray-700 rounded-lg shadow-md p-4 sm:p-6 w-full relative z-20">
+        <div className="bg-[#f3f3f3] border border-[#e5e5e5] rounded-lg p-4 sm:p-6 w-full relative z-20">
           <div className="flex flex-col sm:flex-row sm:items-start sm:gap-4 mb-4">
             {/* Logo (desktop only) */}
             <div className="hidden sm:block flex-shrink-0">
@@ -18,7 +18,7 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
               {/* Top Row: title + logo on mobile */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-semibold text-[#e0e0e0] break-words">{title}</h3>
+                <h3 className="text-lg sm:text-xl font-semibold text-[#111] break-words">{title}</h3>
   
                 {/* Date (moved here for desktop) */}
                 <p className="hidden sm:block text-sm text-gray-400">{date}</p>
@@ -39,7 +39,7 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
               <p className="block sm:hidden text-xs text-gray-500 mt-2">{date}</p>
   
               {/* Description */}
-              <p className="text-sm text-gray-300 mt-4">{description}</p>
+              <p className="text-sm text-gray-500 mt-4">{description}</p>
             </div>
           </div>
   
@@ -48,7 +48,7 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
             {skills.map((skill, i) => (
               <span
                 key={i}
-                className="bg-gray-700 text-sm px-3 py-1 rounded-full text-gray-300"
+                className="bg-[#ede9fe] text-[#5b21b6] text-sm px-3 py-1 rounded-full"
               >
                 {skill}
               </span>

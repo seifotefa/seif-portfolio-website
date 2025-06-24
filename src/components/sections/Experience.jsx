@@ -43,15 +43,20 @@ export const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="bg-[#111111] scroll-mt-24 text-gray-300 px-6 md:px-12 py-16 min-h-screen flex flex-col justify-center">  
-      <h2 className="text-3xl font-bold text-center mb-12">experience</h2>
-      <div className="relative flex flex-col items-center space-y-16 sm:space-y-16 max-w-3xl mx-auto w-full">
-        {/* Vertical timeline line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-700" />
-        {/* Experience Cards */}
-        {experiences.map((exp, index) => (
-          <ExperienceCard key={index} {...exp} />
-        ))}
+    <section id="experience" className="bg-[#fff] scroll-mt-24 text-[#111] flex flex-col justify-center">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-16 mt-16 mb-12">
+        <h2 className="text-3xl font-bold text-center mb-12">experience</h2>
+        <div className="relative flex flex-col items-center space-y-16 sm:space-y-16 max-w-3xl mx-auto w-full pb-8">
+          {/* Experience Cards */}
+          {experiences.map((exp, index) => (
+            <div key={index} className="w-full relative">
+              <ExperienceCard {...exp} />
+              {index < experiences.length - 1 && (
+                <div className="absolute left-1/2 top-full w-1 h-16 bg-gray-700 transform -translate-x-1/2" />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
