@@ -7,7 +7,7 @@ const languages = [
     { name: "C", logo: "/assets/c.svg" },
     { name: "SQL", logo: "/assets/mysql.svg" },
     { name: "JavaScript", logo: "/assets/javascript.svg" },
-    { name: "TypeScript", logo: "/assets/typescript.svg" },
+    { name: "TypeScript", logo: "/assets/typescript.png" },
     { name: "PHP", logo: "/assets/php.png" },
     { name: "Bash", logo: "/assets/bash.png" },
     { name: "Latex", logo: "/assets/latex.png" },
@@ -31,7 +31,7 @@ export const About = () => {
   return (
     <>
       {/* ABOUT SECTION */}
-      <section id="about" className="bg-[#fff] text-[#111] px-6 md:px-12 pt-24 pb-45 mt-0 mb-12">
+      <section id="about" className="bg-[#fff] text-[#111] px-6 md:px-12 pt-24 pb-8 mt-0 mb-4">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
             
                 {/* Profile Image */}
@@ -58,7 +58,7 @@ export const About = () => {
             </div>
         </section>
 
-        <section id="skills" className="bg-[#fff] text-[#111] pt-0 pb-20 px-6 md:px-12">
+        <section id="skills" className="bg-[#fff] text-[#111] pt-4 pb-20 px-6 md:px-12 mb-16">
         <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-2">skills</h2>
             <p className="mb-4 text-gray-400 text-lg">

@@ -7,4 +7,6 @@ html, body {
   font-family: 'Satoshi', 'Inter', sans-serif;
   background: #fff;
   color: #111;
+  font-size: 18px;
+  font-weight: 500;
 }
