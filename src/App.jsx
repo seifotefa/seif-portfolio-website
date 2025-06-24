@@ -6,6 +6,8 @@ import { Experience } from './components/sections/Experience';
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/sections/Footer';
+import { Blog } from './components/sections/Blog';
+import { BlogPost } from './components/sections/BlogPost';
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>

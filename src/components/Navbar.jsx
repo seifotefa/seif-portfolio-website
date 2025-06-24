@@ -41,6 +41,9 @@ export const Navbar = () => {
                   <Link to="/projects" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">projects</Link>
                 </li>
                 <li>
+                  <Link to="/blog" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">blog</Link>
+                </li>
+                <li>
                   <Link to="/contact" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">contact</Link>
                 </li>
               </ul>
