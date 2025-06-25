@@ -48,7 +48,7 @@ export const About = () => {
 
                 <h2 className="text-2xl sm:text-3xl font-bold mb-4">who am i?</h2>
                 <p className="text-base sm:text-lg leading-relaxed">
-                    i'm seif otefa, a second year computer science student at mcmaster university with a passion for using technology to drive change and innovation. some of my interests are web3, ai, and software design and development, and how technology intersects with education, finance, and fun.
+                    i'm a second year computer science student at mcmaster university with a passion for using technology to drive change and innovation. some of my interests are web3, ai, and software design and development, and how technology intersects with education, finance, and fun.
                     <br /><br />
                     i'm driven by a constant need to improve, whether that's mentally, academically, or physically, i always strive to be the best i can be at what i do.
                     <br /><br />
