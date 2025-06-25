@@ -46,8 +46,8 @@ export const About = () => {
                 {/* Bio Text */}
                 <div className="w-full">
 
-                <h2 className="text-3xl font-bold mb-4">who am i?</h2>
-                <p className="text-lg leading-relaxed">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4">who am i?</h2>
+                <p className="text-base sm:text-lg leading-relaxed">
                     i'm seif otefa, a second year computer science student at mcmaster university with a passion for using technology to drive change and innovation. some of my interests are web3, ai, and software design and development, and how technology intersects with education, finance, and fun.
                     <br /><br />
                     i'm driven by a constant need to improve, whether that's mentally, academically, or physically, i always strive to be the best i can be at what i do.
@@ -60,8 +60,8 @@ export const About = () => {
 
         <section id="skills" className="bg-[#fff] text-[#111] pt-4 pb-20 px-6 md:px-12 mb-16">
         <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-2">skills</h2>
-            <p className="mb-4 text-gray-400 text-lg">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2">skills</h2>
+            <p className="mb-4 text-gray-400 text-base sm:text-lg">
             here are a few of the skills i've acquired throughout my journey.
             </p>
             <div className="text-left max-w-3xl mx-auto">
