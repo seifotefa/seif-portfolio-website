@@ -46,13 +46,22 @@ export const Projects = () => {
         github: "https://github.com/seifotefa/rock-paper-scissors-js",
     },
     {
-        name: "Bangyourhead.ca",
+        name: "bangyourhead.ca",
         description:
         "A professional website designed and developed for a local window washing company to showcase services and handle customer inquiries online.",
         tech: ["HTML", "Tailwind CSS", "JavaScript"],
         category: "work",
         github: "https://bangyourhead.ca",
     },
+     {
+        name: "luxuryfinish.ca",
+        description:
+        "A professional website designed and developed for a local car detailing company to showcase services and handle customer inquiries and booking online.",
+        tech: ["HTML", "Tailwind CSS", "JavaScript"],
+        category: "work",
+        github: "https://luxuryfinish.ca",
+    },
+    
     
     {
       name: "Portfolio Website",
