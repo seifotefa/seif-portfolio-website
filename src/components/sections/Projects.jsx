@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiExternalLink } from 'react-icons/fi'; // fix icon import
+import { FiExternalLink } from 'react-icons/fi';
 
 export const Projects = () => {
   const projectlist = [
@@ -16,7 +16,7 @@ export const Projects = () => {
       description:
         "A full-stack studying platform that takes your lectures and notes and turns them into condensed study guides, with a mock exam, cheat sheet, and flashcard generator, and an AI tutor chatbot.",
       tech: ["JavaScript", "React", "Node.js", "Express.js", "Firebase", "Gemini API"],
-      category: "personal", 
+      category: "personal",
       github: "https://github.com/seifotefa/sparkandprepper",
     },
     {
@@ -24,7 +24,7 @@ export const Projects = () => {
       description:
         "A full-stack booking system built with JavaScript, PHP, and MySQL for a local business (as part of a course).",
       tech: ["JavaScript", "PHP", "MySQL"],
-      category: "school", 
+      category: "school",
       github: "https://github.com/seifotefa/bangyourheadbooking",
     },
     {
@@ -39,54 +39,26 @@ export const Projects = () => {
       name: "RockPaperScissorsJS",
       description:
         "A JavaScript based rock-paper-scissors game.",
-      tech: ["HTML/CSS", "Javascript"],
+      tech: ["HTML/CSS", "JavaScript"],
       category: "school",
       github: "https://github.com/seifotefa/rock-paper-scissors-js",
     },
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        name: "bangyourhead.ca",
-        description:
-=======
       name: "Bangyourhead.ca",
       description:
->>>>>>> Stashed changes
-=======
-      name: "Bangyourhead.ca",
-      description:
->>>>>>> Stashed changes
-=======
-      name: "Bangyourhead.ca",
-      description:
->>>>>>> Stashed changes
         "A professional website designed and developed for a local window washing company to showcase services and handle customer inquiries online.",
       tech: ["HTML", "Tailwind CSS", "JavaScript"],
       category: "work",
       github: "https://bangyourhead.ca",
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     },
-<<<<<<< Updated upstream
-     {
-        name: "luxuryfinish.ca",
-        description:
+    {
+      name: "luxuryfinish.ca",
+      description:
         "A professional website designed and developed for a local car detailing company to showcase services and handle customer inquiries and booking online.",
-        tech: ["HTML", "Tailwind CSS", "JavaScript"],
-        category: "work",
-        github: "https://luxuryfinish.ca",
+      tech: ["HTML", "Tailwind CSS", "JavaScript"],
+      category: "work",
+      github: "https://luxuryfinish.ca",
     },
-    
-    
-=======
->>>>>>> Stashed changes
-=======
-    },
->>>>>>> Stashed changes
-=======
-    },
->>>>>>> Stashed changes
     {
       name: "Portfolio Website",
       description: "A personal portfolio showcasing skills, projects, and contact information (Hint: You're looking at it).",
@@ -107,10 +79,9 @@ export const Projects = () => {
   const projectsToShow = showAll ? filteredProjects : filteredProjects.slice(0, 6);
 
   return (
-    <>
-      <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111]">
-      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-8 mt-24 mb-12 text-center">
-        <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Projects</h2>
+    <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111]">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-8 mt-16 mb-12 text-center">
+        <h2 className="text-3xl font-bold mb-8">projects</h2>
 
         {/* Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
@@ -119,8 +90,8 @@ export const Projects = () => {
               key={cat}
               onClick={() => { setFilter(cat); setShowAll(false); }}
               className={`px-4 py-2 rounded-full border ${
-                filter === cat ? "bg-[#4A90E2] text-white" : "border-[#e5e5e5] text-[#888]"
-              } hover:bg-[#357ABD] hover:text-white transition`}
+                filter === cat ? "bg-purple-600 text-white" : "border-[#e5e5e5] text-[#888]"
+              } hover:bg-purple-700 hover:text-white transition`}
             >
               {cat}
             </button>
@@ -137,7 +108,7 @@ export const Projects = () => {
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-3 py-1 rounded-full"
+                      className="bg-[#ede9fe] border border-[#c4b5fd] text-[#5b21b6] text-sm px-3 py-1 rounded-full"
                     >
                       {tech}
                     </span>
@@ -176,6 +147,5 @@ export const Projects = () => {
         </div>
       </div>
     </section>
-    </>
   );
 };
