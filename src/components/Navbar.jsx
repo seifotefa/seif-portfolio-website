@@ -10,8 +10,8 @@ export const Navbar = () => {
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-1">
-              <span className="text-2xl font-semibold text-[#111]">seif</span>
-              <span className="text-2xl font-semibold text-[#8b5cf6]">otefa</span>
+              <span className="text-5xl font-synonym font-light text-[#111]" style={{ fontFamily: 'Synonym, monospace' }}>Seif</span>
+              <span className="text-5xl font-synonym font-light text-[#4A90E2]" style={{ fontFamily: 'Synonym, monospace' }}>Otefa</span>
             </Link>
     
             {/* Mobile Toggle Button */}
@@ -29,16 +29,16 @@ export const Navbar = () => {
             <div className={`${menuOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-default">
               <ul className="font-medium flex flex-col p-4 mt-4 border border-[#e5e5e5] rounded-lg bg-[#fff] md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
-                  <Link to="/" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">home</Link>
+                  <Link to="/" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#4A90E2] md:hover:bg-transparent md:p-0">home</Link>
                 </li>
                 <li>
-                  <Link to="/about" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">about</Link>
+                  <Link to="/about" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#4A90E2] md:hover:bg-transparent md:p-0">about</Link>
                 </li>
                 <li>
-                  <Link to="/experience" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">experience</Link>
+                  <Link to="/experience" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#4A90E2] md:hover:bg-transparent md:p-0">experience</Link>
                 </li>
                 <li>
-                  <Link to="/projects" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">projects</Link>
+                  <Link to="/projects" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#4A90E2] md:hover:bg-transparent md:p-0">projects</Link>
                 </li>
                 <li>
                   <Link to="/blog" onClick={() => setMenuOpen(false)} className="block py-2 px-3 text-[#111] rounded-sm hover:bg-[#f3f3f3] hover:text-[#8b5cf6] md:hover:bg-transparent md:p-0">blog</Link>

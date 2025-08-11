@@ -3,56 +3,60 @@ import { FiExternalLink } from 'react-icons/fi'; // fix icon import
 
 export const Projects = () => {
   const projectlist = [
-
     {
-    name: "EvenMatch!",
-    description:
-      "A terminal-based 2048 game written in C, featuring smooth tile movement and merging logic, built with modular architecture and efficient input handling.",
-    tech: ["C", "Bash"],
-    category: "school",
-    github: "https://github.com/seifotefa/EvenMatch-2048-in-C",
+      name: "EvenMatch!",
+      description:
+        "A terminal-based 2048 game written in C, featuring smooth tile movement and merging logic, built with modular architecture and efficient input handling.",
+      tech: ["C", "Bash"],
+      category: "school",
+      github: "https://github.com/seifotefa/EvenMatch-2048-in-C",
     },
-     {
-        name: "Spark and Prepper",
-        description:
+    {
+      name: "Spark and Prepper",
+      description:
         "A full-stack studying platform that takes your lectures and notes and turns them into condensed study guides, with a mock exam, cheat sheet, and flashcard generator, and an AI tutor chatbot.",
-        tech: ["JavaScript", "React", "Node.js", "Express.js", "Firebase", "Gemini API"],
-        category: "personal", 
-        github: "https://github.com/seifotefa/sparkandprepper",
+      tech: ["JavaScript", "React", "Node.js", "Express.js", "Firebase", "Gemini API"],
+      category: "personal", 
+      github: "https://github.com/seifotefa/sparkandprepper",
     },
     {
-        name: "BookMate!",
-        description:
+      name: "BookMate!",
+      description:
         "A full-stack booking system built with JavaScript, PHP, and MySQL for a local business (as part of a course).",
-        tech: ["JavaScript", "PHP", "MySQL"],
-        category: "school", 
-        github: "https://github.com/seifotefa/bangyourheadbooking",
+      tech: ["JavaScript", "PHP", "MySQL"],
+      category: "school", 
+      github: "https://github.com/seifotefa/bangyourheadbooking",
     },
     {
-        name: "MatrixSolver",
-        description:
+      name: "MatrixSolver",
+      description:
         "A C library for matrix operations including addition, subtraction, multiplication, transpose, and solving linear systems using Gaussian elimination with dynamic memory management.",
-        tech: ["C", "Bash"],
-        category: "school",
-        github: null,
+      tech: ["C", "Bash"],
+      category: "school",
+      github: null,
     },
-
     {
-        name: "RockPaperScissorsJS",
-        description:
+      name: "RockPaperScissorsJS",
+      description:
         "A JavaScript based rock-paper-scissors game.",
-        tech: ["HTML/CSS", "Javascript"],
-        category: "school",
-        github: "https://github.com/seifotefa/rock-paper-scissors-js",
+      tech: ["HTML/CSS", "Javascript"],
+      category: "school",
+      github: "https://github.com/seifotefa/rock-paper-scissors-js",
     },
     {
+<<<<<<< Updated upstream
         name: "bangyourhead.ca",
         description:
+=======
+      name: "Bangyourhead.ca",
+      description:
+>>>>>>> Stashed changes
         "A professional website designed and developed for a local window washing company to showcase services and handle customer inquiries online.",
-        tech: ["HTML", "Tailwind CSS", "JavaScript"],
-        category: "work",
-        github: "https://bangyourhead.ca",
+      tech: ["HTML", "Tailwind CSS", "JavaScript"],
+      category: "work",
+      github: "https://bangyourhead.ca",
     },
+<<<<<<< Updated upstream
      {
         name: "luxuryfinish.ca",
         description:
@@ -63,6 +67,8 @@ export const Projects = () => {
     },
     
     
+=======
+>>>>>>> Stashed changes
     {
       name: "Portfolio Website",
       description: "A personal portfolio showcasing skills, projects, and contact information (Hint: You're looking at it).",
@@ -83,9 +89,10 @@ export const Projects = () => {
   const projectsToShow = showAll ? filteredProjects : filteredProjects.slice(0, 6);
 
   return (
-    <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111]">
-      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-8 mt-16 mb-12 text-center">
-        <h2 className="text-3xl font-bold mb-8">projects</h2>
+    <>
+      <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111]">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-8 mt-24 mb-12 text-center">
+        <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Projects</h2>
 
         {/* Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
@@ -94,8 +101,8 @@ export const Projects = () => {
               key={cat}
               onClick={() => { setFilter(cat); setShowAll(false); }}
               className={`px-4 py-2 rounded-full border ${
-                filter === cat ? "bg-purple-600 text-white" : "border-[#e5e5e5] text-[#888]"
-              } hover:bg-purple-700 hover:text-white transition`}
+                filter === cat ? "bg-[#4A90E2] text-white" : "border-[#e5e5e5] text-[#888]"
+              } hover:bg-[#357ABD] hover:text-white transition`}
             >
               {cat}
             </button>
@@ -112,7 +119,7 @@ export const Projects = () => {
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="bg-[#ede9fe] border border-[#c4b5fd] text-[#5b21b6] text-sm px-3 py-1 rounded-full"
+                      className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-3 py-1 rounded-full"
                     >
                       {tech}
                     </span>
@@ -123,7 +130,7 @@ export const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-purple-500 underline underline-offset-2 transition"
+                    className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition"
                   >
                     View
                     <FiExternalLink className="w-3 h-3 mb-[1px]" />
@@ -134,7 +141,7 @@ export const Projects = () => {
           </div>
           {filteredProjects.length > 6 && !showAll && (
             <button
-              className="px-6 py-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 transition"
+              className="px-6 py-2 rounded-full bg-[#4A90E2] text-white hover:bg-[#357ABD] transition"
               onClick={() => setShowAll(true)}
             >
               view all
@@ -142,7 +149,7 @@ export const Projects = () => {
           )}
           {showAll && filteredProjects.length > 6 && (
             <button
-              className="px-6 py-2 rounded-full bg-gray-200 text-[#5b21b6] hover:bg-gray-300 transition"
+              className="px-6 py-2 rounded-full bg-gray-200 text-[#1E40AF] hover:bg-gray-300 transition"
               onClick={() => setShowAll(false)}
             >
               show less
@@ -151,5 +158,6 @@ export const Projects = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };

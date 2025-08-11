@@ -1,95 +1,95 @@
-import { useState } from 'react'
-import { FaGithub, FaLinkedin, FaFileAlt } from 'react-icons/fa';
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export const Home = () => {
     const titles = [
         "a software engineer",
-        "a computer science student",
+        "a computer science student", 
         "a fullstack developer",
-        "a soccer fan",
-        "a product manager intern",
+        "a product manager",
         "a teaching assistant",
-    ]
-
-    const names =[
-        "seif",
-        "سيف"
+        "a UX/UI designer",
     ]
     
     const [currentTitleIndex, setCurrentTitleIndex] = useState(0)
+    const currentTitle = titles[currentTitleIndex]
     
-    const cycleTitle = () => {
-        setCurrentTitleIndex((prevIndex) => 
-            (prevIndex + 1) % titles.length
-        )
-    }
-
-    const [currentNameIndex, setCurrentNameIndex] = useState(0)
-    const cycleName = () => {
-        setCurrentNameIndex((prevIndex) =>
-        (prevIndex + 1) % names.length
-        )
-    }
+    // Auto-cycle titles every 2 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentTitleIndex((prevIndex) => 
+                (prevIndex + 1) % titles.length
+            )
+        }, 2000)
+        
+        return () => clearInterval(interval)
+    }, [titles.length])
 
     return (
-        <section className="bg-[#fff]">
-            <div className="max-w-4xl mx-auto px-6 md:px-12 py-20 text-center mt-24 mb-24">
-                <div className="text-center max-w-2xl mx-auto">
-                    <div className="mb-16">
-                        <h1 className="text-[#111] text-5xl md:text-8xl font-bold mb-4 md:whitespace-nowrap md:-ml-10">
-                            👋 hey, i'm{" "}
-                            <span onClick={cycleName} className="text-[#8b5cf6] relative cursor-pointer">
-                                {names[currentNameIndex]}
-                                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#8b5cf6]"></span>
-                            </span>
-                        </h1>
-                        <p className="text-[#444] text-xl md:text-2xl mt-4">
+        <section className="min-h-screen flex items-center justify-center">
+            <div className="relative w-[98vw] h-screen max-w-none">
+                {/* Signature: large, centered */}
+                <img 
+                    src="/assets/signature.svg" 
+                    alt="Seif's Signature"
+                    className="absolute top-1/2 left-1/2 w-[98vw] h-[92vh] md:h-[94vh] lg:h-[96vh] object-contain select-none opacity-20 mix-blend-multiply"
+                    draggable={false}
+                    style={{
+                        transform: 'translate(calc(-50% + 20px), calc(-50% - 40px)) scale(1.15)',
+                        filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.05))'
+                    }}
+                />
+
+                {/* Headline + tagline */}
+                <div className="absolute z-10 top-1/2 -translate-y-1/2 pr-6 left-[calc(10%-20px)]">
+                    <div className="flex items-center gap-4">
+                        <span className="leading-tight font-light text-[36px] md:text-[44px] lg:text-[52px]" style={{ color: '#333333' }}>
+                            im{' '}
                             <span
-                                onClick={cycleTitle}
-                                className="text-[#111] relative cursor-pointer group"
+                                className="text-transparent font-medium underline decoration-[#4A90E2]/60 underline-offset-4 text-[38px] md:text-[48px] lg:text-[56px]"
+                                style={{
+                                    backgroundImage: 'linear-gradient(90deg, #4A90E2, #4A90E2)',
+                                    WebkitBackgroundClip: 'text',
+                                    backgroundClip: 'text'
+                                }}
                             >
-                                {titles[currentTitleIndex]}
-                                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#111] group-hover:bg-[#8b5cf6] transition-colors"></span>
-                            </span>
-                        </p>
+                                {currentTitle}
+                            </span>{' '}
+                            based in toronto
+                        </span>
+                        <span className="hidden sm:block flex-1 h-[2px] bg-gray-300 rounded"></span>
                     </div>
-                    <p className="text-[#444] text-lg max-w-xl mx-auto leading-relaxed">
-                        i'm a computer science student at mcmaster university and passionate developer based in toronto, focused on building beautiful and functional software.
+                    <p className="mt-2 text-[20px] md:text-[22px] lg:text-[24px]" style={{ color: '#666666' }}>
+                        crafting beautiful, functional experiences through software
                     </p>
+                    
+                    {/* Mobile Navigation Links */}
+                    <div className="mobile:hidden mt-6 flex flex-wrap gap-4">
+                        <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors text-lg" to="/about">about</Link>
+                        <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors text-lg" to="/experience">resume/cv</Link>
+                        <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors text-lg" to="/projects">projects</Link>
+                        <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors text-lg" to="/blog">blog</Link>
+                        <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors text-lg" to="/contact">contact</Link>
+                    </div>
                 </div>
-                <div className="flex justify-center gap-6 mt-6">
-                    {/* GitHub */}
-                    <a
-                        href="https://github.com/seifotefa"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-purple-500 transition-colors"
-                    >
-                        <FaGithub className="w-6 h-6" />
-                    </a>
 
-                    {/* LinkedIn */}
-                    <a
-                        href="https://linkedin.com/in/seif-otefa"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-purple-500 transition-colors"
-                    >
-                        <FaLinkedin className="w-6 h-6" />
-                    </a>
-
-                    {/* Resume */}
-                    <a
-                        href="/assets/Seif_Otefa (1).pdf" // or external link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-purple-500 transition-colors"
-                    >
-                        <FaFileAlt className="w-6 h-6" />
-                    </a>
-                </div>
+                {/* Desktop Navigation */}
+                <nav
+                    className={`
+                        hidden mobile:block absolute z-10 transition-all
+                        text-lg md:text-xl lg:text-2xl
+                        flex gap-5
+                        flex-col items-end
+                        top-1/2 -translate-y-1/2 right-[calc(10%+40px)]
+                    `}
+                >
+                    <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors" to="/about">about</Link>
+                    <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors" to="/experience">resume/cv</Link>
+                    <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors" to="/projects">projects</Link>
+                    <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors" to="/blog">blog</Link>
+                    <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors" to="/contact">contact</Link>
+                </nav>
             </div>
         </section>
     )
 }
-

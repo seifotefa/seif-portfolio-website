@@ -33,18 +33,28 @@ export const BlogPost = () => {
     });
   }, [slug]);
 
-  if (notFound) return <div className="max-w-2xl mx-auto mt-24 text-center text-2xl">404: Post not found</div>;
-  if (!post) return <div className="max-w-2xl mx-auto mt-24 text-center text-xl">Loading...</div>;
+  if (notFound) return (
+    <>
+      <div className="max-w-2xl mx-auto mt-24 text-center text-2xl">404: Post not found</div>
+    </>
+  );
+  if (!post) return (
+    <>
+      <div className="max-w-2xl mx-auto mt-24 text-center text-xl">Loading...</div>
+    </>
+  );
 
   return (
-    <section className="scroll-mt-24 bg-[#fff] text-[#111] min-h-screen">
-      <div className="max-w-2xl mx-auto px-6 md:px-12 pt-16 pb-16 mt-8 mb-12">
-        <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-        <div className="text-gray-500 text-sm mb-8">{post.date}</div>
-        <div className="prose max-w-none">
-          <ReactMarkdown rehypePlugins={[rehypeRaw]}>{post.content}</ReactMarkdown>
+    <>
+      <section className="scroll-mt-24 bg-[#fff] text-[#111] min-h-screen">
+        <div className="max-w-2xl mx-auto px-6 md:px-12 pt-16 pb-16 mt-24 mb-12">
+          <h1 className="text-5xl font-synonym font-light text-center mb-4" style={{ fontFamily: 'Synonym, monospace' }}>{post.title}</h1>
+          <div className="text-gray-500 text-sm mb-8">{post.date}</div>
+          <div className="prose max-w-none">
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{post.content}</ReactMarkdown>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }; 

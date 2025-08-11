@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'mobile': '550px',
+      },
       colors: {
         background: '#1a1a1a', // Dark gray background
         text: {
@@ -13,11 +16,15 @@ export default {
           secondary: '#a0a0a0' // Slightly darker gray for secondary text
         },
         accent: {
-          primary: '#8b5cf6',   // Purple accent
-          hover: '#7c3aed'      // Darker purple for hover states
+          primary: '#4A90E2',   // Blue accent (matching home page titles)
+          hover: '#357ABD'      // Darker blue for hover states
         }
-      }
+      },
+      fontFamily: {
+        satoshi: ['Satoshi', 'sans-serif'],
+        synonym: ['"Synonym"', 'monospace'],
+      },
     },
   },
   plugins: [],
-} 
+}
