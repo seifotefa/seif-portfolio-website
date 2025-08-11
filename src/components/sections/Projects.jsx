@@ -46,8 +46,13 @@ export const Projects = () => {
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         name: "bangyourhead.ca",
         description:
+=======
+      name: "Bangyourhead.ca",
+      description:
+>>>>>>> Stashed changes
 =======
       name: "Bangyourhead.ca",
       description:
@@ -60,6 +65,7 @@ export const Projects = () => {
       tech: ["HTML", "Tailwind CSS", "JavaScript"],
       category: "work",
       github: "https://bangyourhead.ca",
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     },
 <<<<<<< Updated upstream
@@ -74,6 +80,9 @@ export const Projects = () => {
     
     
 =======
+>>>>>>> Stashed changes
+=======
+    },
 >>>>>>> Stashed changes
 =======
     },
