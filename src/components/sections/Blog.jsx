@@ -41,7 +41,7 @@ export const Blog = () => {
     <>
       <section id="blog" className="scroll-mt-24 bg-[#fff] text-[#111]">
         <div className="max-w-4xl mx-auto px-6 md:px-12 pt-8 pb-8 mt-24 mb-12 text-center">
-          <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Stuff I Wrote About My Experiences</h2>
+          <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Articles</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
             {posts.length === 0 && (
               <div className="bg-[#f3f3f3] border border-[#e5e5e5] rounded-lg p-6 text-left">

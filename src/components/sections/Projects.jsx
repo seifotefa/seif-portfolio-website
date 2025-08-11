@@ -81,7 +81,13 @@ export const Projects = () => {
   return (
     <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111]">
       <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-8 mt-16 mb-12 text-center">
-        <h2 className="text-3xl font-bold mb-8">projects</h2>
+      <h2
+        className="text-4xl font-light mb-8"
+        style={{ fontFamily: "'Synonym', monospace" }}
+      >
+        Projects
+      </h2>
+
 
         {/* Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
