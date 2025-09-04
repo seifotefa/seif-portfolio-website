@@ -6,6 +6,22 @@ export const Experience = () => {
   const { elementRef: sectionRef, staggerChildren } = useGSAP();
 
   const experiences = [
+
+    {
+      date: "july 2025 - september 2025",
+      title: "Product Strategy Intern",
+      company: "WoulibX",
+      companyLink: "https://woulibx.com/",
+      description: "Conducted strategic research and product design analysis for a Quebec-based ridesharing and on-demand services platform.",
+      logo: "/assets/woulibx.png",
+      skills: ["Product Strategy", "UX Research", "Market Analysis", "Risk Assessment"],
+      highlights: [
+        "Analyzed competitive landscape and UX patterns across ridesharing and on-demand platforms to identify market gaps and opportunities",
+        "Developed product frameworks including value propositions, market positioning levers, and AI-driven feature concepts such as driver forecasting and preference matching",
+        "Created risk and opportunity models with mitigation strategies, contributing to final strategic recommendations and presentation deliverables"
+      ]
+    },
+
     {
         date: "april 2025 - may 2025",
         title: "Teaching Assistant",
