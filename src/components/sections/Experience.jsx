@@ -9,7 +9,7 @@ export const Experience = () => {
 
     {
       date: "july 2025 - september 2025",
-      title: "Product Strategy Intern",
+      title: "Research Intern",
       company: "WoulibX",
       companyLink: "https://woulibx.com/",
       description: "Conducted strategic research and product design analysis for a Quebec-based ridesharing and on-demand services platform.",
