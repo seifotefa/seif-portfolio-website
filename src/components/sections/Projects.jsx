@@ -96,8 +96,8 @@ export const Projects = () => {
               key={cat}
               onClick={() => { setFilter(cat); setShowAll(false); }}
               className={`px-4 py-2 rounded-full border ${
-                filter === cat ? "bg-purple-600 text-white" : "border-[#e5e5e5] text-[#888]"
-              } hover:bg-purple-700 hover:text-white transition`}
+                filter === cat ? "bg-blue-600 text-white" : "border-[#e5e5e5] text-[#888]"
+              } hover:bg-blue-700 hover:text-white transition`}
             >
               {cat}
             </button>
