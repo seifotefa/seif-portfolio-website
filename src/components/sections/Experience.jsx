@@ -6,6 +6,20 @@ export const Experience = () => {
   const { elementRef: sectionRef, staggerChildren } = useGSAP();
 
   const experiences = [
+    {
+      date: "july 2025 - present",
+      title: "Robotics Instructor",
+      company: "O'Botz Robotics",
+      companyLink: "https://obotz.ca/",
+      description: "Teaching robotics, electronics, and programming to students through hands-on robot assembly, coding, and troubleshooting.",
+      logo: "/assets/obotz.png",
+      skills: ["Robotics", "Electronics", "Programming", "Teaching", "Curriculum Development"],
+      highlights: [
+        "Instructed students of varying ages in robotics fundamentals, electronics assembly, and programming concepts through interactive learning",
+        "Developed and maintained curriculum content while managing robotics kits and equipment for optimal learning experiences",
+        "Collaborated with parents and staff to ensure lessons align with O'Botz educational standards and student learning objectives"
+      ]
+    },
 
     {
       date: "july 2025 - september 2025",
@@ -91,7 +105,32 @@ export const Experience = () => {
     <>
       <section id="experience" className="bg-[#fff] scroll-mt-24 text-[#111] flex flex-col justify-center">
               <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-16 mt-24 mb-12">
-                  <h2 className="text-5xl font-synonym font-light text-center mb-12" style={{ fontFamily: 'Synonym, monospace' }}>Resume/CV</h2>
+                  <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Resume/CV</h2>
+                  
+                  {/* Download Resume Button */}
+                  <div className="flex justify-center mb-12">
+                    <a 
+                      href="/assets/SeifOtefaResume.pdf" 
+                      download="SeifOtefaResume.pdf"
+                      className="inline-flex items-center gap-3 px-6 py-3 bg-[#f3f3f3] text-[#111] border border-[#e5e5e5] rounded-lg hover:shadow-md transition-all duration-200 font-medium"
+                    >
+                      <svg 
+                        className="w-5 h-5" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24" 
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
+                        />
+                      </svg>
+                      Download Resume PDF
+                    </a>
+                  </div>
         <div ref={sectionRef} className="relative flex flex-col items-center space-y-16 sm:space-y-16 max-w-3xl mx-auto w-full pb-8">
           {/* Experience Cards */}
           {experiences.map((exp, index) => (
