@@ -107,12 +107,48 @@ export const Experience = () => {
               <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-16 mt-24 mb-12">
                   <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Resume/CV</h2>
                   
-                  {/* Download Resume Button */}
-                  <div className="flex justify-center mb-12">
+                  {/* Resume Actions */}
+                  <div className="flex justify-center items-center gap-4 mb-12">
+                    {/* View Resume PDF Button */}
+                    <button 
+                      onClick={() => {
+                        const modal = document.getElementById('resume-modal');
+                        const footer = document.querySelector('footer');
+                        modal.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden';
+                        if (footer) footer.style.display = 'none';
+                      }}
+                      className="inline-flex items-center gap-3 px-6 py-3 bg-[#f3f3f3] text-[#111] border border-[#e5e5e5] rounded-lg hover:shadow-md transition-all duration-200 font-medium"
+                    >
+                      <svg 
+                        className="w-5 h-5" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24" 
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" 
+                        />
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" 
+                        />
+                      </svg>
+                      View Resume PDF
+                    </button>
+
+                    {/* Download Resume Button - Icon Only */}
                     <a 
                       href="/assets/SeifOtefaResume.pdf" 
                       download="SeifOtefaResume.pdf"
-                      className="inline-flex items-center gap-3 px-6 py-3 bg-[#f3f3f3] text-[#111] border border-[#e5e5e5] rounded-lg hover:shadow-md transition-all duration-200 font-medium"
+                      className="inline-flex items-center justify-center w-12 h-12 bg-[#f3f3f3] text-[#111] border border-[#e5e5e5] rounded-lg hover:shadow-md transition-all duration-200"
+                      title="Download Resume PDF"
                     >
                       <svg 
                         className="w-5 h-5" 
@@ -128,8 +164,40 @@ export const Experience = () => {
                           d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
                         />
                       </svg>
-                      Download Resume PDF
                     </a>
+                  </div>
+
+                  {/* Resume PDF Modal */}
+                  <div id="resume-modal" className="hidden fixed inset-0 z-50 backdrop-blur-sm bg-gray-500 bg-opacity-20 flex items-center justify-center p-2 sm:p-4 md:p-8">
+                    <div className="bg-white shadow-2xl w-full h-full sm:h-[90vh] sm:max-w-4xl flex flex-col relative border border-gray-200 sm:rounded-lg overflow-hidden">
+                      {/* Modal Header with Close Button */}
+                      <div className="flex justify-between items-center p-3 sm:p-4 bg-gray-50 border-b border-gray-200">
+                        <h3 className="text-sm sm:text-base font-medium text-gray-700">Resume PDF</h3>
+                        <button 
+                          onClick={() => {
+                            const modal = document.getElementById('resume-modal');
+                            const footer = document.querySelector('footer');
+                            modal.classList.add('hidden');
+                            document.body.style.overflow = 'auto';
+                            if (footer) footer.style.display = 'block';
+                          }}
+                          className="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 text-gray-600 hover:text-gray-800 rounded-full transition-all duration-200 group touch-manipulation"
+                        >
+                          <svg className="w-5 h-5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </button>
+                      </div>
+                      
+                      {/* PDF Viewer */}
+                      <div className="flex-1 w-full h-full">
+                        <iframe 
+                          src="/assets/SeifOtefaResume.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH" 
+                          className="w-full h-full border-0"
+                          title="Resume PDF"
+                        />
+                      </div>
+                    </div>
                   </div>
         <div ref={sectionRef} className="relative flex flex-col items-center space-y-16 sm:space-y-16 max-w-3xl mx-auto w-full pb-8">
           {/* Experience Cards */}
