@@ -44,6 +44,7 @@ export const Experience = () => {
         description: "Taught programming fundementals using Python to a section of 15+ students.",
         logo: "/assets/stanford.png",
         skills: ["Python", "Karel", "Teaching"],
+        articleLink: "/blog/cip2025",
         highlights: [
           "Led weekly teaching sessions for 15+ students in Stanford's CS106A course, serving 1,600+ total participants across all sections",
           "Provided hands-on Python programming support using Karel and Tkinter, helping students debug logic errors and implement solutions",

@@ -4,6 +4,14 @@ import { FiExternalLink } from 'react-icons/fi';
 export const Projects = () => {
   const projectlist = [
     {
+      name: "Jinsa",
+      description: "A blockchain-based platform allowing companies to turn their products into trackable, verifiable, and transparent products.",
+      tech: ["Startup","Blockchain", "Smart Contracts"],
+      category: "personal",
+      github: "https://usejinsa.co",
+      articleLink: "/blog/jinsa",
+    },
+    {
       name: "EvenMatch!",
       description:
         "A terminal-based 2048 game written in C, featuring smooth tile movement and merging logic, built with modular architecture and efficient input handling.",
@@ -18,6 +26,7 @@ export const Projects = () => {
       tech: ["JavaScript", "React", "Node.js", "Express.js", "Firebase", "Gemini API"],
       category: "personal",
       github: "https://github.com/seifotefa/sparkandprepper",
+      articleLink: "/blog/s&p",
     },
     {
       name: "BookMate!",
@@ -107,30 +116,45 @@ export const Projects = () => {
         <div className="flex flex-col items-center gap-6 mb-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start w-full">
             {projectsToShow.map((project, index) => (
-              <div key={index} className="bg-[#f3f3f3] border border-[#e5e5e5] rounded-lg p-3 text-left h-full min-h-[300px]">
-                <h3 className="text-xl font-semibold text-[#111] mb-2">{project.name}</h3>
-                <p className="text-sm text-gray-400 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="bg-[#ede9fe] border border-[#c4b5fd] text-[#5b21b6] text-sm px-3 py-1 rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              <div key={index} className="bg-[#f3f3f3] border border-[#e5e5e5] rounded-lg p-3 text-left h-full min-h-[300px] flex flex-col">
+                <div className="flex-grow">
+                  <h3 className="text-xl font-semibold text-[#111] mb-2">{project.name}</h3>
+                  <p className="text-sm text-gray-400 mb-4">{project.description}</p>
                 </div>
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition"
-                  >
-                    View
-                    <FiExternalLink className="w-3 h-3 mb-[1px]" />
-                  </a>
-                )}
+                <div className="mt-auto">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="bg-[#ede9fe] border border-[#c4b5fd] text-[#5b21b6] text-sm px-3 py-1 rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex justify-end gap-4 min-h-[20px]">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition"
+                      >
+                        View
+                        <FiExternalLink className="w-3 h-3 mb-[1px]" />
+                      </a>
+                    )}
+                    {project.articleLink && (
+                      <a
+                        href={project.articleLink}
+                        className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition"
+                      >
+                        Read article
+                        <FiExternalLink className="w-3 h-3 mb-[1px]" />
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

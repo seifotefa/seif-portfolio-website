@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FiExternalLink } from 'react-icons/fi';
 import { useGSAP } from '../hooks/useGSAP';
 
-export const ExperienceCard = ({ date, title, company, description, logo, skills, companyLink = "#", highlights = [] }) => {
+export const ExperienceCard = ({ date, title, company, description, logo, skills, companyLink = "#", highlights = [], articleLink = null }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const { elementRef: cardRef, scaleIn, hoverScale } = useGSAP();
     const { elementRef: highlightsRef, fadeInUp } = useGSAP();
@@ -108,6 +108,21 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
               </span>
             ))}
           </div>
+
+          {/* Article Link */}
+          {articleLink && (
+            <div className="flex justify-end mt-4">
+              <a
+                href={articleLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition"
+              >
+                Read article
+                <FiExternalLink className="w-3 h-3 mb-[1px]" />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     );
