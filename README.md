@@ -11,14 +11,6 @@ This is a personal developer portfolio built with **React**, **Tailwind CSS**, a
 
 ---
 
-## ✨ Features
-
-- **Smooth, full-page sections** with dark minimalist design
-- **Responsive** and optimized for mobile
-- Dynamic **project filter** (school / work / personal)
-- Fully functional **contact form** via [Formspree](https://formspree.io)
-- Reusable cards, clean component-based structure
----
 
 ## 🛠 Tech Stack
 
