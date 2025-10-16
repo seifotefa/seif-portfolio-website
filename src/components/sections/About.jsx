@@ -1,8 +1,8 @@
 import React from "react";
 import profilePic from "../../assets/seifstatueliberty.jpg"; 
-import torontoPic from "../../assets/toronto.JPG";
+import torontoPic from "../../assets/toronto.jpg";
 import fujiPic from "../../assets/fujiii.jpg";
-import arsenalPic from "../../assets/arsenal.JPG";
+import arsenalPic from "../../assets/arsenal.jpg";
   
 export const About = () => {
   return (
