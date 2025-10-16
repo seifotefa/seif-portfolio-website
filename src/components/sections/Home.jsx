@@ -26,7 +26,7 @@ export const Home = () => {
     }, [titles.length])
 
     return (
-        <section className="min-h-screen flex items-center justify-center">
+        <section className="h-screen w-screen flex items-center justify-center overflow-hidden">
             <div className="relative w-[98vw] h-screen max-w-none">
                 {/* Signature: large, centered */}
                 <img 

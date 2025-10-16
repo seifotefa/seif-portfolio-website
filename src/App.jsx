@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 // import { Navbar } from './components/Navbar';
 import { About } from './components/sections/About';
 import { Home } from './components/sections/Home';
@@ -23,9 +24,36 @@ const PageWrapper = ({ children }) => {
   );
 };
 
+// Component to handle scroll prevention on home page
+const ScrollHandler = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  
+  useEffect(() => {
+    if (isHomePage) {
+      // Prevent scrolling on home page
+      document.body.classList.add('no-scroll');
+      document.documentElement.classList.add('no-scroll');
+    } else {
+      // Allow scrolling on other pages
+      document.body.classList.remove('no-scroll');
+      document.documentElement.classList.remove('no-scroll');
+    }
+    
+    // Cleanup function to reset overflow when component unmounts
+    return () => {
+      document.body.classList.remove('no-scroll');
+      document.documentElement.classList.remove('no-scroll');
+    };
+  }, [isHomePage]);
+  
+  return null;
+};
+
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollHandler />
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         {/* Navbar temporarily removed */}
         <div style={{ flex: 1, overflowY: 'auto' }}>

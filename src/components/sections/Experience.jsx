@@ -2,8 +2,74 @@ import React, { useEffect } from "react";
 import { ExperienceCard } from "../ExperienceCard";
 import { useGSAP } from '../../hooks/useGSAP';
 
+const languages = [
+    { name: "Python", logo: "/assets/python_logo.png" },
+    { name: "HTML", logo: "/assets/html.svg" },
+    { name: "CSS", logo: "/assets/css.svg" },
+    { name: "C", logo: "/assets/c.svg" },
+    { name: "SQL", logo: "/assets/mysql.svg" },
+    { name: "JavaScript", logo: "/assets/javascript.svg" },
+    { name: "TypeScript", logo: "/assets/typescript.png" },
+    { name: "PHP", logo: "/assets/php.png" },
+    { name: "Bash", logo: "/assets/bash.png" },
+    { name: "Latex", logo: "/assets/latex.png" },
+    { name: "Haskell", logo: "/assets/haskell.svg" },
+];
+const frameworks = [
+    { name: "React", logo: "/assets/react.svg" },
+    { name: "Node.js", logo: "/assets/nodejs.svg" },
+    { name: "Tailwind CSS", logo: "/assets/tailwind.svg" },
+];
+const tools = [
+    { name: "Apache", logo: "/assets/apache.svg" },
+    { name: "Firebase", logo: "/assets/firebase.svg" },
+    { name: "Git", logo: "/assets/git1.png" },
+    { name: "Github", logo: "/assets/github.svg" },
+    { name: "MySQL", logo: "/assets/mysql.svg" },
+    { name: "UNIX", logo: "/assets/unix.jpg" },
+];
+
+const education = [
+    {
+        date: "september 2024 - present",
+        title: "Computer Science Undergraduate",
+        company: "McMaster University",
+        companyLink:"https://future.mcmaster.ca/programs/computer-science/",
+        description: "Second year honours computer science student. enrolled in co-op program.",
+        logo: "/assets/mcmaster.jpg",
+        skills: ["Data Structures", "C", "HTML/CSS", "Javascript", "Python", "Linear Algebra", "Calculus", "Discrete Math", "and much more..."],
+        highlights: [
+          "Pursuing Honors Computer Science Co-op with 3.6/4.0 GPA.",
+          "Completed courses in programming fundamentals, full-stack development, and development tools including C, Git, and Bash",
+          "Awarded Dean's Honour List recognition and McMaster University Award of Excellence ($3000) for academic achievement"
+        ]
+    }
+];
+
 export const Experience = () => {
   const { elementRef: sectionRef, staggerChildren } = useGSAP();
+
+  // Function to determine current section based on scroll position
+  const getCurrentSection = () => {
+    const experienceSection = document.getElementById('experience');
+    const educationSection = document.getElementById('education');
+    const skillsSection = document.getElementById('skills');
+    
+    if (!experienceSection || !educationSection || !skillsSection) return 'experience';
+    
+    const scrollY = window.scrollY;
+    const experienceTop = experienceSection.offsetTop;
+    const educationTop = educationSection.offsetTop;
+    const skillsTop = skillsSection.offsetTop;
+    
+    if (scrollY < educationTop - 200) {
+      return 'experience';
+    } else if (scrollY < skillsTop - 200) {
+      return 'education';
+    } else {
+      return 'skills';
+    }
+  };
 
   const experiences = [
     {
@@ -78,20 +144,6 @@ export const Experience = () => {
           "Built responsive full-stack web applications using JavaScript/TypeScript, React, Tailwind CSS, Node.js, and Python for 2 local businesses",
           "Achieved 35% average increase in client acquisition rates through custom web solutions and improved online presence",
           "Led end-to-end project delivery including UI/UX design with Figma, secure hosting deployment, and SEO optimization"
-        ]
-      },
-      {
-        date: "september 2024 - present",
-        title: "Computer Science Undergraduate",
-        company: "McMaster University",
-        companyLink:"https://future.mcmaster.ca/programs/computer-science/",
-        description: "Second year honours computer science student. enolled in co-op program.",
-        logo: "/assets/mcmaster.jpg",
-        skills: ["Data Structures", "C", "HTML/CSS", "Javascript", "Python", "Linear Algebra", "Calculus", "Discrete Math", "and much more..."],
-        highlights: [
-          "Pursuing Honors Computer Science Co-op with 3.6/4.0 GPA.",
-          "Completed courses in programming fundamentals, full-stack development, and development tools including C, Git, and Bash",
-          "Awarded Dean's Honour List recognition and McMaster University Award of Excellence ($3000) for academic achievement"
         ]
       }
     // Add more experiences here
@@ -200,6 +252,10 @@ export const Experience = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* Experience Header */}
+                  <h3 className="text-4xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Experience</h3>
+
         <div ref={sectionRef} className="relative flex flex-col items-center space-y-16 sm:space-y-16 max-w-3xl mx-auto w-full pb-8">
           {/* Experience Cards */}
           {experiences.map((exp, index) => (
@@ -213,6 +269,106 @@ export const Experience = () => {
         </div>
       </div>
     </section>
+
+    {/* Education Section */}
+    <section id="education" className="bg-[#fff] text-[#111] pt-4 pb-20 px-6 md:px-12 mb-16">
+        <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Education</h2>
+
+            <div className="flex justify-center items-center">
+                <div className="max-w-3xl w-full flex justify-center">
+                    {/* Education Cards */}
+                    {education.map((edu, index) => (
+                        <div key={index} className="w-full max-w-2xl">
+                            <ExperienceCard {...edu} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Skills Section */}
+    <section id="skills" className="bg-[#fff] text-[#111] pt-4 pb-20 px-6 md:px-12 mb-16">
+        <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-synonym font-light text-center mb-2" style={{ fontFamily: 'Synonym, monospace' }}>Skills</h2>
+            <p className="mb-4 text-gray-400 text-base sm:text-lg">
+            here are some of the tools and technologies i've worked with.
+            </p>
+            <div className="text-left max-w-2xl mx-auto">
+                <div className="mb-4">
+                    <div className="font-semibold mb-1 text-[#1E40AF]">Languages</div>
+                    <div className="flex flex-wrap gap-3">
+                        {languages.map((skill, i) => (
+                            <span key={i} className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-4 py-2 rounded-full flex items-center gap-2">
+                                <img src={skill.logo} alt={skill.name} title={skill.name} className="w-6 h-6 object-contain opacity-80" />
+                                {skill.name}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+                <div className="mb-4">
+                    <div className="font-semibold mb-1 text-[#1E40AF]">Frameworks</div>
+                    <div className="flex flex-wrap gap-3">
+                        {frameworks.map((skill, i) => (
+                            <span key={i} className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-4 py-2 rounded-full flex items-center gap-2">
+                                <img src={skill.logo} alt={skill.name} title={skill.name} className="w-6 h-6 object-contain opacity-80" />
+                                {skill.name}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+                <div>
+                    <div className="font-semibold mb-1 text-[#1E40AF]">Developer Tools & Databases</div>
+                    <div className="flex flex-wrap gap-3">
+                        {tools.map((skill, i) => (
+                            <span key={i} className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-4 py-2 rounded-full flex items-center gap-2">
+                                <img src={skill.logo} alt={skill.name} title={skill.name} className="w-6 h-6 object-contain opacity-80" />
+                                {skill.name}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Fixed Navigation Arrows */}
+    <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 flex flex-col gap-4">
+        {/* Up Arrow */}
+        <button 
+            onClick={() => {
+                const currentSection = getCurrentSection();
+                if (currentSection === 'skills') {
+                    document.getElementById('education').scrollIntoView({ behavior: 'smooth' });
+                } else if (currentSection === 'education') {
+                    document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
+                }
+            }}
+            className="w-12 h-12 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center group hover:bg-white"
+        >
+            <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+            </svg>
+        </button>
+
+        {/* Down Arrow */}
+        <button 
+            onClick={() => {
+                const currentSection = getCurrentSection();
+                if (currentSection === 'experience') {
+                    document.getElementById('education').scrollIntoView({ behavior: 'smooth' });
+                } else if (currentSection === 'education') {
+                    document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
+                }
+            }}
+            className="w-12 h-12 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center group hover:bg-white"
+        >
+            <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+        </button>
+    </div>
     </>
   );
 };

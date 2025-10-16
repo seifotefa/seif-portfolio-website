@@ -1,103 +1,67 @@
 import React from "react";
-import profilePic from "../../assets/seifstatueliberty.jpg"; // Replace with your actual image path
-const languages = [
-    { name: "Python", logo: "/assets/python_logo.png" },
-    { name: "HTML", logo: "/assets/html.svg" },
-    { name: "CSS", logo: "/assets/css.svg" },
-    { name: "C", logo: "/assets/c.svg" },
-    { name: "SQL", logo: "/assets/mysql.svg" },
-    { name: "JavaScript", logo: "/assets/javascript.svg" },
-    { name: "TypeScript", logo: "/assets/typescript.png" },
-    { name: "PHP", logo: "/assets/php.png" },
-    { name: "Bash", logo: "/assets/bash.png" },
-    { name: "Latex", logo: "/assets/latex.png" },
-    { name: "Haskell", logo: "/assets/haskell.svg" },
-];
-const frameworks = [
-    { name: "React", logo: "/assets/react.svg" },
-    { name: "Node.js", logo: "/assets/nodejs.svg" },
-    { name: "Tailwind CSS", logo: "/assets/tailwind.svg" },
-];
-const tools = [
-    { name: "Apache", logo: "/assets/apache.svg" },
-    { name: "Firebase", logo: "/assets/firebase.svg" },
-    { name: "Git", logo: "/assets/git1.png" },
-    { name: "Github", logo: "/assets/github.svg" },
-    { name: "MySQL", logo: "/assets/mysql.svg" },
-    { name: "UNIX", logo: "/assets/unix.jpg" },
-];
+import profilePic from "../../assets/seifstatueliberty.jpg"; 
+import torontoPic from "../../assets/toronto.JPG";
+import fujiPic from "../../assets/fujiii.jpg";
+import arsenalPic from "../../assets/arsenal.JPG";
   
 export const About = () => {
   return (
     <>
       {/* ABOUT SECTION */}
               <section id="about" className="bg-[#fff] text-[#111] px-6 md:px-12 pt-32 pb-8 mt-0 mb-10">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
+        <div className="max-w-4xl mx-auto">
+            <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Who Am I?</h2>
             
+            <div className="flex flex-col md:flex-row items-start justify-center gap-8 text-center md:text-left">
                 {/* Profile Image */}
                 <div className="flex-shrink-0">
                 <img
                     src={profilePic}
                     alt="Profile"
-                    className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-lg border border-gray-600"
+                    className="w-56 h-56 md:w-72 md:h-72 object-cover object-center rounded-lg border border-gray-600"
                 />
                 </div>
 
                 {/* Bio Text */}
-                <div className="w-full">
-
-                <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Who Am I?</h2>
+                <div className="w-full pt-4">
                 <p className="text-base sm:text-lg leading-relaxed">
                     i'm a second year computer science student at mcmaster university with a passion for using technology to drive change and innovation. some of my interests are web3, ai, and software design and development, and how technology intersects with education, finance, and fun.
                     <br /><br />
                     i'm driven by a constant need to improve, whether that's mentally, academically, or physically, i always strive to be the best i can be at what i do.
-                    <br /><br />
-                     i enjoy watching and playing soccer, and new experiences with good people.
+
+                     
                 </p>
                 </div>
             </div>
-        </section>
+            
+            {/* Additional Images - Full Section Width */}
+            <div className="flex flex-col md:flex-row gap-6 mt-12 justify-center">
+                <img
+                    src={torontoPic}
+                    alt="Toronto"
+                    className="w-48 h-48 md:w-56 md:h-56 object-cover object-center rounded-lg border border-gray-600"
+                />
+                <img
+                    src={fujiPic}
+                    alt="Fuji"
+                    className="w-48 h-48 md:w-56 md:h-56 object-cover object-center rounded-lg border border-gray-600"
+                />
+                <img
+                    src={arsenalPic}
+                    alt="Arsenal"
+                    className="w-48 h-48 md:w-56 md:h-56 object-cover object-center rounded-lg border border-gray-600"
+                />
+            </div>
 
-        <section id="skills" className="bg-[#fff] text-[#111] pt-4 pb-20 px-6 md:px-12 mb-16">
-        <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-5xl font-synonym font-light text-center mb-2" style={{ fontFamily: 'Synonym, monospace' }}>Skills</h2>
-            <p className="mb-4 text-gray-400 text-base sm:text-lg">
-            here are a few of the skills i've acquired throughout my journey.
-            </p>
-            <div className="text-left max-w-3xl mx-auto">
-                <div className="mb-4">
-                    <div className="font-semibold mb-1 text-[#1E40AF]">Languages</div>
-                    <div className="flex flex-wrap gap-3">
-                        {languages.map((skill, i) => (
-                            <span key={i} className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-4 py-2 rounded-full flex items-center gap-2">
-                                <img src={skill.logo} alt={skill.name} title={skill.name} className="w-6 h-6 object-contain opacity-80" />
-                                {skill.name}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-                <div className="mb-4">
-                    <div className="font-semibold mb-1 text-[#1E40AF]">Frameworks</div>
-                    <div className="flex flex-wrap gap-3">
-                        {frameworks.map((skill, i) => (
-                            <span key={i} className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-4 py-2 rounded-full flex items-center gap-2">
-                                <img src={skill.logo} alt={skill.name} title={skill.name} className="w-6 h-6 object-contain opacity-80" />
-                                {skill.name}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-                <div>
-                    <div className="font-semibold mb-1 text-[#1E40AF]">Developer Tools & Databases</div>
-                    <div className="flex flex-wrap gap-3">
-                        {tools.map((skill, i) => (
-                            <span key={i} className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-4 py-2 rounded-full flex items-center gap-2">
-                                <img src={skill.logo} alt={skill.name} title={skill.name} className="w-6 h-6 object-contain opacity-80" />
-                                {skill.name}
-                            </span>
-                        ))}
-                    </div>
-                </div>
+            {/* Additional Paragraph */}
+            <div className="mt-8 mb-16">
+                <p className="text-base sm:text-lg leading-relaxed">
+                    i also love to travel and explore new places, try new foods and explore different cultures. some of my favorite places i've visited are italy, thailand, japan, and england.
+                    <br /><br /> i enjoy watching and playing soccer, 
+                    and have watched some amazing games in person like arsenal vs manchester city, and liverpool vs real betis. when i am not studying or learning, you can find me at the gym or watching a tv show.
+
+                     <br /><br /> i'm always looking for new opportunities to learn, grow, or just chat about life and tech. feel free to reach out to me on <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 transition-colors">linkedin</a> or email me at <a href="/contact" className="underline hover:text-blue-600 transition-colors">seifotefa@gmail.com</a>.
+                </p>
             </div>
         </div>
         </section>
