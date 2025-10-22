@@ -44,7 +44,7 @@ export const Home = () => {
                 <div className="absolute z-10 top-1/2 -translate-y-1/2 pr-6 left-[calc(10%-20px)]">
                     <div className="flex items-center gap-4">
                         <span className="leading-tight font-light text-[36px] md:text-[44px] lg:text-[52px]" style={{ color: '#333333' }}>
-                            im{' '}
+                            {' '}
                             <span
                                 className="text-transparent font-medium underline decoration-[#4A90E2]/60 underline-offset-4 text-[38px] md:text-[48px] lg:text-[56px]"
                                 style={{
