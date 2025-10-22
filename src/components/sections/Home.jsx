@@ -35,18 +35,18 @@ export const Home = () => {
                     className="absolute top-1/2 left-1/2 w-[98vw] h-[92vh] md:h-[94vh] lg:h-[96vh] object-contain select-none opacity-20 mix-blend-multiply"
                     draggable={false}
                     style={{
-                        transform: 'translate(calc(-50% + 20px), calc(-50% - 40px)) scale(1.15)',
+                        transform: 'translate(-50%, -50%) scale(1.15)',
                         filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.05))'
                     }}
                 />
 
                 {/* Headline + tagline */}
-                <div className="absolute z-10 top-1/2 -translate-y-1/2 pr-6 left-[calc(10%-20px)]">
-                    <div className="flex items-center gap-4">
-                        <span className="leading-tight font-light text-[36px] md:text-[44px] lg:text-[52px]" style={{ color: '#333333' }}>
+                <div className="absolute z-10 top-1/2 -translate-y-1/2 px-4 sm:pr-6 sm:left-[calc(10%-20px)] left-4 right-4 sm:right-auto">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                        <span className="leading-tight font-light text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px]" style={{ color: '#333333' }}>
                             {' '}
                             <span
-                                className="text-transparent font-medium underline decoration-[#4A90E2]/60 underline-offset-4 text-[38px] md:text-[48px] lg:text-[56px]"
+                                className="text-transparent font-medium text-[30px] sm:text-[38px] md:text-[48px] lg:text-[56px]"
                                 style={{
                                     backgroundImage: 'linear-gradient(90deg, #4A90E2, #4A90E2)',
                                     WebkitBackgroundClip: 'text',
@@ -59,17 +59,17 @@ export const Home = () => {
                         </span>
                         <span className="hidden sm:block flex-1 h-[2px] bg-gray-300 rounded"></span>
                     </div>
-                    <p className="mt-2 text-[20px] md:text-[22px] lg:text-[24px]" style={{ color: '#666666' }}>
+                    <p className="mt-2 text-[16px] sm:text-[20px] md:text-[22px] lg:text-[24px]" style={{ color: '#666666' }}>
                         crafting beautiful, functional, and impactful experiences through software
                     </p>
                     
                     {/* Mobile Navigation Links */}
                     <div className="mobile:hidden mt-6 flex flex-wrap gap-4">
-                        <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors text-lg" to="/about">about</Link>
-                        <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors text-lg" to="/experience">resume/cv</Link>
-                        <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors text-lg" to="/projects">projects</Link>
-                        <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors text-lg" to="/blog">blog</Link>
-                        <Link className="text-gray-500 hover:text-[#4A90E2] transition-colors text-lg" to="/contact">contact</Link>
+                        <Link className="text-[#4A90E2] hover:text-[#357ABD] transition-colors text-lg font-medium underline lg:text-gray-500 lg:hover:text-[#4A90E2] lg:font-normal lg:no-underline" to="/about">about</Link>
+                        <Link className="text-[#4A90E2] hover:text-[#357ABD] transition-colors text-lg font-medium underline lg:text-gray-500 lg:hover:text-[#4A90E2] lg:font-normal lg:no-underline" to="/experience">resume/cv</Link>
+                        <Link className="text-[#4A90E2] hover:text-[#357ABD] transition-colors text-lg font-medium underline lg:text-gray-500 lg:hover:text-[#4A90E2] lg:font-normal lg:no-underline" to="/projects">projects</Link>
+                        <Link className="text-[#4A90E2] hover:text-[#357ABD] transition-colors text-lg font-medium underline lg:text-gray-500 lg:hover:text-[#4A90E2] lg:font-normal lg:no-underline" to="/blog">blog</Link>
+                        <Link className="text-[#4A90E2] hover:text-[#357ABD] transition-colors text-lg font-medium underline lg:text-gray-500 lg:hover:text-[#4A90E2] lg:font-normal lg:no-underline" to="/contact">contact</Link>
                     </div>
                 </div>
 
