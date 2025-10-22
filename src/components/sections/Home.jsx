@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 export const Home = () => {
     const titles = [
-        "a software engineer",
-        "a computer science student", 
-        "a fullstack developer",
-        "a product manager",
-        "a teaching assistant",
-        "a UX/UI designer",
+        "software engineer",
+        "computer science student", 
+        "fullstack developer",
+        "project manager",
+        "teaching assistant",
+        "problem solver"
     ]
     
     const [currentTitleIndex, setCurrentTitleIndex] = useState(0)
@@ -60,7 +60,7 @@ export const Home = () => {
                         <span className="hidden sm:block flex-1 h-[2px] bg-gray-300 rounded"></span>
                     </div>
                     <p className="mt-2 text-[20px] md:text-[22px] lg:text-[24px]" style={{ color: '#666666' }}>
-                        crafting beautiful, functional experiences through software
+                        crafting beautiful, functional, and impactful experiences through software
                     </p>
                     
                     {/* Mobile Navigation Links */}
