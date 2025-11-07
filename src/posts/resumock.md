@@ -23,7 +23,7 @@ it’s like having a personal interview coach, available anytime, helping you sp
 <br /><br />  
 <br /><br />  
 
-## 🎬 **demo video ** 
+## 🎬 **demo video** 
 <video controls width="100%">
   <source src="/assets/resumock-demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
