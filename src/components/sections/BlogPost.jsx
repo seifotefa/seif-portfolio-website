@@ -44,12 +44,33 @@ export const BlogPost = () => {
     </>
   );
 
+  // Determine reading time and tag based on slug
+  let readingTime = '5 min read';
+  if (slug === 'cip2025') readingTime = '3 min read';
+  else if (slug === 'jinsa') readingTime = '7 min read';
+  else if (slug === 'resumock') readingTime = '6 min read';
+
+  let tag = 'Article';
+  if (slug === 's&p' || slug === 'resumock') tag = 'Project Spotlight';
+  else if (slug === 'jinsa') tag = 'Project & Experience';
+
   return (
     <>
       <section className="scroll-mt-24 bg-[#fff] text-[#111] min-h-screen">
         <div className="max-w-2xl mx-auto px-6 md:px-12 pt-16 pb-16 mt-24 mb-12">
           <h1 className="text-5xl font-synonym font-light text-center mb-4" style={{ fontFamily: 'Synonym, monospace' }}>{post.title}</h1>
-          <div className="text-gray-500 text-sm mb-8">{post.date}</div>
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="text-gray-500 text-sm">{post.date}</div>
+            <span className="text-gray-300">•</span>
+            <div className="text-gray-500 text-sm">{readingTime}</div>
+            <span className="text-gray-300">•</span>
+            <div className="flex items-center gap-2 px-3 py-1 bg-[#4A90E2] text-white rounded-full text-sm font-medium">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>{tag}</span>
+            </div>
+          </div>
           <div className="prose max-w-none">
             <ReactMarkdown rehypePlugins={[rehypeRaw]}>{post.content}</ReactMarkdown>
           </div>

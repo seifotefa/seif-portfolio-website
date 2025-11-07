@@ -44,7 +44,7 @@ export const Blog = () => {
     .filter(post => {
       if (filterBy === 'all') return true;
       if (filterBy === 'articles') return post.slug === 'cip2025';
-      if (filterBy === 'projects') return post.slug === 's&p' || post.slug === 'jinsa';
+      if (filterBy === 'projects') return post.slug === 's&p' || post.slug === 'jinsa' || post.slug === 'resumock';
       if (filterBy === 'experiences') return post.slug === 'jinsa';
       return true;
     })
@@ -118,6 +118,7 @@ export const Blog = () => {
               let readingTime = '5 min read';
               if (post.slug === 'cip2025') readingTime = '3 min read';
               else if (post.slug === 'jinsa') readingTime = '7 min read';
+              else if (post.slug === 'resumock') readingTime = '6 min read';
               
               
               let formattedTitle = post.title;
@@ -156,7 +157,7 @@ export const Blog = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>
-                        {post.slug === 's&p' ? 'Project Spotlight' : 
+                        {post.slug === 's&p' || post.slug === 'resumock' ? 'Project Spotlight' : 
                          post.slug === 'jinsa' ? 'Project & Experience' : 'Article'}
                       </span>
                     </div>

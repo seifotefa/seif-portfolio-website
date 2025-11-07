@@ -18,7 +18,7 @@ export const Footer = () => {
           {/* Left: Name and meta */}
           <div className="text-center sm:text-left">
             <p>&copy; {new Date().getFullYear()} Seif Otefa. All rights reserved.</p>
-            <p className="text-xs text-gray-600">Last updated: October 2025</p>
+            <p className="text-xs text-gray-600">Last updated: November 2025</p>
           </div>
 
           {/* Right: Social Icons */}
