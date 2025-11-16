@@ -9,6 +9,7 @@ import { Contact } from './components/sections/Contact';
 import { Footer } from './components/sections/Footer';
 import { Blog } from './components/sections/Blog';
 import { BlogPost } from './components/sections/BlogPost';
+import { Resume } from './components/sections/Resume';
 import { HorizontalNav } from './components/HorizontalNav';
 
 // Wrapper component to conditionally show HorizontalNav
@@ -61,6 +62,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
             <Route path="/experience" element={<PageWrapper><Experience /></PageWrapper>} />
+            <Route path="/resume" element={<PageWrapper><Resume /></PageWrapper>} />
             <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
             <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
             <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
