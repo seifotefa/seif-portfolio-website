@@ -47,12 +47,14 @@ export const BlogPost = () => {
   // Determine reading time and tag based on slug
   let readingTime = '5 min read';
   if (slug === 'cip2025') readingTime = '3 min read';
+  else if (slug === 'mec2025') readingTime = '4 min read';
   else if (slug === 'jinsa') readingTime = '7 min read';
   else if (slug === 'resumock') readingTime = '6 min read';
 
   let tag = 'Article';
   if (slug === 's&p' || slug === 'resumock') tag = 'Project Spotlight';
   else if (slug === 'jinsa') tag = 'Project & Experience';
+  else if (slug === 'cip2025' || slug === 'mec2025') tag = 'Experience';
 
   return (
     <>

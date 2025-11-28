@@ -4,11 +4,21 @@ import { FiExternalLink } from 'react-icons/fi';
 export const Projects = () => {
   const projectlist = [
     {
+      name: "Project Phoenix (MEC 2025)",
+      description: "Winning McMaster Engineering Competition consulting solution (1st place) focused on the future of healthcare in Canada.",
+      tech: ["Consulting", "Report Writing", "Research"],
+      category: "personal",
+      github: null,
+      articleLink: "/blog/mec2025",
+      competition: { type: "MacEng Competition 2025 Winner", winner: true },
+    },
+    {
       name: "Jinsa",
       description: "A blockchain-based platform allowing companies to turn their products into trackable, verifiable, and transparent products.",
       tech: ["Startup","Blockchain", "Smart Contracts"],
       category: "personal",
       github: "https://usejinsa.co",
+      competition: { type: "SpurHacks Accelerator", winner: true },
       articleLink: "/blog/jinsa",
     },
     {
@@ -18,6 +28,7 @@ export const Projects = () => {
       tech: ["JavaScript", "React", "Node.js", "Express.js", "Tailwind CSS", "Gemini API"],
       category: "personal",
       github: "https://github.com/seifotefa/deltahackslite",
+      competition: { type: "DeltaHacks Lite 2025", winner: false },
       articleLink: "/blog/resumock",
     },
     {
@@ -27,6 +38,7 @@ export const Projects = () => {
       tech: ["JavaScript", "React", "Node.js", "Express.js", "Tailwind CSS", "Firebase", "Gemini API"],
       category: "personal",
       github: "https://github.com/seifotefa/sparkandprepper",
+      competition: { type: "GDSC Hacks 2025", winner: false },
       articleLink: "/blog/s&p",
     },
     {
@@ -66,7 +78,7 @@ export const Projects = () => {
       description:
         "A professional website designed and developed for a local window washing company to showcase services and handle customer inquiries online.",
       tech: ["HTML", "Tailwind CSS", "JavaScript"],
-      category: "work",
+      category: "professional",
       github: "https://bangyourhead.ca",
     },
     {
@@ -74,7 +86,7 @@ export const Projects = () => {
       description:
         "A professional website designed and developed for a local car detailing company to showcase services and handle customer inquiries and booking online.",
       tech: ["HTML", "Tailwind CSS", "JavaScript"],
-      category: "work",
+      category: "professional",
       github: "https://luxuryfinish.ca",
     },
     {
@@ -94,7 +106,8 @@ export const Projects = () => {
       ? projectlist
       : projectlist.filter((p) => p.category === filter);
 
-  const projectsToShow = showAll ? filteredProjects : filteredProjects.slice(0, 6);
+  const initialShowCount = 4;
+  const projectsToShow = showAll ? filteredProjects : filteredProjects.slice(0, initialShowCount);
 
   return (
     <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111]">
@@ -109,7 +122,7 @@ export const Projects = () => {
 
         {/* Filters */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {["all", "school", "work", "personal"].map((cat) => (
+          {["all", "school", "professional", "personal"].map((cat) => (
             <button
               key={cat}
               onClick={() => { setFilter(cat); setShowAll(false); }}
@@ -123,31 +136,47 @@ export const Projects = () => {
         </div>
 
         <div className="flex flex-col items-center gap-6 mb-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start w-full">
+          <div className="flex flex-col gap-6 w-full">
             {projectsToShow.map((project, index) => (
-              <div key={index} className="bg-[#f3f3f3] border border-[#e5e5e5] rounded-lg p-3 text-left h-full min-h-[300px] flex flex-col">
-                <div className="flex-grow">
-                  <h3 className="text-xl font-semibold text-[#111] mb-2">{project.name}</h3>
-                  <p className="text-sm text-gray-400 mb-4">{project.description}</p>
-                </div>
-                <div className="mt-auto">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="bg-[#ede9fe] border border-[#c4b5fd] text-[#5b21b6] text-sm px-3 py-1 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+              <div 
+                key={index} 
+                className="bg-[#f3f3f3] border border-[#e5e5e5] rounded-lg p-6 text-left w-full"
+              >
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-start gap-3 mb-3">
+                      <h3 className="text-xl font-semibold text-[#111]">{project.name}</h3>
+                      {project.competition && (
+                        <span
+                          className={`text-xs font-semibold px-3 py-1 rounded-full border shrink-0 ${
+                            project.competition.winner
+                              ? "bg-[#fef3c7] border-[#fbbf24] text-[#92400e]"
+                              : "bg-[#e5e7eb] border-[#6b7280] text-[#374151]"
+                          }`}
+                        >
+                          {project.competition.type}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-gray-400 mb-4">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="bg-blue-50 border border-blue-300 text-blue-700 text-sm px-3 py-1 rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex justify-end gap-4 min-h-[20px]">
+                  <div className="flex gap-6 items-start shrink-0">
                     {project.github && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition"
+                        className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition whitespace-nowrap"
                       >
                         View
                         <FiExternalLink className="w-3 h-3 mb-[1px]" />
@@ -156,7 +185,7 @@ export const Projects = () => {
                     {project.articleLink && (
                       <a
                         href={project.articleLink}
-                        className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition"
+                        className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition whitespace-nowrap"
                       >
                         Read article
                         <FiExternalLink className="w-3 h-3 mb-[1px]" />
@@ -166,23 +195,23 @@ export const Projects = () => {
                 </div>
               </div>
             ))}
+            {filteredProjects.length > initialShowCount && !showAll && (
+              <button
+                className="px-6 py-2 rounded-full bg-[#4A90E2] text-white hover:bg-[#357ABD] transition self-center"
+                onClick={() => setShowAll(true)}
+              >
+                view all
+              </button>
+            )}
+            {showAll && filteredProjects.length > initialShowCount && (
+              <button
+                className="px-6 py-2 rounded-full bg-gray-200 text-[#1E40AF] hover:bg-gray-300 transition self-center"
+                onClick={() => setShowAll(false)}
+              >
+                show less
+              </button>
+            )}
           </div>
-          {filteredProjects.length > 6 && !showAll && (
-            <button
-              className="px-6 py-2 rounded-full bg-[#4A90E2] text-white hover:bg-[#357ABD] transition"
-              onClick={() => setShowAll(true)}
-            >
-              view all
-            </button>
-          )}
-          {showAll && filteredProjects.length > 6 && (
-            <button
-              className="px-6 py-2 rounded-full bg-gray-200 text-[#1E40AF] hover:bg-gray-300 transition"
-              onClick={() => setShowAll(false)}
-            >
-              show less
-            </button>
-          )}
         </div>
       </div>
     </section>

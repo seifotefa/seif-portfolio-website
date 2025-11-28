@@ -19,7 +19,7 @@ function parseFrontmatter(md) {
 export const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [sortBy, setSortBy] = useState('newest'); // 'newest' or 'oldest'
-  const [filterBy, setFilterBy] = useState('all'); // 'all', 'articles', 'projects', 'experiences'
+  const [filterBy, setFilterBy] = useState('all'); // 'all', 'projects', 'experiences'
 
   useEffect(() => {
     console.log('Available postFiles:', Object.keys(postFiles));
@@ -43,9 +43,8 @@ export const Blog = () => {
   const sortedAndFilteredPosts = posts
     .filter(post => {
       if (filterBy === 'all') return true;
-      if (filterBy === 'articles') return post.slug === 'cip2025';
       if (filterBy === 'projects') return post.slug === 's&p' || post.slug === 'jinsa' || post.slug === 'resumock';
-      if (filterBy === 'experiences') return post.slug === 'jinsa';
+      if (filterBy === 'experiences') return post.slug === 'cip2025' || post.slug === 'mec2025';
       return true;
     })
     .sort((a, b) => {
@@ -66,7 +65,7 @@ export const Blog = () => {
             <div className="flex items-center gap-2">
               <span className="text-sm text-gray-600 font-medium">Filter:</span>
               <div className="flex gap-2">
-                {['all', 'articles', 'projects', 'experiences'].map((filter) => (
+                {['all', 'projects', 'experiences'].map((filter) => (
                   <button
                     key={filter}
                     onClick={() => setFilterBy(filter)}
@@ -77,7 +76,6 @@ export const Blog = () => {
                     }`}
                   >
                     {filter === 'all' ? 'All' : 
-                     filter === 'articles' ? 'Articles' : 
                      filter === 'projects' ? 'Projects' : 'Experiences'}
                   </button>
                 ))}
@@ -117,6 +115,7 @@ export const Blog = () => {
               // Determine reading time based on slug
               let readingTime = '5 min read';
               if (post.slug === 'cip2025') readingTime = '3 min read';
+              else if (post.slug === 'mec2025') readingTime = '4 min read';
               else if (post.slug === 'jinsa') readingTime = '7 min read';
               else if (post.slug === 'resumock') readingTime = '6 min read';
               
@@ -158,7 +157,8 @@ export const Blog = () => {
                       </svg>
                       <span>
                         {post.slug === 's&p' || post.slug === 'resumock' ? 'Project Spotlight' : 
-                         post.slug === 'jinsa' ? 'Project & Experience' : 'Article'}
+                         post.slug === 'jinsa' ? 'Project & Experience' : 
+                         post.slug === 'cip2025' || post.slug === 'mec2025' ? 'Experience' : 'Article'}
                       </span>
                     </div>
                   </div>

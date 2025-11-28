@@ -7,10 +7,10 @@ import { Experience } from './components/sections/Experience';
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/sections/Footer';
-import { Blog } from './components/sections/Blog';
-import { BlogPost } from './components/sections/BlogPost';
 import { Resume } from './components/sections/Resume';
 import { HorizontalNav } from './components/HorizontalNav';
+import { Blog } from './components/sections/Blog';
+import { BlogPost } from './components/sections/BlogPost';
 
 // Wrapper component to conditionally show HorizontalNav
 const PageWrapper = ({ children }) => {
