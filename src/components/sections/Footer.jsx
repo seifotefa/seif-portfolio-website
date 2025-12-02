@@ -15,7 +15,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 sm:relative">
-          {/* Left: Name and meta */}
+          {/* Left: Meta */}
           <div className="text-center sm:text-left">
             <p>&copy; {new Date().getFullYear()} Seif Otefa. All rights reserved.</p>
             <p className="text-xs text-gray-600">Last updated: November 2025</p>
@@ -27,7 +27,7 @@ export const Footer = () => {
               href="https://github.com/seifotefa"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#4A90E2] transition-colors"
+              className="hover:text-[#111111] transition-colors"
             >
               <FaGithub className="w-5 h-5" />
             </a>
@@ -35,7 +35,7 @@ export const Footer = () => {
               href="https://linkedin.com/in/seif-otefa"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#4A90E2] transition-colors"
+              className="hover:text-[#111111] transition-colors"
             >
               <FaLinkedin className="w-5 h-5" />
             </a>

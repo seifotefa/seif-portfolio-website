@@ -300,7 +300,7 @@ export const Experience = () => {
                     <div className="font-semibold mb-1 text-[#1E40AF]">Languages</div>
                     <div className="flex flex-wrap gap-3">
                         {languages.map((skill, i) => (
-                            <span key={i} className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-4 py-2 rounded-full flex items-center gap-2">
+                            <span key={i} className="bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] text-sm px-4 py-2 rounded-full flex items-center gap-2">
                                 <img src={skill.logo} alt={skill.name} title={skill.name} className="w-6 h-6 object-contain opacity-80" />
                                 {skill.name}
                             </span>
@@ -311,7 +311,7 @@ export const Experience = () => {
                     <div className="font-semibold mb-1 text-[#1E40AF]">Frameworks</div>
                     <div className="flex flex-wrap gap-3">
                         {frameworks.map((skill, i) => (
-                            <span key={i} className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-4 py-2 rounded-full flex items-center gap-2">
+                            <span key={i} className="bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] text-sm px-4 py-2 rounded-full flex items-center gap-2">
                                 <img src={skill.logo} alt={skill.name} title={skill.name} className="w-6 h-6 object-contain opacity-80" />
                                 {skill.name}
                             </span>
@@ -322,7 +322,7 @@ export const Experience = () => {
                     <div className="font-semibold mb-1 text-[#1E40AF]">Developer Tools & Databases</div>
                     <div className="flex flex-wrap gap-3">
                         {tools.map((skill, i) => (
-                            <span key={i} className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-4 py-2 rounded-full flex items-center gap-2">
+                            <span key={i} className="bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] text-sm px-4 py-2 rounded-full flex items-center gap-2">
                                 <img src={skill.logo} alt={skill.name} title={skill.name} className="w-6 h-6 object-contain opacity-80" />
                                 {skill.name}
                             </span>

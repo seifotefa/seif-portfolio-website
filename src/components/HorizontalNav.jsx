@@ -27,8 +27,8 @@ export const HorizontalNav = () => {
               to={page.path}
               className={`text-sm font-medium transition-colors ${
                 location.pathname === page.path
-                  ? 'text-[#4A90E2]'
-                  : 'text-gray-500 hover:text-[#4A90E2]'
+                  ? 'text-[#111111]'
+                  : 'text-gray-500 hover:text-[#111111]'
               }`}
             >
               {page.name}
@@ -43,7 +43,7 @@ export const HorizontalNav = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 shadow-sm text-gray-500 hover:text-[#4A90E2] transition-colors"
+            className="p-2 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 shadow-sm text-gray-500 hover:text-[#111111] transition-colors"
           >
             <svg 
               width="20" 
@@ -73,8 +73,8 @@ export const HorizontalNav = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`block px-4 py-2 text-sm font-medium transition-colors ${
                     location.pathname === page.path
-                      ? 'text-[#4A90E2] bg-blue-50'
-                      : 'text-gray-500 hover:text-[#4A90E2] hover:bg-gray-50'
+                      ? 'text-[#111111] bg-gray-100'
+                      : 'text-gray-500 hover:text-[#111111] hover:bg-gray-50'
                   }`}
                 >
                   {page.name}

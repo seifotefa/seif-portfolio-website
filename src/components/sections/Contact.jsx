@@ -47,7 +47,7 @@ export const Contact = () => {
                   Please contact me directly at{" "}
                   <a
                       href="mailto:seifotefa@gmail.com"
-                      className="underline text-[#4A90E2] hover:text-[#357ABD]"
+                      className="underline text-[#111111] hover:text-[#666666]"
                   >
                       seifotefa@gmail.com
                   </a>
@@ -60,21 +60,21 @@ export const Contact = () => {
                   name="name"
                   placeholder="Your Name"
                   required
-                  className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A90E2]"
+                  className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#111111]"
                   />
                   <input
                   type="email"
                   name="email"
                   placeholder="Your Email"
                   required
-                  className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A90E2]"
+                  className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#111111]"
                   />
                   <textarea
                   name="message"
                   rows="5"
                   placeholder="What's up?"
                   required
-                  className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A90E2]"
+                  className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#111111]"
                   ></textarea>
                   <button
                   type="submit"
@@ -82,7 +82,7 @@ export const Contact = () => {
                   className={`${
                       error
                       ? "bg-gray-600 cursor-not-allowed"
-                      : "bg-[#4A90E2] hover:bg-[#357ABD]"
+                      : "bg-[#111111] hover:bg-[#333333]"
                   } text-white font-medium py-3 px-6 rounded-md transition`}
                   >
                   Send

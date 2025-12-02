@@ -49,7 +49,7 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
                 href={companyLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] hover:underline underline-offset-2 transition-colors"
+                className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#111111] hover:underline underline-offset-2 transition-colors"
                 >
                 <span>{company}</span>
                 <FiExternalLink className="w-4 h-4 mb-[1px]" />
@@ -68,7 +68,7 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
             <div className="mt-4">
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="text-sm text-[#4A90E2] hover:text-[#357ABD] font-medium transition-colors flex items-center gap-1"
+                className="text-sm text-[#111111] hover:text-[#666666] font-medium transition-colors flex items-center gap-1"
               >
                 {isExpanded ? 'Show less' : 'Learn more'}
                 <svg 
@@ -82,12 +82,12 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
               </button>
               
               {isExpanded && (
-                <div ref={highlightsRef} className="mt-3 pl-4 border-l-2 border-[#4A90E2]/20">
+                <div ref={highlightsRef} className="mt-3 pl-4 border-l-2 border-gray-400">
                   <h4 className="text-sm font-semibold text-[#111] mb-2">Highlights:</h4>
                   <ul className="space-y-1">
                     {highlights.map((highlight, index) => (
                       <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
-                        <span className="text-[#4A90E2] mt-1.5 flex-shrink-0">•</span>
+                        <span className="text-[#111111] mt-1.5 flex-shrink-0">•</span>
                         <span>{highlight}</span>
                       </li>
                     ))}
@@ -102,7 +102,7 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
             {skills.map((skill, i) => (
               <span
                 key={i}
-                className="bg-[#EBF3FF] border border-[#93C5FD] text-[#1E40AF] text-sm px-3 py-1 rounded-full"
+                className="bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] text-sm px-3 py-1 rounded-full"
               >
                 {skill}
               </span>
@@ -116,7 +116,7 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
                 href={articleLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition"
+                className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#111111] underline underline-offset-2 transition"
               >
                 Read article
                 <FiExternalLink className="w-3 h-3 mb-[1px]" />

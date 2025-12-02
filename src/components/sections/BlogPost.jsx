@@ -66,7 +66,7 @@ export const BlogPost = () => {
             <span className="text-gray-300">•</span>
             <div className="text-gray-500 text-sm">{readingTime}</div>
             <span className="text-gray-300">•</span>
-            <div className="flex items-center gap-2 px-3 py-1 bg-[#4A90E2] text-white rounded-full text-sm font-medium">
+            <div className="flex items-center gap-2 px-3 py-1 bg-[#111111] text-white rounded-full text-sm font-medium">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>

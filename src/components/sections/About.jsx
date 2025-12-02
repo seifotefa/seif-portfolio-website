@@ -69,7 +69,7 @@ export const About = () => {
                         />
                     </div>
 
-                     <br /><br /> i'm always looking for new opportunities to learn, grow, or just chat about life and tech. feel free to reach out to me on <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600 transition-colors text-blue-600 lg:text-inherit">linkedin</a> or email me at <a href="/contact" className="underline hover:text-blue-600 transition-colors text-blue-600 lg:text-inherit">seifotefa@gmail.com</a>.
+                     <br /><br /> i'm always looking for new opportunities to learn, grow, or just chat about life and tech. feel free to reach out to me on <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#111111] transition-colors text-[#111111] lg:text-inherit">linkedin</a> or email me at <a href="/contact" className="underline hover:text-[#111111] transition-colors text-[#111111] lg:text-inherit">seifotefa@gmail.com</a>.
                 </p>
             </div>
 

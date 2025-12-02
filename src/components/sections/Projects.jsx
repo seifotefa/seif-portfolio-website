@@ -127,8 +127,8 @@ export const Projects = () => {
               key={cat}
               onClick={() => { setFilter(cat); setShowAll(false); }}
               className={`px-4 py-2 rounded-full border ${
-                filter === cat ? "bg-blue-600 text-white" : "border-[#e5e5e5] text-[#888]"
-              } hover:bg-blue-700 hover:text-white transition`}
+                filter === cat ? "bg-[#111111] text-white" : "border-[#e5e5e5] text-[#888]"
+              } hover:bg-[#333333] hover:text-white transition`}
             >
               {cat}
             </button>
@@ -163,7 +163,7 @@ export const Projects = () => {
                       {project.tech.map((tech, i) => (
                         <span
                           key={i}
-                          className="bg-blue-50 border border-blue-300 text-blue-700 text-sm px-3 py-1 rounded-full"
+                          className="bg-gray-100 border border-gray-300 text-[#111111] text-sm px-3 py-1 rounded-full"
                         >
                           {tech}
                         </span>
@@ -176,7 +176,7 @@ export const Projects = () => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition whitespace-nowrap"
+                        className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#111111] underline underline-offset-2 transition whitespace-nowrap"
                       >
                         View
                         <FiExternalLink className="w-3 h-3 mb-[1px]" />
@@ -185,7 +185,7 @@ export const Projects = () => {
                     {project.articleLink && (
                       <a
                         href={project.articleLink}
-                        className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#4A90E2] underline underline-offset-2 transition whitespace-nowrap"
+                        className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-[#111111] underline underline-offset-2 transition whitespace-nowrap"
                       >
                         Read article
                         <FiExternalLink className="w-3 h-3 mb-[1px]" />
@@ -197,7 +197,7 @@ export const Projects = () => {
             ))}
             {filteredProjects.length > initialShowCount && !showAll && (
               <button
-                className="px-6 py-2 rounded-full bg-[#4A90E2] text-white hover:bg-[#357ABD] transition self-center"
+                className="px-6 py-2 rounded-full bg-[#111111] text-white hover:bg-[#333333] transition self-center"
                 onClick={() => setShowAll(true)}
               >
                 view all
@@ -205,7 +205,7 @@ export const Projects = () => {
             )}
             {showAll && filteredProjects.length > initialShowCount && (
               <button
-                className="px-6 py-2 rounded-full bg-gray-200 text-[#1E40AF] hover:bg-gray-300 transition self-center"
+                className="px-6 py-2 rounded-full bg-gray-200 text-[#111111] hover:bg-gray-300 transition self-center"
                 onClick={() => setShowAll(false)}
               >
                 show less

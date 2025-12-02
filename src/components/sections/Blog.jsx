@@ -71,7 +71,7 @@ export const Blog = () => {
                     onClick={() => setFilterBy(filter)}
                     className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                       filterBy === filter 
-                        ? 'bg-[#4A90E2] text-white' 
+                        ? 'bg-[#111111] text-white' 
                         : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
                     }`}
                   >
@@ -92,7 +92,7 @@ export const Blog = () => {
                     onClick={() => setSortBy(sort)}
                     className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                       sortBy === sort 
-                        ? 'bg-[#4A90E2] text-white' 
+                        ? 'bg-[#111111] text-white' 
                         : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
                     }`}
                   >
@@ -148,10 +148,10 @@ export const Blog = () => {
                   
                   {/* Article Footer */}
                   <div className="flex items-center justify-between pt-4 border-t border-[#e5e5e5]">
-                    <span className="text-sm text-[#4A90E2] font-medium hover:text-[#357ABD] transition-colors">
+                    <span className="text-sm text-[#111111] font-medium hover:text-[#666666] transition-colors">
                       Read more →
                     </span>
-                    <div className="flex items-center gap-2 px-3 py-1 bg-[#4A90E2] text-white rounded-full text-sm font-medium">
+                    <div className="flex items-center gap-2 px-3 py-1 bg-[#111111] text-white rounded-full text-sm font-medium">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>

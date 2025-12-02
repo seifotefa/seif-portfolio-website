@@ -12,12 +12,24 @@ html, body {
   font-size: 16px;
   font-weight: 500;
 }
+html {
 
-/* Prevent scroll bars on home page */
-body.no-scroll {
-  overflow: hidden;
+  min-height: 100%; 
+  height: 100%; 
+  scroll-behavior: smooth;
 }
 
-html.no-scroll {
-  overflow: hidden;
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%; 
+  height: auto; 
+  overflow-x: hidden; 
+}
+
+#root {
+  /* *** CRITICAL FIX *** Removed fixed height constraints (height: 100%) and overflow: hidden.
+  */
+  width: 100%;
+  min-height: 100%; 
 }
