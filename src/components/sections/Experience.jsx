@@ -9,16 +9,22 @@ const languages = [
     { name: "C", logo: "/assets/c.svg" },
     { name: "SQL", logo: "/assets/mysql.svg" },
     { name: "JavaScript", logo: "/assets/javascript.svg" },
-    { name: "TypeScript", logo: "/assets/typescript.png" },
+    // { name: "TypeScript", logo: "/assets/typescript.png" },
     { name: "PHP", logo: "/assets/php.png" },
     { name: "Bash", logo: "/assets/bash.png" },
     { name: "Latex", logo: "/assets/latex.png" },
     { name: "Haskell", logo: "/assets/haskell.svg" },
+    { name: "Java", logo: "/assets/java.svg" },
+    { name: "Markdown", logo: "/assets/markdown.svg" },
+    
 ];
 const frameworks = [
     { name: "React", logo: "/assets/react.svg" },
     { name: "Node.js", logo: "/assets/nodejs.svg" },
     { name: "Tailwind CSS", logo: "/assets/tailwind.svg" },
+    { name: "Express.js", logo: "/assets/express.svg" },
+    { name: "spaCy", logo: "/assets/spacy.png" },
+
 ];
 const tools = [
     { name: "Apache", logo: "/assets/apache.svg" },

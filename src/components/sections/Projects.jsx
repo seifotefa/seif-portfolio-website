@@ -42,6 +42,14 @@ export const Projects = () => {
       articleLink: "/blog/s&p",
     },
     {
+      name: "MovieRecommender",
+      description:
+        "A CLI-based that allows users to search for, rate, filter, and get recommendations for movies based on their preferences. Developed using Agile methodology.",
+      tech: ["Java", "Agile", "JUnit", "Waterfall"],
+      category: "school",
+      github: "https://github.com/seifotefa/movierecommender",
+    },    
+    {
       name: "EvenMatch!",
       description:
         "A terminal-based 2048 game written in C, featuring smooth tile movement and merging logic, built with modular architecture and efficient input handling.",

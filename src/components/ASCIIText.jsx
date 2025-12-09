@@ -369,48 +369,33 @@ export default function ASCIIText({
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const { width, height } = containerRef.current.getBoundingClientRect();
-
-    if (width === 0 || height === 0) {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting && entry.boundingClientRect.width > 0 && entry.boundingClientRect.height > 0) {
-            const { width: w, height: h } = entry.boundingClientRect;
-            asciiRef.current = new CanvAscii(
-              { text, asciiFontSize, textFontSize, textColor, planeBaseHeight, enableWaves },
-              containerRef.current,
-              w,
-              h
-            );
-            asciiRef.current.load();
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.1 }
-      );
-      observer.observe(containerRef.current);
-
-      return () => {
-        observer.disconnect();
-        if (asciiRef.current) {
-          asciiRef.current.dispose();
-        }
-      };
-    }
-
-    asciiRef.current = new CanvAscii(
-      { text, asciiFontSize, textFontSize, textColor, planeBaseHeight, enableWaves },
-      containerRef.current,
-      width,
-      height
-    );
-    asciiRef.current.load();
+    // Wait for IBM Plex Mono font to load before initializing
+    const fontLoadPromise = document.fonts.load('600 200px IBM Plex Mono').catch(() => {
+      // Font might not load, but continue anyway
+      console.warn('[ASCIIText] Font failed to load, continuing anyway');
+    });
 
     const ro = new ResizeObserver(entries => {
-      if (!entries[0] || !asciiRef.current) return;
-      const { width: w, height: h } = entries[0].contentRect;
-      if (w > 0 && h > 0) {
-        asciiRef.current.setSize(w, h);
+      for (let entry of entries) {
+        const { width, height } = entry.contentRect;
+
+        if (!asciiRef.current && width > 0 && height > 0) {
+          // Wait for font to load, then initialize with actual dimensions
+          fontLoadPromise.then(() => {
+            if (!asciiRef.current && containerRef.current) {
+              asciiRef.current = new CanvAscii(
+                { text, asciiFontSize, textFontSize, textColor, planeBaseHeight, enableWaves },
+                containerRef.current,
+                width,
+                height
+              );
+              asciiRef.current.load();
+            }
+          });
+        } else if (asciiRef.current && width > 0 && height > 0) {
+          // Update size on subsequent resizes
+          asciiRef.current.setSize(width, height);
+        }
       }
     });
 
@@ -431,7 +416,9 @@ export default function ASCIIText({
       style={{
         position: 'absolute',
         width: '100%',
-        height: '100%'
+        height: '100%',
+        top: 0,
+        left: 0
       }}
     >
       <style>{`
@@ -465,6 +452,8 @@ export default function ASCIIText({
           top: 0;
           color: #1a1a1a;
           z-index: 9;
+          overflow: visible;
+          white-space: pre;
         }
       `}</style>
     </div>

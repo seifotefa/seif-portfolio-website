@@ -82,11 +82,17 @@ export const Home = () => {
         <section className="w-screen flex flex-col">
             
             <div 
-                className="relative w-full flex items-center justify-center h-screen" 
-                // minHeight adjusted to account for slightly smaller animation footprint
-                style={{ minHeight: isMobile ? '200px' : '360px' }} 
+                className="relative w-full" 
+                style={{ 
+                    position: 'relative',
+                    width: '100%',
+                    height: '100vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }} 
             >
-                <div className="w-full h-full flex items-center justify-center">
+                <div style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0 }}>
                     <ASCIIText
                         text="Seif Otefa"
                         enableWaves={true}
@@ -108,11 +114,11 @@ export const Home = () => {
 
             <div className="relative z-10 px-4 sm:px-6 py-12 sm:py-20 text-left">
                 
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-4xl mx-auto lg:mx-0 lg:ml-[18%]">
                     <div className="flex flex-col max-w-4xl"> 
-                        <span className="leading-tight font-light text-[32px] sm:text-[42px] md:text-[52px] lg:text-[40px] text-left" style={{ color: '#111111' }}>
+                        <span className="leading-tight font-bold text-[32px] sm:text-[42px] md:text-[48px] lg:text-[36px] text-left" style={{ color: '#000000' }}>
                             {' '}
-                            <span className="font-medium" style={{ color: '#111111' }}>
+                            <span style={{ color: '#000000' }}>
                                 {currentTitle}
                             </span>{' '}
                             based in toronto
@@ -120,12 +126,12 @@ export const Home = () => {
                     </div>
                     
                     <p className="mt-4 text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] text-left max-w-4xl" style={{ color: '#666666' }}>
-                        crafting beautiful, functional, and impactful experiences through software
+                        living at the intersection of innovation, education, and technology.
                     </p>
                 </div>
 
-                <div className="max-w-4xl mx-auto mt-24 pt-10 border-t border-gray-200">
-                    <h2 className="text-[22px] sm:text-[28px] font-medium mb-10" style={{ color: '#111111' }}>
+                <div className="max-w-4xl mx-auto lg:mx-0 lg:ml-[18%] mt-24 pt-10 border-t border-gray-200">
+                    <h2 className="text-[24px] sm:text-[32px] font-bold mb-10" style={{ color: '#000000' }}>
                         things i've worked on / i'm working on
                     </h2>
                     
@@ -133,7 +139,7 @@ export const Home = () => {
                         <button 
                             onClick={() => toggleExpansion('current')}
                             className="flex items-center text-[20px] sm:text-[24px] font-semibold mb-3 hover:text-[#111111] focus:outline-none"
-                            style={{ color: '#111111' }}
+                            style={{ color: '#666666' }}
                         >
                             Currently 
                             <Arrow direction={isCurrentExpanded ? 'down' : 'right'} />
@@ -153,7 +159,7 @@ export const Home = () => {
                         <button 
                             onClick={() => toggleExpansion('previous')}
                             className="flex items-center text-[20px] sm:text-[24px] font-semibold mb-3 hover:text-[#111111] focus:outline-none"
-                            style={{ color: '#111111' }}
+                            style={{ color: '#666666' }}
                         >
                             Previously 
                             <Arrow direction={isPreviousExpanded ? 'down' : 'right'} />
