@@ -6,7 +6,6 @@ import { Home } from './components/sections/Home';
 import { Experience } from './components/sections/Experience';
 import { Projects } from './components/sections/Projects';
 import { Contact } from './components/sections/Contact';
-import { Footer } from './components/sections/Footer';
 import { Resume } from './components/sections/Resume';
 import { HorizontalNav } from './components/HorizontalNav';
 import { Blog } from './components/sections/Blog';
@@ -69,9 +68,7 @@ const App = () => {
             <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
           </Routes>
         </div>
-        <div style={{ position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 50 }}>
-          <Footer />
-        </div>
+        {/* Footer removed - site uses compact layout with bottom-left name/logos on Home */}
       </div>
     </BrowserRouter>
   );

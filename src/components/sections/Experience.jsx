@@ -303,7 +303,7 @@ export const Experience = () => {
             </p>
             <div className="text-left max-w-2xl mx-auto">
                 <div className="mb-4">
-                    <div className="font-semibold mb-1 text-[#1E40AF]">Languages</div>
+                    <div className="font-semibold mb-1 text-[#111]">Languages</div>
                     <div className="flex flex-wrap gap-3">
                         {languages.map((skill, i) => (
                             <span key={i} className="bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] text-sm px-4 py-2 rounded-full flex items-center gap-2">
@@ -314,7 +314,7 @@ export const Experience = () => {
                     </div>
                 </div>
                 <div className="mb-4">
-                    <div className="font-semibold mb-1 text-[#1E40AF]">Frameworks</div>
+                    <div className="font-semibold mb-1 text-[#111]">Frameworks</div>
                     <div className="flex flex-wrap gap-3">
                         {frameworks.map((skill, i) => (
                             <span key={i} className="bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] text-sm px-4 py-2 rounded-full flex items-center gap-2">
@@ -325,7 +325,7 @@ export const Experience = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="font-semibold mb-1 text-[#1E40AF]">Developer Tools & Databases</div>
+                    <div className="font-semibold mb-1 text-[#111]">Developer Tools & Databases</div>
                     <div className="flex flex-wrap gap-3">
                         {tools.map((skill, i) => (
                             <span key={i} className="bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] text-sm px-4 py-2 rounded-full flex items-center gap-2">

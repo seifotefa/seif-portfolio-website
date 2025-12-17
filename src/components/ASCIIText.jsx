@@ -93,12 +93,20 @@ class AsciiFilter {
     this.pre.style.fontSize = `${this.fontSize}px`;
     this.pre.style.margin = '0';
     this.pre.style.padding = '0';
-    this.pre.style.lineHeight = '1em';
+    // tighten the line height slightly so characters sit closer together
+    this.pre.style.lineHeight = '0.95em';
     this.pre.style.position = 'absolute';
-    this.pre.style.left = '0';
-    this.pre.style.top = '0';
+    // center the ASCII block in the container
+    this.pre.style.left = '50%';
+    this.pre.style.top = '50%';
+    this.pre.style.transform = 'translate(-50%, -50%)';
+    this.pre.style.textAlign = 'center';
     this.pre.style.zIndex = '9';
     this.pre.style.backgroundAttachment = 'fixed';
+    // ensure whitespace preserved and not selectable
+    this.pre.style.whiteSpace = 'pre';
+    this.pre.style.userSelect = 'none';
+    this.pre.style.pointerEvents = 'none';
     // Removed mix-blend-mode for better ASCII visibility
   }
 
@@ -170,7 +178,8 @@ class CanvasTxt {
     this.fontSize = fontSize;
     this.fontFamily = fontFamily;
     this.color = color;
-    this.font = `600 ${this.fontSize}px ${this.fontFamily}`;
+    // use a lighter weight for a sleeker appearance
+    this.font = `300 ${this.fontSize}px ${this.fontFamily}`;
   }
 
   resize() {
@@ -232,7 +241,8 @@ class CanvAscii {
   setMesh() {
     this.textCanvas = new CanvasTxt(this.textString, {
       fontSize: this.textFontSize,
-      fontFamily: 'IBM Plex Mono',
+      // use the site sans-serif stack for the rendered text so it matches the site
+      fontFamily: 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
       color: this.textColor
     });
 
@@ -269,7 +279,8 @@ class CanvAscii {
     this.renderer.setPixelRatio(1);
     this.renderer.setClearColor(0x000000, 0);
     this.filter = new AsciiFilter(this.renderer, {
-      fontFamily: 'IBM Plex Mono',
+      // keep the ASCII overlay in a monospace font for correct alignment
+      fontFamily: "'Courier New', monospace",
       fontSize: this.asciiFontSize,
       invert: false  // Changed to false so ASCII characters are visible with black text
     });
@@ -422,11 +433,10 @@ export default function ASCIIText({
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
-        body {
-          margin: 0;
-          padding: 0;
-        }
+          body {
+            margin: 0;
+            padding: 0;
+          }
         .ascii-text-container canvas {
           position: absolute;
           left: 0;
@@ -445,11 +455,12 @@ export default function ASCIIText({
           margin: 0;
           user-select: none;
           padding: 0;
-          line-height: 1em;
-          text-align: left;
+          line-height: 0.95em;
+          text-align: center;
           position: absolute;
-          left: 0;
-          top: 0;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
           color: #1a1a1a;
           z-index: 9;
           overflow: visible;

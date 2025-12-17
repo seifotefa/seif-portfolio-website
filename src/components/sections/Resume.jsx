@@ -33,7 +33,7 @@ export const Resume = () => {
           {/* Header */}
           <div className="mb-6 text-center">
             <h1 className="text-4xl sm:text-5xl font-synonym font-light mb-4" style={{ fontFamily: 'Synonym, monospace' }}>
-              Resume/CV
+              Resume
             </h1>
             <div className="flex justify-center items-center gap-4">
               <a 
