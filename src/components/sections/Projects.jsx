@@ -7,6 +7,14 @@ import { Link } from 'react-router-dom';
 export const Projects = () => {
   const projectlist = [
     {
+      name: "Frontline",
+      description: "Triage dashboard using SmartSpectra (camera-based vitals) + Gemini Vision (injury detection) to generate real-time clinical insights and step-by-step first aid guidance, with an ElevenLabs AI emergency responder.",
+      tech: ["React", "C++", "Tailwind CSS", "Node.js", "Express.js", "Firebase", "Google Gemini API", "ElevenLabs API", "Presage SDK"],
+      category: "personal",
+      github: "https://github.com/seifotefa/deltahacks-12",
+      competition: { type: "Best Use of Presage SDK @ DeltaHacks12", winner: true },
+    },
+    {
       name: "Project Phoenix (MEC 2025)",
       description: "Winning McMaster Engineering Competition consulting solution (1st place) focused on the future of healthcare in Canada.",
       tech: ["Consulting", "Report Writing", "Research"],
