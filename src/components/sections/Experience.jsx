@@ -4,7 +4,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
 const languages = [
-    "Python", "HTML", "CSS", "C", "SQL", "JavaScript", "PHP", "Bash", "Latex", "Haskell", "Java", "Markdown"
+    "Python", "HTML", "CSS", "C", "C++", "SQL", "JavaScript", "PHP", "Bash", "Latex", "Haskell", "Java", "Markdown"
 ];
 
 const frameworks = [
@@ -12,7 +12,7 @@ const frameworks = [
 ];
 
 const tools = [
-    "Apache", "Firebase", "Git", "Github", "MySQL", "UNIX"
+    "Apache", "Firebase", "Git", "Github", "MySQL", "UNIX", "Presage"
 ];
 
 const education = [
@@ -31,14 +31,6 @@ const education = [
 ];
 
 export const Experience = () => {
-  const [expandedItems, setExpandedItems] = useState({});
-
-  const toggleExpand = (index) => {
-    setExpandedItems(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
-  };
 
   const experiences = [
     {
@@ -86,6 +78,7 @@ export const Experience = () => {
       company: "MoVA Realities",
       companyLink:"https://www.movarts.com/",
       description: "Requirements analysis, system architecture and design, and prioritized development roadmap for inital MVP.",
+      articleLink: "/blog/mova",
       highlights: [
         "Delivered 30-page requirements analysis report defining 21 core features across 8 strategic sections for AI-powered platform",
         "Created technical documentation, UI/UX mockups, and stakeholder presentations ensuring alignment between business objectives and technical implementation",
@@ -175,45 +168,28 @@ export const Experience = () => {
                   {/* Experience Section */}
                   <div className="mb-20">
                       <h3 className="text-3xl font-light text-center mb-12 text-black">Experience</h3>
-                      <div className="space-y-12">
+                      <div className="space-y-4">
                           {experiences.map((exp, index) => (
-                              <div key={index} className="border-l-2 border-gray-300 pl-8 pb-8">
-                                  <div className="text-sm text-gray-500 mb-2">{exp.date}</div>
-                                  <h4 className="text-xl font-medium text-black mb-1">{exp.title}</h4>
-                                  <a href={exp.companyLink} target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black underline mb-3 inline-block">{exp.company}</a>
-                                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{exp.description}</p>
+                              <div key={index} className="bg-gray-50 border border-gray-300 p-4 text-left">
+                                  <div className="flex items-baseline gap-2 mb-2 flex-wrap">
+                                      <h4 className="text-lg font-medium text-black">{exp.title}</h4>
+                                      <span className="text-gray-500">@</span>
+                                      <a href={exp.companyLink} target="_blank" rel="noreferrer" className="text-black hover:text-gray-600 underline text-base">{exp.company}</a>
+                                  </div>
                                   
-                                  <button 
-                                      onClick={() => toggleExpand(`exp-${index}`)}
-                                      className="flex items-center gap-2 text-sm text-black hover:text-gray-600 mb-3"
-                                  >
-                                      <svg 
-                                          className={`w-4 h-4 transition-transform ${expandedItems[`exp-${index}`] ? 'rotate-90' : ''}`} 
-                                          fill="none" 
-                                          stroke="currentColor" 
-                                          viewBox="0 0 24 24"
-                                      >
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                      </svg>
-                                      {expandedItems[`exp-${index}`] ? 'Hide details' : 'Show details'}
-                                  </button>
-
-                                  {expandedItems[`exp-${index}`] && (
-                                      <ul className="space-y-2 mb-4">
-                                          {exp.highlights.map((highlight, i) => (
-                                              <li key={i} className="text-gray-600 text-sm leading-relaxed flex">
-                                                  <span className="mr-2">•</span>
-                                                  <span>{highlight}</span>
-                                              </li>
-                                          ))}
-                                      </ul>
-                                  )}
+                                  <p className="text-gray-600 text-xs leading-relaxed mb-2">{exp.description}</p>
                                   
-                                  {exp.articleLink && (
-                                      <Link to={exp.articleLink} className="text-sm text-black underline hover:text-gray-600 inline-block">
-                                          Read article →
-                                      </Link>
-                                  )}
+                                  <div className="flex justify-between items-center">
+                                      <div className="text-xs text-gray-500">{exp.date}</div>
+                                      {exp.articleLink && (
+                                          <Link to={exp.articleLink} className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-black underline underline-offset-2 transition whitespace-nowrap">
+                                              Read more
+                                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                              </svg>
+                                          </Link>
+                                      )}
+                                  </div>
                               </div>
                           ))}
                       </div>
@@ -222,39 +198,18 @@ export const Experience = () => {
                   {/* Education Section */}
                   <div className="mb-20">
                       <h3 className="text-3xl font-light text-center mb-12 text-black">Education</h3>
-                      <div className="space-y-12">
+                      <div className="space-y-4">
                           {education.map((edu, index) => (
-                              <div key={index} className="border-l-2 border-gray-300 pl-8 pb-8">
-                                  <div className="text-sm text-gray-500 mb-2">{edu.date}</div>
-                                  <h4 className="text-xl font-medium text-black mb-1">{edu.title}</h4>
-                                  <a href={edu.companyLink} target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black underline mb-3 inline-block">{edu.company}</a>
-                                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{edu.description}</p>
+                              <div key={index} className="bg-gray-50 border border-gray-300 p-4 text-left">
+                                  <div className="flex items-baseline gap-2 mb-2 flex-wrap">
+                                      <h4 className="text-lg font-medium text-black">{edu.title}</h4>
+                                      <span className="text-gray-500">@</span>
+                                      <a href={edu.companyLink} target="_blank" rel="noreferrer" className="text-black hover:text-gray-600 underline text-base">{edu.company}</a>
+                                  </div>
                                   
-                                  <button 
-                                      onClick={() => toggleExpand(`edu-${index}`)}
-                                      className="flex items-center gap-2 text-sm text-black hover:text-gray-600 mb-3"
-                                  >
-                                      <svg 
-                                          className={`w-4 h-4 transition-transform ${expandedItems[`edu-${index}`] ? 'rotate-90' : ''}`} 
-                                          fill="none" 
-                                          stroke="currentColor" 
-                                          viewBox="0 0 24 24"
-                                      >
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                      </svg>
-                                      {expandedItems[`edu-${index}`] ? 'Hide details' : 'Show details'}
-                                  </button>
-
-                                  {expandedItems[`edu-${index}`] && (
-                                      <ul className="space-y-2">
-                                          {edu.highlights.map((highlight, i) => (
-                                              <li key={i} className="text-gray-600 text-sm leading-relaxed flex">
-                                                  <span className="mr-2">•</span>
-                                                  <span>{highlight}</span>
-                                              </li>
-                                          ))}
-                                      </ul>
-                                  )}
+                                  <p className="text-gray-600 text-xs leading-relaxed mb-2">{edu.description}</p>
+                                  
+                                  <div className="text-xs text-gray-500">{edu.date}</div>
                               </div>
                           ))}
                       </div>

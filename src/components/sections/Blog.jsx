@@ -1,196 +1,186 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
 import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
-// Dynamically import all markdown files in src/posts
-const postFiles = import.meta.glob('/src/posts/*.md', { query: '?raw', import: 'default' });
-
-function parseFrontmatter(md) {
-  const match = md.match(/^---([\s\S]*?)---/);
-  if (!match) return {};
-  const frontmatter = {};
-  match[1].split('\n').forEach(line => {
-    const [key, ...rest] = line.split(':');
-    if (key && rest.length) frontmatter[key.trim()] = rest.join(':').trim();
-  });
-  return frontmatter;
-}
-
 export const Blog = () => {
-  const [posts, setPosts] = useState([]);
-  const [sortBy, setSortBy] = useState('newest'); // 'newest' or 'oldest'
-  const [filterBy, setFilterBy] = useState('all'); // 'all', 'projects', 'experiences'
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [sortBy, setSortBy] = useState('date-desc');
 
-  useEffect(() => {
-    console.log('Available postFiles:', Object.keys(postFiles));
-    Promise.all(
-      Object.entries(postFiles).map(async ([path, loader]) => {
-        const md = await loader();
-        const frontmatter = parseFrontmatter(md);
-        const slug = path.split('/').pop().replace('.md', '');
-        return {
-          slug,
-          ...frontmatter,
-        };
-      })
-    ).then((posts) => {
-      console.log('Loaded slugs:', posts.map(p => p.slug));
-      setPosts(posts);
-    });
-  }, []);
+  const blogPosts = [
+    {
+      title: "Frontline",
+      date: "2026-01-11",
+      summary: "AI-powered emergency triage system using camera-based vitals monitoring and real-time injury detection.",
+      category: "Project",
+      link: "/blog/frontline",
+      image: "/assets/frontline.png"
+    },
+    {
+      title: "MoVA Realities",
+      date: "2025-03-01",
+      summary: "Requirements analysis, system architecture and design for AI-powered VR platform MVP.",
+      category: "Experience",
+      link: "/blog/mova",
+      image: "/assets/mova.png"
+    },
+    {
+      title: "Code in Place",
+      date: "2025-06-24",
+      summary: "Teaching programming fundamentals to 15+ students as a Stanford section leader.",
+      category: "Experience",
+      link: "/blog/cip2025",
+      image: "/assets/cipclassphoto.png"
+    },
+    {
+      title: "Jinsa",
+      date: "2025-10-14",
+      summary: "Blockchain-based product authentication platform from hackathon to accelerator.",
+      category: "Project",
+      link: "/blog/jinsa",
+      image: "/assets/jinsalogo.png"
+    },
+    {
+      title: "Project Phoenix",
+      date: "2025-11-27",
+      summary: "First place consulting solution focused on the future of healthcare in Canada.",
+      category: "Competition",
+      link: "/blog/mec2025",
+      image: "/assets/mec1.JPG"
+    },
+    {
+      title: "ResuMock",
+      date: "2025-11-06",
+      summary: "AI-powered mock interview coach generating tailored behavioral questions from resumes.",
+      category: "Project",
+      link: "/blog/resumock",
+      image: "/assets/resumock.png"
+    },
+    {
+      title: "Spark and Prepper",
+      date: "2025-02-02",
+      summary: "AI study platform turning notes into guides, flashcards, exams, and an AI tutor.",
+      category: "Project",
+      link: "/blog/sparkandprepper",
+      image: "/assets/sparkandprepper.png"
+    }
+  ];
 
-  // Sort and filter posts
-  const sortedAndFilteredPosts = posts
-    .filter(post => {
-      if (filterBy === 'all') return true;
-      if (filterBy === 'projects') return post.slug === 's&p' || post.slug === 'jinsa' || post.slug === 'resumock';
-      if (filterBy === 'experiences') return post.slug === 'cip2025' || post.slug === 'mec2025';
-      return true;
-    })
+  const categories = ['all', 'Project', 'Experience', 'Competition'];
+
+  const filteredPosts = blogPosts
+    .filter(post => selectedCategory === 'all' || post.category === selectedCategory)
     .sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return sortBy === 'newest' ? dateB - dateA : dateA - dateB;
+      if (sortBy === 'date-desc') return new Date(b.date) - new Date(a.date);
+      if (sortBy === 'date-asc') return new Date(a.date) - new Date(b.date);
+      return 0;
     });
 
   return (
-    <>
-      <section id="blog" className="scroll-mt-24 bg-[#fff] text-[#111] mb-20 md:mb-0">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 pt-8 pb-8 mt-24 mb-12">
-          <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Notebook</h2>
-          
-          {/* Filter and Sort Controls */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
-            {/* Filter by Type */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600 font-medium">Filter:</span>
-              <div className="flex gap-2">
-                {['all', 'projects', 'experiences'].map((filter) => (
-                  <button
-                    key={filter}
-                    onClick={() => setFilterBy(filter)}
-                    className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                      filterBy === filter 
-                        ? 'bg-[#111111] text-white' 
-                        : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
-                    }`}
-                  >
-                    {filter === 'all' ? 'All' : 
-                     filter === 'projects' ? 'Projects' : 'Experiences'}
-                  </button>
-                ))}
-              </div>
-            </div>
-            
-            {/* Sort by Date */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600 font-medium">Sort:</span>
-              <div className="flex gap-2">
-                {['newest', 'oldest'].map((sort) => (
-                  <button
-                    key={sort}
-                    onClick={() => setSortBy(sort)}
-                    className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
-                      sortBy === sort 
-                        ? 'bg-[#111111] text-white' 
-                        : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
-                    }`}
-                  >
-                    {sort === 'newest' ? 'Newest First' : 'Oldest First'}
-                  </button>
-                ))}
-              </div>
-            </div>
+    <section id="blog" className="min-h-screen bg-white text-gray-700 pt-24 pb-32 px-8 md:px-16">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-4xl font-light text-center mb-6 text-black">Blog</h2>
+        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          Projects, experiences, and learnings from competitions and internships.
+        </p>
+
+        {/* Filters */}
+        <div className="flex flex-col md:flex-row gap-4 mb-8 items-center justify-between">
+          <div className="flex gap-2 flex-wrap justify-center">
+            {categories.map(category => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 text-sm border transition ${
+                  selectedCategory === category
+                    ? 'bg-black text-white border-black'
+                    : 'bg-gray-50 text-gray-700 border-gray-300 hover:bg-gray-100'
+                }`}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </button>
+            ))}
           </div>
-          
-          {sortedAndFilteredPosts.length === 0 && (
-            <div className="bg-[#f3f3f3] border border-[#e5e5e5] rounded-lg p-8 text-center">
-              <h3 className="text-xl font-semibold text-[#111] mb-2">No posts found!</h3>
-              <p className="text-gray-500">Try adjusting your filters.</p>
-            </div>
-          )}
-          
-          <div className="space-y-8">
-            {sortedAndFilteredPosts.map((post) => {
-              // Determine reading time based on slug
-              let readingTime = '5 min read';
-              if (post.slug === 'cip2025') readingTime = '3 min read';
-              else if (post.slug === 'mec2025') readingTime = '4 min read';
-              else if (post.slug === 'jinsa') readingTime = '7 min read';
-              else if (post.slug === 'resumock') readingTime = '6 min read';
-              
-              
-              let formattedTitle = post.title;
-              if (post.title.toLowerCase().includes('project deep dive')) {
-                formattedTitle = post.title.replace(/project deep dive\s*–?\s*/i, 'project spotlight – ');
-              }
-              
-              return (
-                <Link
-                  key={post.slug}
-                  to={`/blog/${post.slug}`}
-                  className="bg-[#f3f3f3] border border-[#e5e5e5] rounded-lg p-8 text-left cursor-pointer hover:shadow-lg transition-all duration-300 block"
-                >
-                  {/* Article Header */}
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-semibold text-[#111] mb-3 leading-tight">{formattedTitle}</h3>
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                      <span>{post.date}</span>
-                      <span>•</span>
-                      <span>{readingTime}</span>
-                    </div>
-                  </div>
-                  
-                  {/* Article Summary */}
-                  <div className="mb-6">
-                    <p className="text-gray-600 leading-relaxed text-base">{post.summary}</p>
-                  </div>
-                  
-                  {/* Article Footer */}
-                  <div className="flex items-center justify-between pt-4 border-t border-[#e5e5e5]">
-                    <span className="text-sm text-[#111111] font-medium hover:text-[#666666] transition-colors">
-                      Read more →
-                    </span>
-                    <div className="flex items-center gap-2 px-3 py-1 bg-[#111111] text-white rounded-full text-sm font-medium">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>
-                        {post.slug === 's&p' || post.slug === 'resumock' ? 'Project Spotlight' : 
-                         post.slug === 'jinsa' ? 'Project & Experience' : 
-                         post.slug === 'cip2025' || post.slug === 'mec2025' ? 'Experience' : 'Article'}
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="px-4 py-2 border border-gray-300 bg-gray-50 text-gray-700 text-sm"
+          >
+            <option value="date-desc">Newest First</option>
+            <option value="date-asc">Oldest First</option>
+          </select>
         </div>
-      </section>
-      
+
+        {/* Blog Posts Grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {filteredPosts.map((post, index) => (
+            <Link
+              key={index}
+              to={post.link}
+              className="bg-gray-50 border border-gray-300 p-4 hover:border-black transition group"
+            >
+              {post.image && (
+                <div className="mb-4 overflow-hidden">
+                  <img 
+                    src={post.image} 
+                    alt={post.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
+              
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-3 py-1 bg-gray-100 border border-gray-400 text-black text-xs font-semibold">
+                  {post.category}
+                </span>
+                <span className="text-xs text-gray-500">
+                  {new Date(post.date).toLocaleDateString('en-US', { 
+                    month: 'short', 
+                    day: 'numeric', 
+                    year: 'numeric' 
+                  })}
+                </span>
+              </div>
+
+              <h3 className="text-xl font-medium text-black mb-2 group-hover:underline">
+                {post.title}
+              </h3>
+              
+              <p className="text-sm text-gray-600 leading-relaxed">
+                {post.summary}
+              </p>
+            </Link>
+          ))}
+        </div>
+
+        {filteredPosts.length === 0 && (
+          <div className="text-center py-12 text-gray-500">
+            No posts found in this category.
+          </div>
+        )}
+      </div>
+
       {/* Bottom footer bar */}
       <div className="fixed left-0 right-0 bottom-0 z-50 bg-white border-t border-gray-200 px-4 py-3 md:px-8 md:py-4">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-4">
-              <div className="flex items-center gap-3 md:gap-5">
-                  <Link to="/about" className="font-medium text-[1rem] md:text-[1.25rem] underline underline-offset-2">Seif Otefa</Link>
-                  <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaGithub className="w-5 h-5 md:w-6 md:h-6" /></a>
-                  <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaLinkedin className="w-5 h-5 md:w-6 md:h-6" /></a>
-                  <a href="https://x.com/0xseifo" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaXTwitter className="w-5 h-5 md:w-6 md:h-6" /></a>
-                  <Link to="/contact" className="text-gray-600 hover:text-black" aria-label="Contact"><FaEnvelope className="w-5 h-5 md:w-6 md:h-6" /></Link>
-                  <a href="https://seifotefa.com/resume" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black" aria-label="Resume"><FaRegFileAlt className="w-5 h-5 md:w-6 md:h-6" /></a>
-              </div>
-              <p className="text-[0.85rem] md:text-[0.95rem] text-gray-600 leading-snug">
-                  <Link to="/experience" className="underline underline-offset-2 hover:text-black">experience</Link>{' '}
-                  <span className="mx-1">|</span>{' '}
-                  <Link to="/projects" className="underline underline-offset-2 hover:text-black">projects</Link>{' '}
-                  <span className="mx-1">|</span>{' '}
-                  <Link to="/blog" className="underline underline-offset-2 hover:text-black">blog</Link>
-              </p>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-4">
+          <div className="flex items-center gap-3 md:gap-5">
+            <Link to="/about" className="font-medium text-[1rem] md:text-[1.25rem] underline underline-offset-2">Seif Otefa</Link>
+            <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaGithub className="w-5 h-5 md:w-6 md:h-6" /></a>
+            <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaLinkedin className="w-5 h-5 md:w-6 md:h-6" /></a>
+            <a href="https://x.com/0xseifo" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaXTwitter className="w-5 h-5 md:w-6 md:h-6" /></a>
+            <Link to="/contact" className="text-gray-600 hover:text-black" aria-label="Contact"><FaEnvelope className="w-5 h-5 md:w-6 md:h-6" /></Link>
+            <a href="https://seifotefa.com/resume" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black" aria-label="Resume"><FaRegFileAlt className="w-5 h-5 md:w-6 md:h-6" /></a>
           </div>
+          <p className="text-[0.85rem] md:text-[0.95rem] text-gray-600 leading-snug">
+            <Link to="/experience" className="underline underline-offset-2 hover:text-black">experience</Link>{' '}
+            <span className="mx-1">|</span>{' '}
+            <Link to="/projects" className="underline underline-offset-2 hover:text-black">projects</Link>{' '}
+            <span className="mx-1">|</span>{' '}
+            <Link to="/blog" className="underline underline-offset-2 hover:text-black">blog</Link>
+          </p>
+        </div>
       </div>
-    </>
+    </section>
   );
-}; 
+};

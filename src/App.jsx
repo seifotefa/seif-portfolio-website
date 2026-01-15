@@ -10,6 +10,13 @@ import { Resume } from './components/sections/Resume';
 import { HorizontalNav } from './components/HorizontalNav';
 import { Blog } from './components/sections/Blog';
 import { BlogPost } from './components/sections/BlogPost';
+import { Frontline } from './components/sections/blog/Frontline';
+import { MoVA } from './components/sections/blog/MoVA';
+import { CIP2025 } from './components/sections/blog/CIP2025';
+import { Jinsa } from './components/sections/blog/Jinsa';
+import { MEC2025 } from './components/sections/blog/MEC2025';
+import { ResuMock } from './components/sections/blog/ResuMock';
+import { SparkAndPrepper } from './components/sections/blog/SparkAndPrepper';
 
 // Wrapper component to conditionally show HorizontalNav
 const PageWrapper = ({ children }) => {
@@ -64,6 +71,13 @@ const App = () => {
             <Route path="/resume" element={<PageWrapper><Resume /></PageWrapper>} />
             <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
             <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
+            <Route path="/blog/frontline" element={<PageWrapper><Frontline /></PageWrapper>} />
+            <Route path="/blog/mova" element={<PageWrapper><MoVA /></PageWrapper>} />
+            <Route path="/blog/cip2025" element={<PageWrapper><CIP2025 /></PageWrapper>} />
+            <Route path="/blog/jinsa" element={<PageWrapper><Jinsa /></PageWrapper>} />
+            <Route path="/blog/mec2025" element={<PageWrapper><MEC2025 /></PageWrapper>} />
+            <Route path="/blog/resumock" element={<PageWrapper><ResuMock /></PageWrapper>} />
+            <Route path="/blog/sparkandprepper" element={<PageWrapper><SparkAndPrepper /></PageWrapper>} />
             <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
             <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
           </Routes>

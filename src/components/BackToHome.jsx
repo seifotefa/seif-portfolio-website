@@ -4,7 +4,7 @@ export const BackToHome = () => {
   return (
     <Link 
       to="/" 
-      className="fixed top-6 left-6 z-50 text-gray-400 hover:text-gray-600 transition-colors"
+      className="fixed top-6 left-6 z-[100] text-gray-400 hover:text-gray-600 transition-colors"
     >
       <svg 
         width="24" 
