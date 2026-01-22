@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 
@@ -18,6 +18,7 @@ function parseFrontmatterAndContent(md) {
 
 export const BlogPost = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = useState(null);
   const [notFound, setNotFound] = useState(false);
 
@@ -58,6 +59,25 @@ export const BlogPost = () => {
 
   return (
     <>
+      {/* Navigation Arrow - Back to Blog */}
+      <button
+        onClick={() => navigate('/blog')}
+        className="fixed top-6 left-6 z-[100] text-gray-500 hover:text-[#111111] transition-colors inline-flex items-center justify-center bg-transparent border-0 cursor-pointer"
+      >
+        <svg 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      
       <section className="scroll-mt-24 bg-[#fff] text-[#111] min-h-screen">
         <div className="max-w-2xl mx-auto px-6 md:px-12 pt-16 pb-16 mt-24 mb-12">
           <h1 className="text-5xl font-synonym font-light text-center mb-4" style={{ fontFamily: 'Synonym, monospace' }}>{post.title}</h1>

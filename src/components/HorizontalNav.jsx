@@ -50,26 +50,28 @@ export const HorizontalNav = () => {
         </div>
       </nav>
 
-      {/* Mobile Navigation - Back Arrow */}
-      <nav className="mobile:hidden fixed top-6 left-6 z-50">
-        <button
-          onClick={handleBackClick}
-          className="text-gray-500 hover:text-[#111111] transition-colors inline-flex items-center justify-center bg-transparent border-0 cursor-pointer"
-        >
-          <svg 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
+      {/* Mobile Navigation - Back Arrow (hidden on blog pages since they have their own arrows) */}
+      {!location.pathname.startsWith('/blog') && (
+        <nav className="mobile:hidden fixed top-6 left-6 z-[100]">
+          <button
+            onClick={handleBackClick}
+            className="text-gray-500 hover:text-[#111111] transition-colors inline-flex items-center justify-center bg-transparent border-0 cursor-pointer"
           >
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-        </button>
-      </nav>
+            <svg 
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+        </nav>
+      )}
     </>
   );
 }; 
