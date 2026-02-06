@@ -32,7 +32,8 @@ export const Home = () => {
                 </p>
                 <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] text-gray-600 leading-snug">
                     <Link to="/blog/mec2025" className="underline underline-offset-2 hover:text-black">macengcomp25 winner</Link>,{' '}
-                    <Link to="/blog/cip2025" className="underline underline-offset-2 hover:text-black">stanford code in place section leader</Link>
+                    <Link to="/blog/cip2025" className="underline underline-offset-2 hover:text-black">stanford code in place section leader</Link>, {' '}
+                    accenture student leader
                 </p>
                 <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4] text-gray-600 leading-snug">
                     prev. swe @ludera, product @mova
