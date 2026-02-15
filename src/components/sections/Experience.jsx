@@ -34,6 +34,27 @@ export const Experience = () => {
 
   const experiences = [
     {
+      date: "february 2026 - present",
+      title: "Accenture Student Leader",
+      company: "Accenture",
+      companyLink: "https://www.accenture.com/",
+      description: "Developing consulting and leadership skills through 1:1 mentorship with Accenture professionals and executive-led sessions focused on structured problem-solving and client strategy.",
+      highlights: [
+        "Developed consulting and leadership skills through 1:1 mentorship with Accenture professionals and executive-led sessions focused on structured problem-solving and client strategy."
+      ]
+    },
+    {
+      date: "october 2025 - january 2026",
+      title: "Software Engineer Intern",
+      company: "Ludera",
+      description: "Built an AI flashcard generation pipeline and semantic search system to convert diverse note formats into structured, context-aware study materials.",
+      highlights: [
+        "Built an AI flashcard generation pipeline using spaCy for NLP preprocessing, PyMuPDF for PDF and Markdown extraction, and Python for handling raw text, enabling conversion of diverse note formats into clean, structured data.",
+        "Implemented embeddings and semantic search using vector databases (pgvector) to store and retrieve chunked note sections, ensuring accurate context-aware flashcard generation.",
+        "Prototyped and tested lightweight open-source LLMs (7B–13B) from Hugging Face for Q&A generation, improving note-to-flashcard throughput to process 100+ chunks per hour while maintaining high-quality outputs."
+      ]
+    },
+    {
       date: "july 2025 - present",
       title: "Robotics Instructor",
       company: "O'Botz Robotics",
@@ -174,7 +195,11 @@ export const Experience = () => {
                                   <div className="flex items-baseline gap-2 mb-2 flex-wrap">
                                       <h4 className="text-lg font-medium text-black">{exp.title}</h4>
                                       <span className="text-gray-500">@</span>
-                                      <a href={exp.companyLink} target="_blank" rel="noreferrer" className="text-black hover:text-gray-600 underline text-base">{exp.company}</a>
+                                      {exp.companyLink ? (
+                                        <a href={exp.companyLink} target="_blank" rel="noreferrer" className="text-black hover:text-gray-600 underline text-base">{exp.company}</a>
+                                      ) : (
+                                        <span className="text-black text-base">{exp.company}</span>
+                                      )}
                                   </div>
                                   
                                   <p className="text-gray-600 text-xs leading-relaxed mb-2">{exp.description}</p>
