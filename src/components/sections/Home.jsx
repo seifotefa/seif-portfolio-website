@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
+import { WebringLinks } from '../WebringLinks'
 
 export const Home = () => {
     return (
@@ -23,6 +24,7 @@ export const Home = () => {
                     <a href="https://x.com/0xseifo" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaXTwitter className="w-7 h-7 md:w-9 md:h-9 lg:w-10 lg:h-10" /></a>
                     <Link to="/contact" className="text-gray-600 hover:text-black" aria-label="Contact"><FaEnvelope className="w-7 h-7 md:w-9 md:h-9 lg:w-10 lg:h-10" /></Link>
                     <a href="https://seifotefa.com/resume" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black" aria-label="Resume"><FaRegFileAlt className="w-7 h-7 md:w-9 md:h-9 lg:w-10 lg:h-10" /></a>
+                    <WebringLinks variant="inline" />
                 </div>
                 <p className="text-[1.35rem] md:text-[1.425rem] lg:text-[1.575rem] text-gray-600 leading-snug">
                     full-stack developer, robotics instructor, studying computer science @mcmasteru

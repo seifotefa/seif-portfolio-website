@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
+import { WebringLinks } from '../WebringLinks';
 
 export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -107,6 +108,7 @@ export const Contact = () => {
                   <Link to="/contact" className="text-gray-600 hover:text-black" aria-label="Contact"><FaEnvelope className="w-5 h-5 md:w-6 md:h-6" /></Link>
                   <a href="https://seifotefa.com/resume" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black" aria-label="Resume"><FaRegFileAlt className="w-5 h-5 md:w-6 md:h-6" /></a>
               </div>
+              <WebringLinks variant="footer" />
               <p className="text-[0.85rem] md:text-[0.95rem] text-gray-600 leading-snug">
                   <Link to="/experience" className="underline underline-offset-2 hover:text-black">experience</Link>{' '}
                   <span className="mx-1">|</span>{' '}
