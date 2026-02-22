@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { WebringLinks } from '../WebringLinks';
 import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 export const Blog = () => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('date-desc');
 
@@ -42,7 +43,7 @@ export const Blog = () => {
       image: "/assets/jinsalogo.png"
     },
     {
-      title: "Project Phoenix",
+      title: "Project Phoenix (McMaster Engineering Competition 2025)",
       date: "2025-11-27",
       summary: "First place consulting solution focused on the future of healthcare in Canada.",
       category: "Competition",
@@ -79,6 +80,25 @@ export const Blog = () => {
 
   return (
     <section id="blog" className="min-h-screen bg-white text-gray-700 pt-24 pb-32 px-8 md:px-16">
+      {/* Navigation Arrow - Back to Home */}
+      <button
+        onClick={() => navigate('/')}
+        className="fixed top-6 left-6 z-[100] text-gray-500 hover:text-[#111111] transition-colors inline-flex items-center justify-center bg-transparent border-0 cursor-pointer"
+      >
+        <svg 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl font-light text-center mb-6 text-black">Blog</h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">

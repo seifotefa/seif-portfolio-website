@@ -16,7 +16,10 @@ export const Home = () => {
             </div>
 
             {/* Name + social icons bottom-left + 3-line tagline */}
-            <div className="fixed left-4 bottom-4 md:left-10 md:bottom-10 lg:left-16 lg:bottom-16 z-50 flex flex-col items-start gap-3 md:gap-4 lg:gap-5 text-gray-700">
+            <div 
+                className="fixed left-4 bottom-4 md:left-10 md:bottom-10 lg:left-16 lg:bottom-16 z-50 flex flex-col items-start gap-3 md:gap-4 lg:gap-5 text-gray-700 origin-bottom-left"
+                style={{ transform: 'scale(0.8)' }}
+            >
                 <div className="flex items-center gap-4 md:gap-6 lg:gap-7">
                     <Link to="/about" className="font-medium text-[1.65rem] md:text-[1.95rem] lg:text-[2.25rem] underline underline-offset-2">Seif Otefa</Link>
                     <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaGithub className="w-7 h-7 md:w-9 md:h-9 lg:w-10 lg:h-10" /></a>
@@ -29,14 +32,15 @@ export const Home = () => {
                 <p className="text-[1.35rem] md:text-[1.425rem] lg:text-[1.575rem] text-gray-600 leading-snug">
                     full-stack developer, robotics instructor, studying computer science @mcmasteru
                 </p>
-                <p className="text-[1.35rem] md:text-[1.425rem] lg:text-[1.575rem] text-gray-600 leading-snug">
+                <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] text-gray-600 leading-snug">
                     <Link to="/blog/mec2025" className="underline underline-offset-2 hover:text-black">macengcomp25 winner</Link>,{' '}
-                    <Link to="/blog/cip2025" className="underline underline-offset-2 hover:text-black">stanford code in place section leader</Link>
+                    <Link to="/blog/cip2025" className="underline underline-offset-2 hover:text-black">stanford code in place section leader</Link>, {' '}
+                    accenture student leader
                 </p>
-                <p className="text-[1.35rem] md:text-[1.425rem] lg:text-[1.575rem] text-gray-600 leading-snug">
+                <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4] text-gray-600 leading-snug">
                     prev. swe @ludera, product @mova
                 </p>
-                <p className="text-[1.35rem] md:text-[1.425rem] lg:text-[1.575rem] text-gray-600 leading-snug">
+                <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] text-gray-600 leading-snug">
                     <Link to="/experience" className="underline underline-offset-2 hover:text-black">experience</Link>{' '}
                     <span className="mx-1">|</span>{' '}
                     <Link to="/projects" className="underline underline-offset-2 hover:text-black">projects</Link>{' '}

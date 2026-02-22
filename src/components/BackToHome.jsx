@@ -1,10 +1,22 @@
-import { Link } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export const BackToHome = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isBlogPost = location.pathname.startsWith('/blog/') && location.pathname !== '/blog';
+  
+  const handleClick = () => {
+    if (isBlogPost) {
+      navigate('/blog');
+    } else {
+      navigate('/');
+    }
+  };
+
   return (
-    <Link 
-      to="/" 
-      className="fixed top-6 left-6 z-[100] text-gray-400 hover:text-gray-600 transition-colors"
+    <button
+      onClick={handleClick}
+      className="fixed top-6 left-6 z-[100] text-gray-500 hover:text-[#111111] transition-colors inline-flex items-center justify-center bg-transparent border-0 cursor-pointer"
     >
       <svg 
         width="24" 
@@ -16,8 +28,8 @@ export const BackToHome = () => {
         strokeLinecap="round" 
         strokeLinejoin="round"
       >
-        <polyline points="15,18 9,12 15,6" />
+        <polyline points="15 18 9 12 15 6" />
       </svg>
-    </Link>
+    </button>
   )
 } 

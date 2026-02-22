@@ -13,7 +13,7 @@ export const MEC2025 = () => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-light text-black mb-4">Project Phoenix</h1>
+            <h1 className="text-4xl md:text-5xl font-light text-black mb-4">Project Phoenix (McMaster Engineering Competition 2025)</h1>
             <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
               <span>November 27, 2025</span>
               <span>•</span>
@@ -66,7 +66,7 @@ export const MEC2025 = () => {
             <h2 className="text-3xl font-light text-black mb-6">The Challenge</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Competitions like MEC consulting don't just test knowledge—they test adaptability.
+                Competitions like he McMaster Engineering Competition don't just test knowledge—they test adaptability.
               </p>
               <p>
                 We were given limited time to research the current state of Canada's healthcare system, diagnose the structural issues, and propose a forward-looking strategy that was realistic, data-driven, and actionable.
