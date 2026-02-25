@@ -92,6 +92,7 @@ export const useGSAP = () => {
   };
 
   const staggerChildren = (stagger = 0.1, delay = 0) => {
+    if (!elementRef.current?.children?.length) return;
     return gsap.fromTo(
       elementRef.current.children,
       {

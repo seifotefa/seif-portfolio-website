@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FiExternalLink } from 'react-icons/fi';
 import { useGSAP } from '../hooks/useGSAP';
 
-export const ExperienceCard = ({ date, title, company, description, logo, skills, companyLink = "#", highlights = [], articleLink = null }) => {
+export const ExperienceCard = ({ date, title, company, description, logo, skills = [], companyLink = "#", highlights = [], articleLink = null }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const { elementRef: cardRef, scaleIn, hoverScale } = useGSAP();
     const { elementRef: highlightsRef, fadeInUp } = useGSAP();
@@ -30,7 +30,7 @@ export const ExperienceCard = ({ date, title, company, description, logo, skills
           <div className="flex flex-col sm:flex-row sm:items-start sm:gap-4 mb-4">
             {/* Logo (desktop only) */}
             <div className="hidden sm:block flex-shrink-0">
-              <img src={logo} alt="Company logo" className="h-10 max-w-[60px] object-contain" />
+              {logo && <img src={logo} alt="Company logo" className="h-10 max-w-[60px] object-contain" />}
             </div>
   
             {/* Content */}

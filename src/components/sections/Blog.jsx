@@ -11,6 +11,14 @@ export const Blog = () => {
 
   const blogPosts = [
     {
+      title: "OEC 2026 — Carleton",
+      date: "2026-02-24",
+      summary: "Representing McMaster at the Ontario Engineering Competition in Ottawa after winning MEC consulting. Aerospace-themed challenge on cleaning up debris in LEO.",
+      category: "Competition",
+      link: "/blog/oec2026",
+      image: "/assets/Screenshot 2026-02-24 235121.png"
+    },
+    {
       title: "Frontline",
       date: "2026-01-11",
       summary: "AI-powered emergency triage system using camera-based vitals monitoring and real-time injury detection.",
@@ -143,8 +151,8 @@ export const Blog = () => {
             >
               {post.image && (
                 <div className="mb-4 overflow-hidden">
-                  <img 
-                    src={post.image} 
+                  <img
+                    src={post.image.includes(' ') ? encodeURI(post.image) : post.image}
                     alt={post.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />

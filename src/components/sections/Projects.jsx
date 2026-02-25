@@ -17,6 +17,13 @@ export const Projects = () => {
       articleLink: "/blog/frontline",
     },
     {
+      name: "Notipply",
+      description: "A job alert service that sends real-time text notifications directly to your phone when new positions matching your preferences are posted. Get tailored job alerts within seconds so you can be among the first to apply.",
+      tech: ["Web", "Full-stack", "Notifications"],
+      category: "personal",
+      github: "https://www.notipply.com/",
+    },
+    {
       name: "Project Phoenix (MEC 2025)",
       description: "Winning McMaster Engineering Competition consulting solution (1st place) focused on the future of healthcare in Canada.",
       tech: ["Consulting", "Report Writing", "Research"],

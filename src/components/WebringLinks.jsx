@@ -27,12 +27,12 @@ export const WebringLinks = ({ variant = "footer" }) => {
           rel="noopener noreferrer"
           title="McMaster CS & SE Webring"
           style={{ lineHeight: 0 }}
-          className={linkClass}
+          className={`${linkClass} shrink-0`}
         >
           <img
             src={WEBRING_LOGO}
             alt="McMaster CS & SE Webring"
-            className="h-7 w-auto md:h-9 lg:h-10 block"
+            className="h-7 w-auto md:h-9 lg:h-10 block object-contain grayscale"
           />
         </a>
         <a
@@ -61,14 +61,14 @@ export const WebringLinks = ({ variant = "footer" }) => {
       </a>
       <a
         href={WEBRING_URL}
-        className={linkClass}
+        className={`${linkClass} shrink-0`}
         title="McMaster CS & SE Webring"
         style={{ lineHeight: 0 }}
       >
         <img
           src={WEBRING_LOGO}
           alt="McMaster CS & SE Webring"
-          className="h-6 w-auto block"
+          className="h-6 w-auto min-w-0 block object-contain grayscale"
         />
       </a>
       <a

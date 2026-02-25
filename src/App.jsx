@@ -15,6 +15,7 @@ import { MoVA } from './components/sections/blog/MoVA';
 import { CIP2025 } from './components/sections/blog/CIP2025';
 import { Jinsa } from './components/sections/blog/Jinsa';
 import { MEC2025 } from './components/sections/blog/MEC2025';
+import { OEC2026 } from './components/sections/blog/OEC2026';
 import { ResuMock } from './components/sections/blog/ResuMock';
 import { SparkAndPrepper } from './components/sections/blog/SparkAndPrepper';
 
@@ -76,6 +77,7 @@ const App = () => {
             <Route path="/blog/cip2025" element={<PageWrapper><CIP2025 /></PageWrapper>} />
             <Route path="/blog/jinsa" element={<PageWrapper><Jinsa /></PageWrapper>} />
             <Route path="/blog/mec2025" element={<PageWrapper><MEC2025 /></PageWrapper>} />
+            <Route path="/blog/oec2026" element={<PageWrapper><OEC2026 /></PageWrapper>} />
             <Route path="/blog/resumock" element={<PageWrapper><ResuMock /></PageWrapper>} />
             <Route path="/blog/sparkandprepper" element={<PageWrapper><SparkAndPrepper /></PageWrapper>} />
             <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
