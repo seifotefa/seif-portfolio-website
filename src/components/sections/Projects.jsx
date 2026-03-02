@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-import { FiExternalLink, FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
-import { WebringLinks } from '../WebringLinks';
+import React from 'react';
+import { FiExternalLink } from 'react-icons/fi';
+import { BottomBar } from '../BottomBar';
 
 export const Projects = () => {
   const projectlist = [
@@ -19,9 +16,16 @@ export const Projects = () => {
     {
       name: "Notipply",
       description: "A job alert service that sends real-time text notifications directly to your phone when new positions matching your preferences are posted. Get tailored job alerts within seconds so you can be among the first to apply.",
-      tech: ["Web", "Full-stack", "Notifications"],
+      tech: ["Go", "Stripe", "Twillio", "Clerk"],
       category: "personal",
       github: "https://www.notipply.com/",
+    },
+    {
+      name: "McMaster Webring",
+      description: "Building a network of the most cracked founders, builders and engineers at Mac.",
+      tech: ["Web", "Full-stack"],
+      category: "personal",
+      github: "https://www.mcmasterwebring.xyz/",
     },
     {
       name: "Project Phoenix (MEC 2025)",
@@ -64,118 +68,81 @@ export const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111]">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 pt-4 pb-8 mt-16 mb-12 text-center">
-      <h2
-        className="text-4xl font-light mb-8"
-        style={{ fontFamily: "'Synonym', monospace" }}
-      >
-        Projects
-      </h2>
+    <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111] pb-32">
+      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-16 mt-24 mb-12">
+        <h2
+          className="text-5xl font-synonym font-light text-center mb-6"
+          style={{ fontFamily: "'Synonym', monospace" }}
+        >
+          Projects
+        </h2>
 
-        <div className="flex flex-col items-center gap-6 mb-8">
-          <div className="flex flex-col gap-6 w-full">
-            {projectlist.map((project, index) => (
-              <div 
-                key={index} 
-                className="bg-gray-50 border border-gray-300 p-4 text-left w-full overflow-hidden"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-start gap-2 mb-2">
-                  <h3 className="text-lg font-medium text-black break-words">{project.name}</h3>
-                  {project.competition && (
-                    <span
-                      className={`text-xs font-semibold px-2 py-1 border shrink-0 inline-block max-w-full break-words ${
-                        project.competition.winner
-                          ? "bg-[#fef3c7] border-[#fbbf24] text-[#92400e]"
-                          : "bg-[#e5e7eb] border-[#6b7280] text-[#374151]"
-                      }`}
-                    >
-                      {project.competition.type}
-                    </span>
-                  )}
-                </div>
-                
-                <p className="text-gray-600 mb-2 text-xs leading-relaxed">{project.description}</p>
-                
-                <div className="flex items-center gap-3 flex-wrap">
-                  {project.articleLink && (
-                    <a
-                      href={project.articleLink}
-                      className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-black underline underline-offset-2 transition whitespace-nowrap"
-                    >
-                      Read more
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  )}
+        <div className="flex flex-col items-center gap-3 max-w-2xl mx-auto w-full pb-8">
+          {projectlist.map((project, index) => (
+            <div
+              key={index}
+              className="w-full max-w-2xl bg-[#f8f8f8] border border-[#e5e5e5] rounded-lg p-4"
+            >
+              {/* Row 1: Name + Link .............. competition (no icon) */}
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 flex-shrink-0">
+                  <p className="text-sm font-semibold text-[#111]">{project.name}</p>
                   {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-black underline underline-offset-2 transition whitespace-nowrap"
+                      className="text-gray-400 hover:text-[#111] transition-colors"
+                      aria-label={`Open ${project.name}`}
                     >
-                      {project.github.includes('github.com') ? (
-                        <>
-                          GitHub
-                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                          </svg>
-                        </>
-                      ) : (
-                        <>
-                          Demo
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
-                        </>
-                      )}
+                      <FiExternalLink className="w-4 h-4" />
                     </a>
                   )}
                 </div>
+                <div className="flex-1 min-w-0" />
+                {project.competition && (
+                  <span
+                    className={`flex-shrink-0 text-xs font-semibold px-2 py-1 rounded border ${
+                      project.competition.winner
+                        ? "bg-[#fef3c7] border-[#fbbf24] text-[#92400e]"
+                        : "bg-[#e5e7eb] border-[#d1d5db] text-[#374151]"
+                    }`}
+                  >
+                    {project.competition.type}
+                  </span>
+                )}
               </div>
-            ))}
-            
-            {/* View all projects on GitHub link */}
-            <div className="mt-2 text-center">
-              <a
-                href="https://github.com/seifotefa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-black underline underline-offset-2 transition"
-              >
-                View all projects on GitHub
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-              </a>
+
+              {/* Row 2: Description .............. Article (same line to avoid bottom white space) */}
+              <div className="flex items-center gap-2 mt-1">
+                <p className="text-xs text-gray-600 flex-1 min-w-0 leading-relaxed line-clamp-2">{project.description}</p>
+                {project.articleLink && (
+                  <a
+                    href={project.articleLink}
+                    className="text-xs text-gray-500 hover:text-[#111] underline underline-offset-1 flex-shrink-0"
+                  >
+                    Article
+                  </a>
+                )}
+              </div>
             </div>
+          ))}
+
+          <div className="mt-4">
+            <a
+              href="https://github.com/seifotefa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#111] underline underline-offset-2 transition"
+            >
+              View all projects on GitHub
+              <FiExternalLink className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>
-      
-      {/* Bottom footer bar */}
-      <div className="fixed left-0 right-0 bottom-0 z-50 bg-white border-t border-gray-200 px-4 py-3 md:px-8 md:py-4">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-4">
-              <div className="flex items-center gap-3 md:gap-5">
-                  <Link to="/about" className="font-medium text-[1rem] md:text-[1.25rem] underline underline-offset-2">Seif Otefa</Link>
-                  <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaGithub className="w-5 h-5 md:w-6 md:h-6" /></a>
-                  <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaLinkedin className="w-5 h-5 md:w-6 md:h-6" /></a>
-                  <a href="https://x.com/0xseifo" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaXTwitter className="w-5 h-5 md:w-6 md:h-6" /></a>
-                  <Link to="/contact" className="text-gray-600 hover:text-black" aria-label="Contact"><FaEnvelope className="w-5 h-5 md:w-6 md:h-6" /></Link>
-                  <a href="https://seifotefa.com/resume" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black" aria-label="Resume"><FaRegFileAlt className="w-5 h-5 md:w-6 md:h-6" /></a>
-              </div>
-              <WebringLinks variant="footer" />
-              <p className="text-[0.85rem] md:text-[0.95rem] text-gray-600 leading-snug">
-                  <Link to="/experience" className="underline underline-offset-2 hover:text-black">experience</Link>{' '}
-                  <span className="mx-1">|</span>{' '}
-                  <Link to="/projects" className="underline underline-offset-2 hover:text-black">projects</Link>{' '}
-                  <span className="mx-1">|</span>{' '}
-                  <Link to="/blog" className="underline underline-offset-2 hover:text-black">blog</Link>
-              </p>
-          </div>
-      </div>
+
+      <BottomBar />
     </section>
   );
 };

@@ -34,19 +34,18 @@ export const Home = () => {
                     <a href="https://backboard.io" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-black">@backboard.io</a>, robotics instructor, studying computer science @mcmasteru
                 </p>
                 <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] text-gray-600 leading-snug">
+                    prev. swe @ludera, product @mova ·{' '}
                     <Link to="/blog/mec2025" className="underline underline-offset-2 hover:text-black">macengcomp25 winner</Link>,{' '}
-                    <Link to="/blog/cip2025" className="underline underline-offset-2 hover:text-black">stanford code in place section leader</Link>, {' '}
-                    accenture student leader
-                </p>
-                <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4] text-gray-600 leading-snug">
-                    prev. swe @ludera, product @mova
+                    <Link to="/blog/cip2025" className="underline underline-offset-2 hover:text-black">stanford code in place section leader</Link>, accenture student leader
                 </p>
                 <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] text-gray-600 leading-snug">
                     <Link to="/experience" className="underline underline-offset-2 hover:text-black">experience</Link>{' '}
                     <span className="mx-1">|</span>{' '}
                     <Link to="/projects" className="underline underline-offset-2 hover:text-black">projects</Link>{' '}
                     <span className="mx-1">|</span>{' '}
-                    <Link to="/blog" className="underline underline-offset-2 hover:text-black">blog</Link>
+                    <Link to="/blog" className="underline underline-offset-2 hover:text-black">blog</Link>{' '}
+                    <span className="mx-1">|</span>{' '}
+                    <Link to="/links" className="underline underline-offset-2 hover:text-black">links</Link>
                 </p>
             </div>
         </section>

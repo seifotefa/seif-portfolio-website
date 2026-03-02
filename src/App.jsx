@@ -18,6 +18,7 @@ import { MEC2025 } from './components/sections/blog/MEC2025';
 import { OEC2026 } from './components/sections/blog/OEC2026';
 import { ResuMock } from './components/sections/blog/ResuMock';
 import { SparkAndPrepper } from './components/sections/blog/SparkAndPrepper';
+import { Links } from './components/sections/Links';
 
 // Wrapper component to conditionally show HorizontalNav
 const PageWrapper = ({ children }) => {
@@ -82,6 +83,7 @@ const App = () => {
             <Route path="/blog/sparkandprepper" element={<PageWrapper><SparkAndPrepper /></PageWrapper>} />
             <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
             <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+            <Route path="/links" element={<Links />} />
           </Routes>
         </div>
         {/* Footer removed - site uses compact layout with bottom-left name/logos on Home */}
