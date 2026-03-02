@@ -30,13 +30,8 @@ export const Home = () => {
                     <WebringLinks variant="inline" />
                 </div>
                 <p className="text-[1.35rem] md:text-[1.425rem] lg:text-[1.575rem] text-gray-600 leading-snug">
-                    incoming swe{' '}
-                    <a href="https://backboard.io" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-black">@backboard.io</a>, robotics instructor, studying computer science @mcmasteru
-                </p>
-                <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] text-gray-600 leading-snug">
-                    prev. swe @ludera, product @mova ·{' '}
-                    <Link to="/blog/mec2025" className="underline underline-offset-2 hover:text-black">macengcomp25 winner</Link>,{' '}
-                    <Link to="/blog/cip2025" className="underline underline-offset-2 hover:text-black">stanford code in place section leader</Link>, accenture student leader
+                    i build ai memory infrastructure and open source tooling{' '}
+                    <a href="https://backboard.io" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-black">@backboard.io</a>, study cs and innovation <a href="https://www.eng.mcmaster.ca/cas/degree-options/computer-science/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-black">@mcmasteru</a>, and teach robotics to kids
                 </p>
                 <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] text-gray-600 leading-snug">
                     <Link to="/experience" className="underline underline-offset-2 hover:text-black">experience</Link>{' '}

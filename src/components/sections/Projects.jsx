@@ -84,15 +84,15 @@ export const Projects = () => {
               className="w-full max-w-2xl bg-[#f8f8f8] border border-[#e5e5e5] rounded-lg p-4"
             >
               {/* Row 1: Name + Link .............. competition (no icon) */}
-              <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1.5 flex-shrink-0">
-                  <p className="text-sm font-semibold text-[#111]">{project.name}</p>
+              <div className="flex flex-wrap items-center gap-2 gap-y-1">
+                <div className="flex items-center gap-1.5 min-w-0 flex-shrink-0">
+                  <p className="text-sm font-semibold text-[#111] truncate">{project.name}</p>
                   {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-[#111] transition-colors"
+                      className="text-gray-400 hover:text-[#111] transition-colors flex-shrink-0"
                       aria-label={`Open ${project.name}`}
                     >
                       <FiExternalLink className="w-4 h-4" />
@@ -102,7 +102,7 @@ export const Projects = () => {
                 <div className="flex-1 min-w-0" />
                 {project.competition && (
                   <span
-                    className={`flex-shrink-0 text-xs font-semibold px-2 py-1 rounded border ${
+                    className={`shrink min-w-0 max-w-full text-xs font-semibold px-2 py-1 rounded border break-words ${
                       project.competition.winner
                         ? "bg-[#fef3c7] border-[#fbbf24] text-[#92400e]"
                         : "bg-[#e5e7eb] border-[#d1d5db] text-[#374151]"
