@@ -34,18 +34,18 @@ export const Contact = () => {
         className="scroll-mt-24 bg-[#fff] text-[#111] mb-20 md:mb-0"
       >
         <div className="max-w-4xl mx-auto px-6 md:px-12 py-20 text-center mt-32">
-          <h2 className="text-5xl font-synonym font-light text-center mb-6" style={{ fontFamily: 'Synonym, monospace' }}>Let's Build Something</h2>
+          <h2 className="text-5xl font-synonym font-light text-center mb-6" style={{ fontFamily: 'Synonym, monospace' }}>let's build something</h2>
           <p className="mb-8 text-gray-400 text-lg">
             if you want to work with me, or have any inquiries, please send me a message and i will get back to you soon.
           </p>
 
           {submitted ? (
-              <p className="text-green-400 text-lg">Thanks! Your message has been sent.</p>
+              <p className="text-green-400 text-lg">thanks! your message has been sent.</p>
               ) : error ? (
               <div className="text-red-400 text-sm">
-                  <p className="mb-2">Sorry, this form has reached capacity.</p>
+                  <p className="mb-2">sorry, this form has reached capacity.</p>
                   <p>
-                  Please contact me directly at{" "}
+                  please contact me directly at{" "}
                   <a
                       href="mailto:seifotefa@gmail.com"
                       className="underline text-[#111111] hover:text-[#666666]"
@@ -59,21 +59,21 @@ export const Contact = () => {
                   <input
                   type="text"
                   name="name"
-                  placeholder="Your Name"
+                  placeholder="your name"
                   required
                   className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#111111]"
                   />
                   <input
                   type="email"
                   name="email"
-                  placeholder="Your Email"
+                  placeholder="your email"
                   required
                   className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#111111]"
                   />
                   <textarea
                   name="message"
                   rows="5"
-                  placeholder="What's up?"
+                  placeholder="what's up?"
                   required
                   className="w-full bg-[#f3f3f3] border border-[#e5e5e5] text-[#111] px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#111111]"
                   ></textarea>
@@ -86,7 +86,7 @@ export const Contact = () => {
                       : "bg-[#111111] hover:bg-[#333333]"
                   } text-white font-medium py-3 px-6 rounded-md transition`}
                   >
-                  Send
+                  send
                   </button>
               </form>
               )}

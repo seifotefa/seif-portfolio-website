@@ -11,70 +11,78 @@ export const Blog = () => {
     {
       title: "OEC 2026 — Carleton",
       date: "2026-02-24",
+      displayDate: "winter '26",
       summary: "Representing McMaster at the Ontario Engineering Competition in Ottawa after winning MEC consulting. Aerospace-themed challenge on cleaning up debris in LEO.",
-      category: "Competition",
+      category: "competition",
       link: "/blog/oec2026",
       image: "/assets/Screenshot 2026-02-24 235121.png"
     },
     {
       title: "Frontline",
       date: "2026-01-11",
+      displayDate: "winter '26",
       summary: "AI-powered emergency triage system using camera-based vitals monitoring and real-time injury detection.",
-      category: "Project",
+      category: "project",
       link: "/blog/frontline",
       image: "/assets/frontline.png"
     },
     {
       title: "MoVA Realities",
       date: "2025-03-01",
+      displayDate: "spring '25",
       summary: "Requirements analysis, system architecture and design for AI-powered VR platform MVP.",
-      category: "Experience",
+      category: "experience",
       link: "/blog/mova",
       image: "/assets/mova.png"
     },
     {
       title: "Code in Place",
       date: "2025-06-24",
+      displayDate: "summer '25",
       summary: "Teaching programming fundamentals to 15+ students as a Stanford section leader.",
-      category: "Experience",
+      category: "experience",
       link: "/blog/cip2025",
       image: "/assets/cipclassphoto.png"
     },
     {
       title: "Jinsa",
       date: "2025-10-14",
+      displayDate: "fall '25",
       summary: "Blockchain-based product authentication platform from hackathon to accelerator.",
-      category: "Project",
+      category: "project",
       link: "/blog/jinsa",
       image: "/assets/jinsalogo.png"
     },
     {
       title: "Project Phoenix (McMaster Engineering Competition 2025)",
       date: "2025-11-27",
+      displayDate: "fall '25",
       summary: "First place consulting solution focused on the future of healthcare in Canada.",
-      category: "Competition",
+      category: "competition",
       link: "/blog/mec2025",
       image: "/assets/mec1.JPG"
     },
     {
       title: "ResuMock",
       date: "2025-11-06",
+      displayDate: "fall '25",
       summary: "AI-powered mock interview coach generating tailored behavioral questions from resumes.",
-      category: "Project",
+      category: "project",
       link: "/blog/resumock",
       image: "/assets/resumock.png"
     },
     {
       title: "Spark and Prepper",
       date: "2025-02-02",
+      displayDate: "winter '25",
       summary: "AI study platform turning notes into guides, flashcards, exams, and an AI tutor.",
-      category: "Project",
+      category: "project",
       link: "/blog/sparkandprepper",
       image: "/assets/sparkandprepper.png"
     }
   ];
 
-  const categories = ['all', 'Project', 'Experience', 'Competition'];
+  const categories = ['all', 'project', 'experience', 'competition'];
 
   const filteredPosts = blogPosts
     .filter(post => selectedCategory === 'all' || post.category === selectedCategory)
@@ -106,9 +114,9 @@ export const Blog = () => {
       </button>
       
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl font-light text-center mb-6 text-black">Blog</h2>
+        <h2 className="text-4xl font-light text-center mb-6 text-black">blog</h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Projects, experiences, and learnings from competitions and internships.
+          projects, experiences, and learnings from competitions and internships.
         </p>
 
         {/* Filters */}
@@ -124,7 +132,7 @@ export const Blog = () => {
                     : 'bg-gray-50 text-gray-700 border-gray-300 hover:bg-gray-100'
                 }`}
               >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
+                {category}
               </button>
             ))}
           </div>
@@ -134,8 +142,8 @@ export const Blog = () => {
             onChange={(e) => setSortBy(e.target.value)}
             className="px-4 py-2 border border-gray-300 bg-gray-50 text-gray-700 text-sm"
           >
-            <option value="date-desc">Newest First</option>
-            <option value="date-asc">Oldest First</option>
+            <option value="date-desc">newest first</option>
+            <option value="date-asc">oldest first</option>
           </select>
         </div>
 
@@ -162,11 +170,7 @@ export const Blog = () => {
                   {post.category}
                 </span>
                 <span className="text-xs text-gray-500">
-                  {new Date(post.date).toLocaleDateString('en-US', { 
-                    month: 'short', 
-                    day: 'numeric', 
-                    year: 'numeric' 
-                  })}
+                  {post.displayDate}
                 </span>
               </div>
 
@@ -183,7 +187,7 @@ export const Blog = () => {
 
         {filteredPosts.length === 0 && (
           <div className="text-center py-12 text-gray-500">
-            No posts found in this category.
+            no posts found in this category.
           </div>
         )}
       </div>

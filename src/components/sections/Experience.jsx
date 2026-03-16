@@ -2,10 +2,10 @@ import React from "react";
 import { ExperienceCard } from "../ExperienceCard";
 import { BottomBar } from '../BottomBar';
 
-export const Experience = () => {
+export const Experience = ({ showBottomBar = true, embedded = false }) => {
   const experiences = [
     {
-      date: "summer 2026",
+      date: "summer '26",
       title: "Founding Intern (Summer '26)",
       company: "Backboard",
       companyLink: "https://backboard.io",
@@ -13,7 +13,7 @@ export const Experience = () => {
       logo: "/assets/backboard_io_logo.jpg",
     },
     {
-      date: "february 2026 - present",
+      date: "winter '26 – present",
       title: "Accenture Student Leader",
       company: "Accenture",
       companyLink: "https://www.accenture.com/",
@@ -21,7 +21,7 @@ export const Experience = () => {
       logo: "/assets/accenture.png",
     },
     {
-      date: "october 2025 - january 2026",
+      date: "winter '26",
       title: "Software Engineer Intern",
       company: "Ludera",
       companyLink: null,
@@ -29,7 +29,7 @@ export const Experience = () => {
       logo: "/assets/luderalearning_logo.jpg",
     },
     {
-      date: "july 2025 - september 2025",
+      date: "summer '25",
       title: "Teaching Assistant",
       company: "Stanford University",
       companyLink: "https://codeinplace.stanford.edu/",
@@ -38,7 +38,7 @@ export const Experience = () => {
       articleLink: "/blog/cip2025",
     },
     {
-      date: "march 2025 - may 2025",
+      date: "spring '25",
       title: "Product Manager Intern",
       company: "MoVA Realities",
       companyLink: "https://www.movarts.com/",
@@ -46,7 +46,7 @@ export const Experience = () => {
       logo: "/assets/mova-logo.png",
     },
     {
-      date: "september 2024 - present",
+      date: "fall '24 – present",
       title: "Honours Computer Science (Co-op)",
       company: "McMaster University",
       companyLink: "https://future.mcmaster.ca/programs/computer-science/",
@@ -57,10 +57,10 @@ export const Experience = () => {
 
   return (
     <>
-    <section id="experience" className="bg-[#fff] scroll-mt-24 text-[#111] flex flex-col justify-center pb-32">
-              <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-16 mt-24 mb-12">
+    <section id="experience" className="bg-[#fff] scroll-mt-24 text-[#111] flex flex-col justify-center pb-16 md:pb-24">
+              <div className={`max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-16 ${embedded ? 'mt-8 mb-8 md:mt-12 md:mb-12' : 'mt-24 mb-12'}`}>
                   {/* Experience Header */}
-                  <h2 className="text-5xl font-synonym font-light text-center mb-6" style={{ fontFamily: 'Synonym, monospace' }}>Experience</h2>
+                  <h2 className="text-5xl font-synonym font-light text-center mb-6" style={{ fontFamily: 'Synonym, monospace' }}>experience</h2>
 
         <div className="flex flex-col items-center gap-3 max-w-2xl mx-auto w-full pb-8">
           {experiences.map((exp, index) => (
@@ -70,7 +70,7 @@ export const Experience = () => {
       </div>
     </section>
 
-    <BottomBar />
+    {showBottomBar && <BottomBar />}
     </>
   );
 };

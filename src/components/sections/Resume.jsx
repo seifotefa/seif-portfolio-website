@@ -33,14 +33,14 @@ export const Resume = () => {
           {/* Header */}
           <div className="mb-6 text-center">
             <h1 className="text-4xl sm:text-5xl font-synonym font-light mb-4" style={{ fontFamily: 'Synonym, monospace' }}>
-              Resume
+              resume
             </h1>
             <div className="flex justify-center items-center gap-4">
               <a 
                 href={pdfUrl} 
                 download="SeifOtefaResume.pdf"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-[#f3f3f3] text-[#111] border border-[#e5e5e5] rounded-lg hover:shadow-md transition-all duration-200 text-sm font-medium"
-                title="Download Resume PDF"
+                title="download resume PDF"
               >
                 <svg 
                   className="w-4 h-4" 
@@ -55,7 +55,7 @@ export const Resume = () => {
                     d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
                   />
                 </svg>
-                Download PDF
+                download PDF
               </a>
             </div>
           </div>
@@ -65,7 +65,7 @@ export const Resume = () => {
             <iframe 
               src={`${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1&view=FitH`}
               className="w-full h-full border-0"
-              title="Resume PDF"
+              title="resume PDF"
             />
           </div>
         </div>

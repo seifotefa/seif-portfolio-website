@@ -46,7 +46,7 @@ export const ExperienceCard = ({ date, title, company, description, logo, compan
               href={articleLink}
               className="text-sm text-gray-500 hover:text-[#111] underline underline-offset-1 flex-shrink-0"
             >
-              Article
+              article
             </a>
           )}
         </div>

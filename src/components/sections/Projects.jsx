@@ -2,7 +2,7 @@ import React from 'react';
 import { FiExternalLink } from 'react-icons/fi';
 import { BottomBar } from '../BottomBar';
 
-export const Projects = () => {
+export const Projects = ({ showBottomBar = true, embedded = false }) => {
   const projectlist = [
     {
       name: "Frontline",
@@ -68,13 +68,13 @@ export const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111] pb-32">
-      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-16 mt-24 mb-12">
+    <section id="projects" className="scroll-mt-24 bg-[#fff] text-[#111] pb-16 md:pb-24">
+      <div className={`max-w-4xl mx-auto px-6 md:px-12 pt-4 pb-16 ${embedded ? 'mt-8 mb-8 md:mt-12 md:mb-12' : 'mt-24 mb-12'}`}>
         <h2
           className="text-5xl font-synonym font-light text-center mb-6"
           style={{ fontFamily: "'Synonym', monospace" }}
         >
-          Projects
+          projects
         </h2>
 
         <div className="flex flex-col items-center gap-3 max-w-2xl mx-auto w-full pb-8">
@@ -121,7 +121,7 @@ export const Projects = () => {
                     href={project.articleLink}
                     className="text-xs text-gray-500 hover:text-[#111] underline underline-offset-1 flex-shrink-0"
                   >
-                    Article
+                    article
                   </a>
                 )}
               </div>
@@ -135,14 +135,14 @@ export const Projects = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#111] underline underline-offset-2 transition"
             >
-              View all projects on GitHub
+              view all projects on github
               <FiExternalLink className="w-4 h-4" />
             </a>
           </div>
         </div>
       </div>
 
-      <BottomBar />
+      {showBottomBar && <BottomBar />}
     </section>
   );
 };

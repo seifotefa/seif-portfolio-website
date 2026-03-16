@@ -21,8 +21,9 @@ export default {
         }
       },
       fontFamily: {
-        satoshi: [ 'sans-serif'],
+        satoshi: ['Satoshi', 'system-ui', 'sans-serif'],
         synonym: ['"Synonym"', 'monospace'],
+        jetbrains: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
     },
   },

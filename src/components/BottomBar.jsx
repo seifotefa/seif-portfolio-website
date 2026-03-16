@@ -5,10 +5,10 @@ import { WebringLinks } from './WebringLinks';
 
 export const BottomBar = () => {
   return (
-    <div className="fixed left-0 right-0 bottom-0 z-50 bg-white border-t border-gray-200 px-4 py-3 md:px-8 md:py-4">
+    <div className="fixed left-0 right-0 bottom-0 z-50 bg-white border-t border-gray-200 px-4 py-3 md:px-8 md:py-4 font-jetbrains">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-4">
         <div className="flex items-center gap-3 md:gap-5">
-          <Link to="/about" className="font-medium text-[1rem] md:text-[1.25rem] underline underline-offset-2">Seif Otefa</Link>
+          <Link to="/about" className="underline underline-offset-2 hover:text-black">about</Link>
           <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaGithub className="w-5 h-5 md:w-6 md:h-6" /></a>
           <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaLinkedin className="w-5 h-5 md:w-6 md:h-6" /></a>
           <a href="https://x.com/0xseifo" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaXTwitter className="w-5 h-5 md:w-6 md:h-6" /></a>
@@ -17,13 +17,11 @@ export const BottomBar = () => {
         </div>
         <WebringLinks variant="footer" />
         <p className="text-[0.85rem] md:text-[0.95rem] text-gray-600 leading-snug">
-          <Link to="/experience" className="underline underline-offset-2 hover:text-black">experience</Link>{' '}
+          <Link to="/" className="underline underline-offset-2 hover:text-black">home</Link>{' '}
           <span className="mx-1">|</span>{' '}
-          <Link to="/projects" className="underline underline-offset-2 hover:text-black">projects</Link>{' '}
+          <Link to="/links" className="underline underline-offset-2 hover:text-black">links</Link>{' '}
           <span className="mx-1">|</span>{' '}
-          <Link to="/blog" className="underline underline-offset-2 hover:text-black">blog</Link>{' '}
-          <span className="mx-1">|</span>{' '}
-          <Link to="/links" className="underline underline-offset-2 hover:text-black">links</Link>
+          <Link to="/blog" className="underline underline-offset-2 hover:text-black">blog</Link>
         </p>
       </div>
     </div>

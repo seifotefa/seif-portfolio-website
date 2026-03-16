@@ -2,47 +2,139 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { WebringLinks } from '../WebringLinks'
+import { FiExternalLink, FiArrowRight } from 'react-icons/fi'
+
+const work = [
+  { company: 'backboard', companyLink: 'https://backboard.io', role: "founding intern (summer '26)", date: "summer '26", description: 'shipping open source AI infra tooling as part of the founding intern cohort.' },
+  { company: 'ludera', companyLink: null, role: 'software engineer intern', date: "winter '26", description: 'built an AI flashcard pipeline and semantic search for an RPG that uses your notes to power the experience.' },
+  { company: 'mova realities', companyLink: 'https://www.movarts.com/', role: 'product manager intern', date: "spring '25", description: 'led requirements analysis, system architecture, and phased roadmap for an AI-powered platform MVP.' },
+]
+
+const projects = [
+  { name: 'frontline', description: 'triage dashboard: camera vitals + gemini vision + AI first-aid.', href: 'https://github.com/seifotefa/deltahacks-12', articleLink: '/blog/frontline', badge: 'best use of presage SDK @ deltahacks12', winner: true },
+  { name: 'notipply', description: 'job alerts via text when new positions match your preferences.', href: 'https://www.notipply.com/', articleLink: null, badge: null, winner: false },
+  { name: 'mcmaster webring', description: 'network of founders, builders and engineers at mac.', href: 'https://www.mcmasterwebring.xyz/', articleLink: null, badge: null, winner: false },
+  { name: 'project phoenix (MEC 2025)', description: '1st place maceng consulting; future of healthcare in canada.', href: null, articleLink: '/blog/mec2025', badge: 'maceng competition 2025 winner', winner: true },
+  { name: 'jinsa', description: 'blockchain platform for trackable, verifiable products.', href: 'https://usejinsa.co', articleLink: '/blog/jinsa', badge: 'spurhacks accelerator', winner: true },
+  { name: 'resumock', description: 'behavioral interview simulator from your resume + gemini.', href: 'https://github.com/seifotefa/deltahackslite', articleLink: '/blog/resumock', badge: 'deltahacks lite 2025', winner: false },
+  { name: 'spark and prepper', description: 'study guides, mock exam, flashcards, AI tutor from notes.', href: 'https://github.com/seifotefa/sparkandprepper', articleLink: '/blog/sparkandprepper', badge: 'gdsc hacks 2025', winner: false },
+]
 
 export const Home = () => {
-    return (
-        <section className="min-h-screen bg-white relative">
-            {/* Top text section removed per request */}
+  return (
+    <div className="min-h-screen bg-white text-[#111]">
+      <div className="max-w-2xl mx-auto px-5 md:px-8 pt-10 md:pt-14 pb-16">
+        {/* Header: name + integrated (Mac, Accenture, Stanford) */}
+        <header className="mb-8">
+          <Link
+            to="/about"
+            className="font-satoshi text-xl md:text-2xl text-[#111] hover:opacity-80 inline-flex items-center gap-1.5"
+          >
+            seif otefa
+            <FiArrowRight className="w-4 h-4 text-gray-400 shrink-0" />
+          </Link>
+          <p className="mt-1.5 text-sm md:text-base text-gray-600 leading-snug font-mono-desc">
+            computer science @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">mcmaster</a>. accenture student leader. ta'd @ <a href="https://codeinplace.stanford.edu/" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">stanford code in place</a>. i operate with high agency at the intersection of tech and innovation.
+          </p>
+        </header>
 
-            {/* Centered quote */}
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 max-w-3xl px-8">
-                <p className="text-center text-lg md:text-2xl lg:text-3xl text-gray-800 leading-relaxed" style={{ fontFamily: 'Geist, sans-serif', fontWeight: 300 }}>
-                    Knowledge without action is <em>wastefulness</em> and action without knowledge is <em>foolishness</em>.
-                </p>
-            </div>
+        {/* Quote – small subsection */}
+        <div className="mb-10 md:mb-12 pl-4 border-l-2 border-gray-200">
+          <p className="text-base md:text-lg text-gray-700 leading-relaxed font-mono-desc" style={{ fontWeight: 300 }}>
+            knowledge without action is <em>wastefulness</em> and action without knowledge is <em>foolishness</em>.
+          </p>
+        </div>
 
-            {/* Name + social icons bottom-left + 3-line tagline */}
-            <div 
-                className="fixed left-4 bottom-4 md:left-10 md:bottom-10 lg:left-16 lg:bottom-16 z-50 flex flex-col items-start gap-3 md:gap-4 lg:gap-5 text-gray-700 origin-bottom-left"
-                style={{ transform: 'scale(0.8)' }}
-            >
-                <div className="flex items-center gap-4 md:gap-6 lg:gap-7">
-                    <Link to="/about" className="font-medium text-[1.65rem] md:text-[1.95rem] lg:text-[2.25rem] underline underline-offset-2">Seif Otefa</Link>
-                    <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaGithub className="w-7 h-7 md:w-9 md:h-9 lg:w-10 lg:h-10" /></a>
-                    <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaLinkedin className="w-7 h-7 md:w-9 md:h-9 lg:w-10 lg:h-10" /></a>
-                    <a href="https://x.com/0xseifo" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black"><FaXTwitter className="w-7 h-7 md:w-9 md:h-9 lg:w-10 lg:h-10" /></a>
-                    <Link to="/contact" className="text-gray-600 hover:text-black" aria-label="Contact"><FaEnvelope className="w-7 h-7 md:w-9 md:h-9 lg:w-10 lg:h-10" /></Link>
-                    <a href="https://seifotefa.com/resume" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black" aria-label="Resume"><FaRegFileAlt className="w-7 h-7 md:w-9 md:h-9 lg:w-10 lg:h-10" /></a>
-                    <WebringLinks variant="inline" />
+        {/* Work – compact rows, hover to reveal description */}
+        <section className="mb-10">
+          <h2 className="text-2xl font-light text-[#111] mb-4 font-satoshi">work</h2>
+          <div className="space-y-0.5">
+            {work.map((w, i) => (
+              <div key={i} className="group">
+                <div className="flex items-baseline justify-between gap-2 text-sm py-2 px-2 -mx-2 cursor-default">
+                  <span className="min-w-0">
+                    {w.companyLink ? (
+                      <a href={w.companyLink} target="_blank" rel="noreferrer" className="font-satoshi font-medium text-[#111] hover:underline inline-flex items-center gap-0.5">
+                        {w.company}
+                        <FiExternalLink className="w-3 h-3 opacity-60 shrink-0" />
+                      </a>
+                    ) : (
+                      <span className="font-satoshi font-medium text-[#111]">{w.company}</span>
+                    )}
+                    <span className="text-gray-500 ml-1 font-satoshi">{w.role}</span>
+                  </span>
+                  <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{w.date}</span>
                 </div>
-                <p className="text-[1.35rem] md:text-[1.425rem] lg:text-[1.575rem] text-gray-600 leading-snug">
-                    i build ai memory infrastructure and open source tooling{' '}
-                    <a href="https://backboard.io" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-black">@backboard.io</a>, study cs and innovation <a href="https://www.eng.mcmaster.ca/cas/degree-options/computer-science/" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-black">@mcmasteru</a>, and teach robotics to kids
-                </p>
-                <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] text-gray-600 leading-snug">
-                    <Link to="/experience" className="underline underline-offset-2 hover:text-black">experience</Link>{' '}
-                    <span className="mx-1">|</span>{' '}
-                    <Link to="/projects" className="underline underline-offset-2 hover:text-black">projects</Link>{' '}
-                    <span className="mx-1">|</span>{' '}
-                    <Link to="/blog" className="underline underline-offset-2 hover:text-black">blog</Link>{' '}
-                    <span className="mx-1">|</span>{' '}
-                    <Link to="/links" className="underline underline-offset-2 hover:text-black">links</Link>
-                </p>
-            </div>
+                <div className="max-h-0 overflow-hidden transition-[max-height] duration-200 ease-out group-hover:max-h-24">
+                  <p className="text-xs text-gray-600 leading-relaxed px-2 pb-1 pt-0 font-mono-desc font-light">
+                    {w.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
-    )
+
+        {/* Projects – no boxes, description + Article inline */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-light text-[#111] mb-4 font-satoshi">projects</h2>
+          <div className="space-y-2.5">
+            {projects.map((p, i) => (
+              <div key={i} className="text-sm">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    {p.href ? (
+                      <a href={p.href} target="_blank" rel="noreferrer" className="font-satoshi font-medium text-[#111] hover:opacity-80 inline-flex items-center gap-0.5">
+                        {p.name}
+                        <FiExternalLink className="w-3 h-3 opacity-60 shrink-0" />
+                      </a>
+                    ) : (
+                      <span className="font-satoshi font-medium text-[#111]">{p.name}</span>
+                    )}
+                  </div>
+                  {p.badge && (
+                    <span className={`text-xs px-1.5 py-0.5 rounded border shrink-0 font-mono-desc ${p.winner ? 'bg-amber-50 border-amber-200 text-amber-800' : 'bg-gray-100 border-gray-200 text-gray-600'}`}>
+                      {p.winner && '🏆 '}{p.badge}
+                    </span>
+                  )}
+                </div>
+                <div className="flex items-baseline gap-2 mt-0.5 flex-wrap">
+                  <span className="text-xs text-gray-600 leading-relaxed font-mono-desc font-light">{p.description}</span>
+                  {p.articleLink && (
+                    <Link to={p.articleLink} className="text-xs text-gray-500 hover:text-[#111] underline shrink-0">article</Link>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+          <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-[#111] mt-3 font-mono-desc">
+            view all on github <FiExternalLink className="w-3 h-3" />
+          </a>
+        </section>
+
+        {/* Footer: mono font; name link without underlined space */}
+        <footer className="pt-6 border-t border-gray-200 font-mono-desc">
+          <div className="grid grid-cols-1 mobile:grid-cols-3 gap-4 items-center text-sm text-gray-600">
+            <div className="flex items-center gap-1.5 justify-center mobile:justify-start order-2 mobile:order-1">
+              <Link to="/about" className="underline hover:text-[#111]">about</Link>
+              <span className="text-gray-300">|</span>
+              <Link to="/links" className="underline hover:text-[#111]">links</Link>
+              <span className="text-gray-300">|</span>
+              <Link to="/blog" className="underline hover:text-[#111]">blog</Link>
+            </div>
+            <div className="flex justify-center order-1 mobile:order-2">
+              <WebringLinks variant="footer" />
+            </div>
+            <div className="flex items-center justify-center mobile:justify-end gap-4 text-gray-500 order-3">
+              <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="hover:text-[#111]"><FaGithub className="w-4 h-4" /></a>
+              <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="hover:text-[#111]"><FaLinkedin className="w-4 h-4" /></a>
+              <a href="https://x.com/0xseifo" target="_blank" rel="noreferrer" className="hover:text-[#111]"><FaXTwitter className="w-4 h-4" /></a>
+              <Link to="/contact" className="hover:text-[#111]" aria-label="Contact"><FaEnvelope className="w-4 h-4" /></Link>
+              <a href="https://seifotefa.com/resume" target="_blank" rel="noreferrer" className="hover:text-[#111]" aria-label="Resume"><FaRegFileAlt className="w-4 h-4" /></a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  )
 }

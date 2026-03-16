@@ -1,18 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap');
 @import "tailwindcss";
 
 html, body {
   margin: 0;
   padding: 0;
-  /* Use Geist as the primary font for the entire site */
-  font-family: 'Geist', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-family: 'JetBrains Mono', ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
   background: #ffffff;
   color: #111;
   font-size: 16px;
-  /* thinner, sleeker text weight */
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Satoshi for names, job titles, headings, and emphasized text */
+b, strong, .font-medium, .font-semibold, .font-bold, .font-satoshi {
+  font-family: 'Satoshi', system-ui, sans-serif;
+}
+
+/* Descriptions and body-like text in mono */
+.font-mono-desc {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
 }
 html {
 

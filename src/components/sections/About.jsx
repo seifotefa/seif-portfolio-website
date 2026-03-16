@@ -11,7 +11,7 @@ export const About = () => {
       {/* ABOUT SECTION */}
               <section id="about" className="bg-[#fff] text-[#111] px-6 md:px-12 pt-32 pb-20 mt-0 mb-20 md:mb-10">
         <div className="max-w-4xl mx-auto">
-            <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>Who Am I?</h2>
+            <h2 className="text-5xl font-synonym font-light text-center mb-8" style={{ fontFamily: 'Synonym, monospace' }}>who am i?</h2>
             
             <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 text-center md:text-left">
                 {/* Profile Image */}

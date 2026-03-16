@@ -32,11 +32,11 @@ export const Links = () => {
         </div>
 
         {/* Name */}
-        <h1 className="text-2xl sm:text-3xl font-medium text-black mb-2">Seif Otefa</h1>
+        <h1 className="text-2xl sm:text-3xl font-medium text-black mb-2">seif otefa</h1>
 
         {/* Tagline */}
         <p className="text-center text-sm sm:text-base text-gray-600 leading-snug mb-8 max-w-md">
-          CS @ McMaster | Tech, Univeristy, Startups, Lifestyle | Building open source AI memory tooling @ Backboard.io
+          cs @ mcmaster | tech, university, startups, lifestyle | building open source AI memory tooling @ backboard.io
         </p>
 
         {/* Subtle divider */}
