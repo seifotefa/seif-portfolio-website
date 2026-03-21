@@ -20,6 +20,12 @@ const projects = [
   { name: 'spark and prepper', description: 'study guides, mock exam, flashcards, AI tutor from notes.', href: 'https://github.com/seifotefa/sparkandprepper', articleLink: '/blog/sparkandprepper', badge: 'gdsc hacks 2025', winner: false },
 ]
 
+const highlightedArticles = [
+  { title: 'winning the mcmaster engineer competition', date: "fall '25", link: '/blog/mec2025', description: 'first place consulting solution focused on the future of healthcare in canada.' },
+  { title: "teaching stanford's cs106A", date: "summer '25", link: '/blog/cip2025', description: 'teaching python fundamentals to students as a section leader.' },
+  { title: 'winning at deltahacks12 using presage technologies', date: "winter '26", link: '/blog/frontline', description: 'building frontline, an ai-powered emergency triage with camera vitals and real-time injury detection.' },
+]
+
 export const Home = () => {
   return (
     <div className="min-h-screen bg-white text-[#111]">
@@ -81,7 +87,7 @@ export const Home = () => {
           <div className="space-y-2.5">
             {projects.map((p, i) => (
               <div key={i} className="text-sm">
-                <div className="flex items-start justify-between gap-2">
+                <div className="flex flex-col mobile:flex-row mobile:items-start mobile:justify-between gap-1 mobile:gap-2">
                   <div className="min-w-0">
                     {p.href ? (
                       <a href={p.href} target="_blank" rel="noreferrer" className="font-satoshi font-medium text-[#111] hover:opacity-80 inline-flex items-center gap-0.5">
@@ -93,7 +99,7 @@ export const Home = () => {
                     )}
                   </div>
                   {p.badge && (
-                    <span className={`text-xs px-1.5 py-0.5 rounded border shrink-0 font-mono-desc ${p.winner ? 'bg-amber-50 border-amber-200 text-amber-800' : 'bg-gray-100 border-gray-200 text-gray-600'}`}>
+                    <span className={`text-xs px-1.5 py-0.5 rounded border font-mono-desc self-start mobile:self-auto max-w-full break-words whitespace-normal ${p.winner ? 'bg-amber-50 border-amber-200 text-amber-800' : 'bg-gray-100 border-gray-200 text-gray-600'}`}>
                       {p.winner && '🏆 '}{p.badge}
                     </span>
                   )}
@@ -110,6 +116,28 @@ export const Home = () => {
           <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-[#111] mt-3 font-mono-desc">
             view all on github <FiExternalLink className="w-3 h-3" />
           </a>
+        </section>
+
+        {/* highlighted articles */}
+        <section className="mb-12">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-light text-[#111] font-satoshi">highlighted articles</h2>
+            <Link to="/blog" className="text-xs text-gray-500 hover:text-[#111] underline font-mono-desc">view blog</Link>
+          </div>
+          <div className="space-y-2.5">
+            {highlightedArticles.map((post, i) => (
+              <div key={i} className="text-sm">
+                <div className="flex items-baseline justify-between gap-2">
+                  <Link to={post.link} className="font-satoshi font-medium text-[#111] hover:opacity-80 inline-flex items-center gap-0.5">
+                    {post.title}
+                    <FiArrowRight className="w-3 h-3 opacity-60 shrink-0" />
+                  </Link>
+                  <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{post.date}</span>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed font-mono-desc font-light mt-0.5">{post.description}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Footer: mono font; name link without underlined space */}
