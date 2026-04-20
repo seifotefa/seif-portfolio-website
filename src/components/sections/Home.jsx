@@ -3,18 +3,24 @@ import { FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { WebringLinks } from '../WebringLinks'
 import { FiExternalLink, FiArrowRight } from 'react-icons/fi'
+import heroAsciiArt from './heroAsciiArt.txt?raw'
 
-const work = [
-  { company: 'backboard', companyLink: 'https://backboard.io', role: "founding intern (summer '26)", date: "summer '26", description: 'shipping open source AI infra tooling as part of the founding intern cohort.' },
-  { company: 'ludera', companyLink: null, role: 'software engineer intern', date: "winter '26", description: 'built an AI flashcard pipeline and semantic search for an RPG that uses your notes to power the experience.' },
-  { company: 'mova realities', companyLink: 'https://www.movarts.com/', role: 'product manager intern', date: "spring '25", description: 'led requirements analysis, system architecture, and phased roadmap for an AI-powered platform MVP.' },
+/** Hover rows: title + date (calendar-style), detail on hover. */
+const currently = [
+  { company: 'backboard', companyLink: 'https://backboard.io', role: 'founding intern', date: 'Jun – Aug 2026', description: 'shipping open source AI infra tooling as part of the founding intern cohort.', articleLink: null },
+  { company: 'mcmaster', companyLink: 'https://future.mcmaster.ca/programs/computer-science/', role: 'computer science', date: '2023 – present', description: 'undergraduate coursework and research at the intersection of systems, AI, and software engineering.', articleLink: null },
+]
+
+const previously = [
+  { company: 'ludera', companyLink: null, role: 'software engineer intern', date: 'Jan – Apr 2026', description: 'built an AI flashcard pipeline and semantic search for an RPG that uses your notes to power the experience.', articleLink: null },
+  { company: 'mova realities', companyLink: 'https://www.movarts.com/', role: 'product manager intern', date: 'Jan – Apr 2025', description: 'led requirements analysis, system architecture, and phased roadmap for an AI-powered platform MVP.', articleLink: null },
+  { company: 'mcmaster engineering competition', companyLink: null, role: 'winner (consulting)', date: 'Nov 2025', description: 'first place consulting solution focused on the future of healthcare in canada.', articleLink: '/blog/mec2025' },
 ]
 
 const projects = [
   { name: 'frontline', description: 'triage dashboard: camera vitals + gemini vision + AI first-aid.', href: 'https://github.com/seifotefa/deltahacks-12', articleLink: '/blog/frontline', badge: 'best use of presage SDK @ deltahacks12', winner: true },
   { name: 'notipply', description: 'job alerts via text when new positions match your preferences.', href: 'https://www.notipply.com/', articleLink: null, badge: null, winner: false },
   { name: 'mcmaster webring', description: 'network of founders, builders and engineers at mac.', href: 'https://www.mcmasterwebring.xyz/', articleLink: null, badge: null, winner: false },
-  { name: 'project phoenix (MEC 2025)', description: '1st place maceng consulting; future of healthcare in canada.', href: null, articleLink: '/blog/mec2025', badge: 'maceng competition 2025 winner', winner: true },
   { name: 'jinsa', description: 'blockchain platform for trackable, verifiable products.', href: 'https://usejinsa.co', articleLink: '/blog/jinsa', badge: 'spurhacks accelerator', winner: true },
   { name: 'resumock', description: 'behavioral interview simulator from your resume + gemini.', href: 'https://github.com/seifotefa/deltahackslite', articleLink: '/blog/resumock', badge: 'deltahacks lite 2025', winner: false },
   { name: 'spark and prepper', description: 'study guides, mock exam, flashcards, AI tutor from notes.', href: 'https://github.com/seifotefa/sparkandprepper', articleLink: '/blog/sparkandprepper', badge: 'gdsc hacks 2025', winner: false },
@@ -26,11 +32,50 @@ const highlightedArticles = [
   { title: 'winning at deltahacks12 using presage technologies', date: "winter '26", link: '/blog/frontline', description: 'building frontline, an ai-powered emergency triage with camera vitals and real-time injury detection.' },
 ]
 
+/** Decorative ASCII: dithered @ / # / % silhouette; scales to column width (~100ch lines). */
+const HERO_ASCII = heroAsciiArt.trimEnd()
+
+function ExperienceRows({ items }) {
+  return (
+    <div className="space-y-0.5">
+      {items.map((w, i) => (
+        <div key={i} className="group">
+          <div className="flex items-baseline justify-between gap-2 text-sm py-2 px-2 -mx-2 cursor-default">
+            <span className="min-w-0">
+              {w.companyLink ? (
+                <a href={w.companyLink} target="_blank" rel="noreferrer" className="font-satoshi font-medium text-[#111] hover:underline inline-flex items-center gap-0.5">
+                  {w.company}
+                  <FiExternalLink className="w-3 h-3 opacity-60 shrink-0" />
+                </a>
+              ) : (
+                <span className="font-satoshi font-medium text-[#111]">{w.company}</span>
+              )}
+              <span className="text-gray-500 ml-1 font-satoshi">{w.role}</span>
+            </span>
+            <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{w.date}</span>
+          </div>
+          <div className="max-h-0 overflow-hidden transition-[max-height] duration-200 ease-out group-hover:max-h-32">
+            <p className="text-xs text-gray-600 leading-relaxed px-2 pb-1 pt-0 font-mono-desc font-light">
+              {w.description}
+              {w.articleLink && (
+                <>
+                  {' '}
+                  <Link to={w.articleLink} className="text-gray-500 hover:text-[#111] underline">article</Link>
+                </>
+              )}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export const Home = () => {
   return (
     <div className="min-h-screen bg-white text-[#111]">
       <div className="max-w-2xl mx-auto px-5 md:px-8 pt-10 md:pt-14 pb-16">
-        {/* Header: name + integrated (Mac, Accenture, Stanford) */}
+        {/* Header */}
         <header className="mb-8">
           <Link
             to="/about"
@@ -40,45 +85,33 @@ export const Home = () => {
             <FiArrowRight className="w-4 h-4 text-gray-400 shrink-0" />
           </Link>
           <p className="mt-1.5 text-sm md:text-base text-gray-600 leading-snug font-mono-desc">
-            computer science @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">mcmaster</a>. accenture student leader. ta'd @ <a href="https://codeinplace.stanford.edu/" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">stanford code in place</a>. i operate with high agency at the intersection of tech and innovation.
+            cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">mcmaster</a>. swe @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">backboard.io</a>. building at the frontier of tech and innovation.
           </p>
         </header>
 
-        {/* Quote – small subsection */}
-        <div className="mb-10 md:mb-12 pl-4 border-l-2 border-gray-200">
-          <p className="text-base md:text-lg text-gray-700 leading-relaxed font-mono-desc" style={{ fontWeight: 300 }}>
-            knowledge without action is <em>wastefulness</em> and action without knowledge is <em>foolishness</em>.
-          </p>
+        {/* Quote – ASCII figure above, bordered quote below */}
+        <div className="mb-10 md:mb-12">
+          <div className="mb-4 md:mb-5 w-full max-w-full overflow-x-clip font-mono-desc text-[0.28rem] [container-type:inline-size]">
+            <pre
+              className="font-mono-desc block w-full text-left whitespace-pre select-none leading-none text-gray-500 [font-size:clamp(2.75px,calc(100cqi/52),9px)]"
+              aria-hidden="true"
+            >
+              {HERO_ASCII}
+            </pre>
+          </div>
+          <div className="pl-4 border-l-2 border-gray-200">
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed font-mono-desc" style={{ fontWeight: 300 }}>
+              knowledge without action is <em>wastefulness</em> and action without knowledge is <em>foolishness</em>.
+            </p>
+          </div>
         </div>
 
-        {/* Work – compact rows, hover to reveal description */}
+        {/* Currently / previously – same hover pattern as before */}
         <section className="mb-10">
-          <h2 className="text-2xl font-light text-[#111] mb-4 font-satoshi">work</h2>
-          <div className="space-y-0.5">
-            {work.map((w, i) => (
-              <div key={i} className="group">
-                <div className="flex items-baseline justify-between gap-2 text-sm py-2 px-2 -mx-2 cursor-default">
-                  <span className="min-w-0">
-                    {w.companyLink ? (
-                      <a href={w.companyLink} target="_blank" rel="noreferrer" className="font-satoshi font-medium text-[#111] hover:underline inline-flex items-center gap-0.5">
-                        {w.company}
-                        <FiExternalLink className="w-3 h-3 opacity-60 shrink-0" />
-                      </a>
-                    ) : (
-                      <span className="font-satoshi font-medium text-[#111]">{w.company}</span>
-                    )}
-                    <span className="text-gray-500 ml-1 font-satoshi">{w.role}</span>
-                  </span>
-                  <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{w.date}</span>
-                </div>
-                <div className="max-h-0 overflow-hidden transition-[max-height] duration-200 ease-out group-hover:max-h-24">
-                  <p className="text-xs text-gray-600 leading-relaxed px-2 pb-1 pt-0 font-mono-desc font-light">
-                    {w.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-2xl font-light text-[#111] mb-4 font-satoshi">currently</h2>
+          <ExperienceRows items={currently} />
+          <h2 className="text-2xl font-light text-[#111] mb-4 mt-10 font-satoshi">previously</h2>
+          <ExperienceRows items={previously} />
         </section>
 
         {/* Projects – no boxes, description + Article inline */}
@@ -157,7 +190,7 @@ export const Home = () => {
               <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="hover:text-[#111]"><FaGithub className="w-4 h-4" /></a>
               <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="hover:text-[#111]"><FaLinkedin className="w-4 h-4" /></a>
               <a href="https://x.com/0xseifo" target="_blank" rel="noreferrer" className="hover:text-[#111]"><FaXTwitter className="w-4 h-4" /></a>
-              <Link to="/contact" className="hover:text-[#111]" aria-label="Contact"><FaEnvelope className="w-4 h-4" /></Link>
+              <a href="mailto:seifotefa@gmail.com" className="hover:text-[#111]" aria-label="Email"><FaEnvelope className="w-4 h-4" /></a>
               <a href="https://seifotefa.com/resume" target="_blank" rel="noreferrer" className="hover:text-[#111]" aria-label="Resume"><FaRegFileAlt className="w-4 h-4" /></a>
             </div>
           </div>

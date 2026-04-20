@@ -24,8 +24,9 @@ export const HorizontalNav = () => {
     { path: '/', name: 'home' },
     { path: '/about', name: 'about' },
     { path: '/blog', name: 'blog' },
-    { path: '/contact', name: 'contact' }
-  ];
+    { path: '/links', name: 'links' },
+    { path: '/resume', name: 'resume' },
+  ]
 
   return (
     <>

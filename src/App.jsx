@@ -1,11 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-// import { Navbar } from './components/Navbar';
 import { About } from './components/sections/About';
 import { Home } from './components/sections/Home';
-import { Experience } from './components/sections/Experience';
-import { Projects } from './components/sections/Projects';
-import { Work } from './components/sections/Work';
-import { Contact } from './components/sections/Contact';
 import { Resume } from './components/sections/Resume';
 import { HorizontalNav } from './components/HorizontalNav';
 import { Blog } from './components/sections/Blog';
@@ -41,15 +36,11 @@ const App = () => {
     <BrowserRouter>
       <ScrollHandler />
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-        {/* Navbar temporarily removed */}
         <div style={{ flex: 1, overflowY: 'auto' }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-            <Route path="/work" element={<PageWrapper><Work /></PageWrapper>} />
-            <Route path="/experience" element={<PageWrapper><Experience /></PageWrapper>} />
             <Route path="/resume" element={<PageWrapper><Resume /></PageWrapper>} />
-            <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
             <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
             <Route path="/blog/frontline" element={<PageWrapper><Frontline /></PageWrapper>} />
             <Route path="/blog/mova" element={<PageWrapper><MoVA /></PageWrapper>} />
@@ -60,11 +51,9 @@ const App = () => {
             <Route path="/blog/resumock" element={<PageWrapper><ResuMock /></PageWrapper>} />
             <Route path="/blog/sparkandprepper" element={<PageWrapper><SparkAndPrepper /></PageWrapper>} />
             <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
-            <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-            <Route path="/links" element={<Links />} />
+            <Route path="/links" element={<PageWrapper><Links /></PageWrapper>} />
           </Routes>
         </div>
-        {/* Footer removed - site uses compact layout with bottom-left name/logos on Home */}
       </div>
     </BrowserRouter>
   );
