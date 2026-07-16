@@ -26,7 +26,7 @@ export const About = () => {
                 {/* Bio Text */}
                 <div className="w-full pt-4">
                 <p className="text-base sm:text-lg leading-relaxed">
-                    i'm a second year computer science student at mcmaster university with a passion for using technology to drive change and innovation. some of my interests are web3, ai, and software design and development, and how technology intersects with education, finance, and fun.
+                    i'm a third year computer science student at mcmaster university and a member of technical staff at <a href="https://backboard.io" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#111111] transition-colors">backboard</a>, where i build backboard studio — backboard's desktop app for orchestrating and managing ai agents. i'm interested in ai, developer tools, and software design, and how technology intersects with education, finance, and fun.
                     <br /><br />
                     i'm driven by a constant need to improve, whether that's mentally, academically, or physically, i always strive to be the best i can be at what i do.
 

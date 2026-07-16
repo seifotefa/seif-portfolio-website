@@ -12,12 +12,7 @@ export const OEC2026 = () => {
           {/* Header */}
           <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-light text-black mb-4">OEC 2026 — Carleton</h1>
-            <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-              <span>February 2026</span>
-              <span>•</span>
-              <span>2 min read</span>
-              <span className="px-3 py-1 bg-gray-100 border border-gray-400 text-black text-xs font-semibold">Competition</span>
-            </div>
+            <p className="text-sm text-gray-500 mb-4">February 2026</p>
             <p className="text-lg text-gray-600 leading-relaxed">
               Representing McMaster at the Ontario Engineering Competition in Ottawa after winning MEC consulting. Didn’t take the top spot, but the trip and the experience were worth it.
             </p>
@@ -68,8 +63,6 @@ export const OEC2026 = () => {
               </p>
             </div>
           </div>
-
-          <hr className="my-12 border-gray-300" />
 
           {/* The Experience */}
           <div className="mb-12">

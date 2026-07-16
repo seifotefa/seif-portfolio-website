@@ -3,12 +3,12 @@ import { FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { WebringLinks } from '../WebringLinks'
 import { FiExternalLink, FiArrowRight } from 'react-icons/fi'
-import heroAsciiArt from './heroAsciiArt.txt?raw'
 
 /** Hover rows: title + date (calendar-style), detail on hover. */
 const currently = [
-  { company: 'backboard', companyLink: 'https://backboard.io', role: 'founding intern', date: 'Jun – Aug 2026', description: 'shipping open source AI infra tooling as part of the founding intern cohort.', articleLink: null },
-  { company: 'mcmaster', companyLink: 'https://future.mcmaster.ca/programs/computer-science/', role: 'computer science', date: '2023 – present', description: 'undergraduate coursework and research at the intersection of systems, AI, and software engineering.', articleLink: null },
+  { company: 'backboard', companyLink: 'https://backboard.io', role: 'member of technical staff', date: 'Jun 2026 – present', description: 'building backboard studio, backboard\'s desktop app for orchestrating and managing AI agents.', articleLink: null },
+  { company: 'mcmaster', companyLink: 'https://future.mcmaster.ca/programs/computer-science/', role: 'computer science', date: '2023 – present', description: 'third year of a bachelor\'s degree in computer science.', articleLink: null },
+  { company: 'mcmaster engineering competition', companyLink: null, role: 'consulting lead', date: '2026 – present', description: 'building and running the consulting competition i won the year before.', articleLink: '/blog/mec2025' },
 ]
 
 const previously = [
@@ -27,13 +27,11 @@ const projects = [
 ]
 
 const highlightedArticles = [
+  { title: 'lessons from joining an early stage startup', date: "summer '26", link: '/blog/startup-lessons', description: 'ambiguity, structure, and agency — what my first month at backboard.io taught me.' },
   { title: 'winning the mcmaster engineer competition', date: "fall '25", link: '/blog/mec2025', description: 'first place consulting solution focused on the future of healthcare in canada.' },
   { title: "teaching stanford's cs106A", date: "summer '25", link: '/blog/cip2025', description: 'teaching python fundamentals to students as a section leader.' },
   { title: 'winning at deltahacks12 using presage technologies', date: "winter '26", link: '/blog/frontline', description: 'building frontline, an ai-powered emergency triage with camera vitals and real-time injury detection.' },
 ]
-
-/** Decorative ASCII: dithered @ / # / % silhouette; scales to column width (~100ch lines). */
-const HERO_ASCII = heroAsciiArt.trimEnd()
 
 function ExperienceRows({ items }) {
   return (
@@ -85,20 +83,34 @@ export const Home = () => {
             <FiArrowRight className="w-4 h-4 text-gray-400 shrink-0" />
           </Link>
           <p className="mt-1.5 text-sm md:text-base text-gray-600 leading-snug font-mono-desc">
-            cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">mcmaster</a>. swe @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">backboard.io</a>. building at the frontier of tech and innovation.
+            cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">mcmaster</a>. member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">backboard.io</a>. building at the frontier of tech and innovation.
           </p>
         </header>
 
-        {/* Quote – ASCII figure above, bordered quote below */}
-        <div className="mb-10 md:mb-12">
-          <div className="mb-4 md:mb-5 w-full max-w-full overflow-x-clip font-mono-desc text-[0.28rem] [container-type:inline-size]">
-            <pre
-              className="font-mono-desc block w-full text-left whitespace-pre select-none leading-none text-gray-500 [font-size:clamp(2.75px,calc(100cqi/52),9px)]"
-              aria-hidden="true"
-            >
-              {HERO_ASCII}
-            </pre>
+        {/* highlighted articles */}
+        <section className="mb-10 md:mb-12">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-light text-[#111] font-satoshi">highlighted articles</h2>
+            <Link to="/blog" className="text-xs text-gray-500 hover:text-[#111] underline font-mono-desc">view blog</Link>
           </div>
+          <div className="space-y-2.5">
+            {highlightedArticles.map((post, i) => (
+              <div key={i} className="text-sm">
+                <div className="flex items-baseline justify-between gap-2">
+                  <Link to={post.link} className="font-satoshi font-medium text-[#111] hover:opacity-80 inline-flex items-center gap-0.5">
+                    {post.title}
+                    <FiArrowRight className="w-3 h-3 opacity-60 shrink-0" />
+                  </Link>
+                  <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{post.date}</span>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed font-mono-desc font-light mt-0.5">{post.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Quote */}
+        <div className="mb-10 md:mb-12">
           <div className="pl-4 border-l-2 border-gray-200">
             <p className="text-base md:text-lg text-gray-700 leading-relaxed font-mono-desc" style={{ fontWeight: 300 }}>
               knowledge without action is <em>wastefulness</em> and action without knowledge is <em>foolishness</em>.
@@ -149,28 +161,6 @@ export const Home = () => {
           <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-[#111] mt-3 font-mono-desc">
             view all on github <FiExternalLink className="w-3 h-3" />
           </a>
-        </section>
-
-        {/* highlighted articles */}
-        <section className="mb-12">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-light text-[#111] font-satoshi">highlighted articles</h2>
-            <Link to="/blog" className="text-xs text-gray-500 hover:text-[#111] underline font-mono-desc">view blog</Link>
-          </div>
-          <div className="space-y-2.5">
-            {highlightedArticles.map((post, i) => (
-              <div key={i} className="text-sm">
-                <div className="flex items-baseline justify-between gap-2">
-                  <Link to={post.link} className="font-satoshi font-medium text-[#111] hover:opacity-80 inline-flex items-center gap-0.5">
-                    {post.title}
-                    <FiArrowRight className="w-3 h-3 opacity-60 shrink-0" />
-                  </Link>
-                  <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{post.date}</span>
-                </div>
-                <p className="text-xs text-gray-600 leading-relaxed font-mono-desc font-light mt-0.5">{post.description}</p>
-              </div>
-            ))}
-          </div>
         </section>
 
         {/* Footer: mono font; name link without underlined space */}

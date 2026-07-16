@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { BackToHome } from '../../BackToHome';
 import { BottomBar } from '../../BottomBar';
 
@@ -12,12 +11,7 @@ export const MEC2025 = () => {
           {/* Header */}
           <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-light text-black mb-4">Project Phoenix (McMaster Engineering Competition 2025)</h1>
-            <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-              <span>November 27, 2025</span>
-              <span>•</span>
-              <span>3 min read</span>
-              <span className="px-3 py-1 bg-gray-100 border border-gray-400 text-black text-xs font-semibold">Competition</span>
-            </div>
+            <p className="text-sm text-gray-500 mb-4">November 27, 2025</p>
             <p className="text-lg text-gray-600 leading-relaxed">
               From a rocky start to first place, and a ticket to OEC.
             </p>
@@ -25,9 +19,9 @@ export const MEC2025 = () => {
 
           {/* Main Image */}
           <div className="mb-12">
-            <img 
-              src="/assets/mec1.JPG" 
-              alt="MEC Competition" 
+            <img
+              src="/assets/mec1.JPG"
+              alt="MEC Competition"
               className="w-full border border-gray-300"
             />
           </div>
@@ -43,28 +37,26 @@ export const MEC2025 = () => {
                 With only two of us present at the start, we had to rethink our workflow, split responsibilities, and keep the project moving with half the manpower.
               </p>
               <p>
-                The challenge prompt focused on something massive and deeply relevant: <strong>the future of healthcare in Canada</strong>. From demographics to digital infrastructure, we were analyzing a system that affects millions of people every day.
+                The challenge prompt focused on something massive and deeply relevant: the future of healthcare in Canada. From demographics to digital infrastructure, we were analyzing a system that affects millions of people every day.
               </p>
             </div>
           </div>
 
           {/* Teamwork Image */}
           <div className="mb-12">
-            <img 
-              src="/assets/mec2.jpg" 
-              alt="Teamwork during competition" 
+            <img
+              src="/assets/mec2.jpg"
+              alt="Teamwork during competition"
               className="w-full border border-gray-300"
             />
           </div>
-
-          <hr className="my-12 border-gray-300" />
 
           {/* The Challenge */}
           <div className="mb-12">
             <h2 className="text-3xl font-light text-black mb-6">The Challenge</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Competitions like he McMaster Engineering Competition don't just test knowledge—they test adaptability.
+                Competitions like the McMaster Engineering Competition don't just test knowledge—they test adaptability.
               </p>
               <p>
                 We were given limited time to research the current state of Canada's healthcare system, diagnose the structural issues, and propose a forward-looking strategy that was realistic, data-driven, and actionable.
@@ -72,32 +64,23 @@ export const MEC2025 = () => {
             </div>
           </div>
 
-          <hr className="my-12 border-gray-300" />
-
           {/* The Solution */}
           <div className="mb-12">
             <h2 className="text-3xl font-light text-black mb-6">The Solution</h2>
-            <div className="space-y-6 text-gray-700 leading-relaxed">
+            <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
                 Our final proposal focused on three pillars that Canada needs in order to build a sustainable and modern healthcare system:
               </p>
-              
-              <div className="bg-gray-50 border border-gray-300 p-6">
-                <h3 className="text-xl font-medium text-black mb-4">Three Strategic Pillars</h3>
-                <ul className="space-y-3 text-sm">
-                  <li><strong>Workforce Redesign</strong> – Restructuring roles and responsibilities to address staffing shortages and burnout</li>
-                  <li><strong>Digital Transformation</strong> – Implementing AI-driven triage systems and integrated medical records</li>
-                  <li><strong>Scalable Funding Models</strong> – Creating sustainable financial structures for long-term viability</li>
-                </ul>
-              </div>
-
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Workforce redesign – restructuring roles and responsibilities to address staffing shortages and burnout</li>
+                <li>Digital transformation – implementing AI-driven triage systems and integrated medical records</li>
+                <li>Scalable funding models – creating sustainable financial structures for long-term viability</li>
+              </ul>
               <p>
                 We emphasized hybrid care, AI-driven triage systems, integrated medical records, and better resource allocation—not just buzzwords, but long-term, feasible steps toward a resilient system.
               </p>
             </div>
           </div>
-
-          <hr className="my-12 border-gray-300" />
 
           {/* The Moment */}
           <div className="mb-12">
@@ -110,21 +93,19 @@ export const MEC2025 = () => {
                 It balanced innovation with realism, and it told a clear story of where Canadian healthcare could go in the next decade—and how to get there.
               </p>
               <p>
-                Hearing our team announced as <strong>1st place winners</strong> felt unreal, especially knowing how the day began.
+                Hearing our team announced as 1st place winners felt unreal, especially knowing how the day began.
               </p>
             </div>
           </div>
 
           {/* Win Image */}
           <div className="mb-12">
-            <img 
-              src="/assets/mec3.JPG" 
-              alt="First place winners" 
+            <img
+              src="/assets/mec3.JPG"
+              alt="First place winners"
               className="w-full border border-gray-300"
             />
           </div>
-
-          <hr className="my-12 border-gray-300" />
 
           {/* What I Learned */}
           <div className="mb-12">
@@ -142,33 +123,13 @@ export const MEC2025 = () => {
             </div>
           </div>
 
-          <hr className="my-12 border-gray-300" />
-
           {/* The Takeaway */}
           <div className="mb-12">
             <h2 className="text-3xl font-light text-black mb-6">The Takeaway</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Winning first place meant more than a certificate—it earned us the chance to compete at the <strong>Ontario Engineering Competition</strong> in January, representing McMaster for the consulting category.
+                Winning first place meant more than a certificate—it earned us the chance to compete at the Ontario Engineering Competition in January, representing McMaster in the consulting category. I can't wait.
               </p>
-              <p className="bg-blue-50 border border-blue-200 p-6">
-                <strong>Next Challenge:</strong> Competing at OEC to represent McMaster at the provincial level, which I can't wait to do.
-              </p>
-            </div>
-          </div>
-
-          <hr className="my-12 border-gray-300" />
-
-          {/* Competition Info */}
-          <div className="bg-gray-50 border border-gray-300 p-6">
-            <h3 className="text-xl font-medium text-black mb-4">Competition Information</h3>
-            <div className="space-y-2 text-gray-700">
-              <p><strong>Event:</strong> McMaster Engineering Competition (MEC) 2025</p>
-              <p><strong>Date:</strong> November 27, 2025</p>
-              <p><strong>Category:</strong> Consulting</p>
-              <p><strong>Topic:</strong> Future of Healthcare in Canada</p>
-              <p><strong>Result:</strong> 🥇 1st Place</p>
-              <p><strong>Next Step:</strong> Ontario Engineering Competition (OEC) - January 2026</p>
             </div>
           </div>
         </div>

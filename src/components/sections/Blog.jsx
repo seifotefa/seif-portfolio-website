@@ -9,6 +9,15 @@ export const Blog = () => {
 
   const blogPosts = [
     {
+      title: "Lessons From Joining an Early Stage Startup",
+      date: "2026-06-12",
+      displayDate: "summer '26",
+      summary: "Ambiguity, structure, and agency — what my first month at backboard.io taught me.",
+      category: "writing",
+      link: "/blog/startup-lessons",
+      image: null
+    },
+    {
       title: "OEC 2026 — Carleton",
       date: "2026-02-24",
       displayDate: "winter '26",
@@ -82,7 +91,7 @@ export const Blog = () => {
     }
   ];
 
-  const categories = ['all', 'project', 'experience', 'competition'];
+  const categories = ['all', 'project', 'experience', 'competition', 'writing'];
 
   const filteredPosts = blogPosts
     .filter(post => selectedCategory === 'all' || post.category === selectedCategory)

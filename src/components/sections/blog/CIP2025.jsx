@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { BackToHome } from '../../BackToHome';
 import { BottomBar } from '../../BottomBar';
 
@@ -12,12 +11,7 @@ export const CIP2025 = () => {
           {/* Header */}
           <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-light text-black mb-4">Code in Place</h1>
-            <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-              <span>June 24, 2025</span>
-              <span>•</span>
-              <span>3 min read</span>
-              <span className="px-3 py-1 bg-gray-100 border border-gray-400 text-black text-xs font-semibold">Experience</span>
-            </div>
+            <p className="text-sm text-gray-500 mb-4">June 24, 2025</p>
             <p className="text-lg text-gray-600 leading-relaxed">
               My experience teaching as a Stanford CIP section leader.
             </p>
@@ -25,21 +19,19 @@ export const CIP2025 = () => {
 
           {/* Class Photo */}
           <div className="mb-12">
-            <img 
-              src="/assets/cipclassphoto.png" 
-              alt="Code in Place class" 
+            <img
+              src="/assets/cipclassphoto.png"
+              alt="Code in Place class"
               className="w-full border border-gray-300"
             />
           </div>
 
           {/* Introduction */}
           <div className="mb-12">
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed">
               This spring, I had the privilege of serving as a Section Leader for Stanford's Code in Place program.
             </p>
           </div>
-
-          <hr className="my-12 border-gray-300" />
 
           {/* Teaching Code in Place */}
           <div className="mb-12">
@@ -47,9 +39,9 @@ export const CIP2025 = () => {
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
                 In early 2025, I applied to be a section leader for{' '}
-                <a 
-                  href="https://codeinplace.stanford.edu/" 
-                  target="_blank" 
+                <a
+                  href="https://codeinplace.stanford.edu/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-black underline hover:text-gray-600"
                 >
@@ -62,8 +54,6 @@ export const CIP2025 = () => {
               </p>
             </div>
           </div>
-
-          <hr className="my-12 border-gray-300" />
 
           {/* Week 0 */}
           <div className="mb-12">
@@ -80,8 +70,6 @@ export const CIP2025 = () => {
               </p>
             </div>
           </div>
-
-          <hr className="my-12 border-gray-300" />
 
           {/* What I Learned */}
           <div className="mb-12">
@@ -105,8 +93,6 @@ export const CIP2025 = () => {
             </div>
           </div>
 
-          <hr className="my-12 border-gray-300" />
-
           {/* Why It Mattered */}
           <div className="mb-12">
             <h2 className="text-3xl font-light text-black mb-6">Why It Mattered</h2>
@@ -120,28 +106,6 @@ export const CIP2025 = () => {
               <p>
                 I'm grateful for the chance to teach, to learn, and to be part of a global classroom. And I'm proud to have helped 15 new programmers take their very first steps.
               </p>
-            </div>
-          </div>
-
-          <hr className="my-12 border-gray-300" />
-
-          {/* Experience Info */}
-          <div className="bg-gray-50 border border-gray-300 p-6">
-            <h3 className="text-xl font-medium text-black mb-4">Experience Information</h3>
-            <div className="space-y-2 text-gray-700">
-              <p><strong>Program:</strong>{' '}
-                <a 
-                  href="https://codeinplace.stanford.edu/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-black underline hover:text-gray-600"
-                >
-                  Code in Place
-                </a>
-              </p>
-              <p><strong>Duration:</strong> Spring 2025 (6 weeks)</p>
-              <p><strong>Role:</strong> Section Leader</p>
-              <p><strong>Students Taught:</strong> 15 students from around the world</p>
             </div>
           </div>
         </div>

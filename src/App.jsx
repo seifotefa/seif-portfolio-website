@@ -13,6 +13,7 @@ import { MEC2025 } from './components/sections/blog/MEC2025';
 import { OEC2026 } from './components/sections/blog/OEC2026';
 import { ResuMock } from './components/sections/blog/ResuMock';
 import { SparkAndPrepper } from './components/sections/blog/SparkAndPrepper';
+import { StartupLessons } from './components/sections/blog/StartupLessons';
 import { Links } from './components/sections/Links';
 
 // Wrapper component to conditionally show HorizontalNav
@@ -50,6 +51,7 @@ const App = () => {
             <Route path="/blog/oec2026" element={<PageWrapper><OEC2026 /></PageWrapper>} />
             <Route path="/blog/resumock" element={<PageWrapper><ResuMock /></PageWrapper>} />
             <Route path="/blog/sparkandprepper" element={<PageWrapper><SparkAndPrepper /></PageWrapper>} />
+            <Route path="/blog/startup-lessons" element={<PageWrapper><StartupLessons /></PageWrapper>} />
             <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
             <Route path="/links" element={<PageWrapper><Links /></PageWrapper>} />
           </Routes>

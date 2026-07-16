@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { BackToHome } from '../../BackToHome';
 import { BottomBar } from '../../BottomBar';
 
@@ -12,46 +11,36 @@ export const Jinsa = () => {
           {/* Header */}
           <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-light text-black mb-4">Jinsa</h1>
-            <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-              <span>October 14, 2025</span>
-              <span>•</span>
-              <span>3 min read</span>
-              <span className="px-3 py-1 bg-gray-100 border border-gray-400 text-black text-xs font-semibold">Project</span>
-            </div>
+            <p className="text-sm text-gray-500 mb-4">October 14, 2025</p>
             <p className="text-lg text-gray-600 leading-relaxed">
               From hackathon idea, to pitch, to startup.
             </p>
-            <div className="flex flex-wrap gap-3 mt-4">
+            <p className="text-sm text-gray-600 mt-4">
               <a
                 href="https://devpost.com/software/jinsa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition"
+                className="text-black underline hover:text-gray-600"
               >
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6.002 1.61L0 12.004L6.002 22.39h11.996L24 12.004L17.998 1.61H6.002zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31c0 4.436-3.21 6.302-6.456 6.302H7.595V5.694zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861c.009-2.569-1.096-3.853-3.767-3.853H10.112z"/>
-                </svg>
-                Devpost
+                devpost
               </a>
+              {' · '}
               <a
                 href="https://usejinsa.co"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded hover:bg-purple-700 transition"
+                className="text-black underline hover:text-gray-600"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-                Demo
+                demo
               </a>
-            </div>
+            </p>
           </div>
 
           {/* Logo */}
           <div className="mb-12">
-            <img 
-              src="/assets/jinsalogo.png" 
-              alt="Jinsa logo" 
+            <img
+              src="/assets/jinsalogo.png"
+              alt="Jinsa logo"
               className="w-full max-w-md mx-auto"
             />
           </div>
@@ -74,14 +63,12 @@ export const Jinsa = () => {
 
           {/* SpurHacks Image */}
           <div className="mb-12">
-            <img 
-              src="/assets/IMG_9622.jpg" 
-              alt="SpurHacks event" 
+            <img
+              src="/assets/IMG_9622.jpg"
+              alt="SpurHacks event"
               className="w-full border border-gray-300"
             />
           </div>
-
-          <hr className="my-12 border-gray-300" />
 
           {/* The Pivot */}
           <div className="mb-12">
@@ -99,8 +86,6 @@ export const Jinsa = () => {
             </div>
           </div>
 
-          <hr className="my-12 border-gray-300" />
-
           {/* The Shift */}
           <div className="mb-12">
             <h2 className="text-3xl font-light text-black mb-6">The Shift</h2>
@@ -116,14 +101,12 @@ export const Jinsa = () => {
 
           {/* Accelerator Image */}
           <div className="mb-12">
-            <img 
-              src="/assets/IMG_8074.PNG" 
-              alt="Accelerator program" 
+            <img
+              src="/assets/IMG_8074.PNG"
+              alt="Accelerator program"
               className="w-full border border-gray-300"
             />
           </div>
-
-          <hr className="my-12 border-gray-300" />
 
           {/* The Accelerator */}
           <div className="mb-12">
@@ -140,14 +123,12 @@ export const Jinsa = () => {
 
           {/* Email Image */}
           <div className="mb-12">
-            <img 
-              src="/assets/IMG_8167.PNG" 
-              alt="Accelerator email" 
+            <img
+              src="/assets/IMG_8167.PNG"
+              alt="Accelerator email"
               className="w-full border border-gray-300"
             />
           </div>
-
-          <hr className="my-12 border-gray-300" />
 
           {/* What I Learned */}
           <div className="mb-12">
@@ -165,8 +146,6 @@ export const Jinsa = () => {
             </div>
           </div>
 
-          <hr className="my-12 border-gray-300" />
-
           {/* The Takeaway */}
           <div className="mb-12">
             <h2 className="text-3xl font-light text-black mb-6">The Takeaway</h2>
@@ -183,19 +162,6 @@ export const Jinsa = () => {
               <p>
                 Jinsa didn't end in a product release, but it became one of the most valuable learning experiences I've had in turning ideas into something tangible.
               </p>
-            </div>
-          </div>
-
-          <hr className="my-12 border-gray-300" />
-
-          {/* Project Info */}
-          <div className="bg-gray-50 border border-gray-300 p-6">
-            <h3 className="text-xl font-medium text-black mb-4">Project Information</h3>
-            <div className="space-y-2 text-gray-700">
-              <p><strong>Event:</strong> SpurHacks 2025</p>
-              <p><strong>Date:</strong> October 2025</p>
-              <p><strong>Type:</strong> Blockchain Authentication Platform</p>
-              <p><strong>Outcome:</strong> Invited to Spur Startup Accelerator Program</p>
             </div>
           </div>
         </div>
