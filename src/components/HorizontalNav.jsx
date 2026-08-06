@@ -22,7 +22,6 @@ export const HorizontalNav = () => {
   // Define the page order for navigation
   const pages = [
     { path: '/', name: 'home' },
-    { path: '/about', name: 'about' },
     { path: '/blog', name: 'blog' },
     { path: '/links', name: 'links' },
     { path: '/resume', name: 'resume' },

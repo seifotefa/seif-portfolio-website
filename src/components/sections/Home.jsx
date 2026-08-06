@@ -1,29 +1,65 @@
+import { useEffect, useState } from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { WebringLinks } from '../WebringLinks'
-import { FiExternalLink, FiArrowRight } from 'react-icons/fi'
+import { FiExternalLink, FiArrowRight, FiX } from 'react-icons/fi'
+import profilePic from '../../assets/seifstatueliberty.jpg'
+import torontoPic from '../../assets/toronto.jpg'
+import fujiPic from '../../assets/fujiii.jpg'
+import arsenalPic from '../../assets/arsenal.jpg'
 
-/** Hover rows: title + date (calendar-style), detail on hover. */
-const currently = [
-  { company: 'backboard', companyLink: 'https://backboard.io', role: 'member of technical staff', date: 'Jun 2026 – present', description: 'building backboard studio, backboard\'s desktop app for orchestrating and managing AI agents.', articleLink: null },
-  { company: 'mcmaster', companyLink: 'https://future.mcmaster.ca/programs/computer-science/', role: 'computer science', date: '2023 – present', description: 'third year of a bachelor\'s degree in computer science.', articleLink: null },
-  { company: 'mcmaster engineering competition', companyLink: null, role: 'consulting lead', date: '2026 – present', description: 'building and running the consulting competition i won the year before.', articleLink: '/blog/mec2025' },
+const galleryImages = [
+  { src: profilePic, alt: 'statue of liberty' },
+  { src: torontoPic, alt: 'toronto' },
+  { src: fujiPic, alt: 'mt. fuji' },
+  { src: arsenalPic, alt: 'arsenal' },
 ]
 
-const previously = [
-  { company: 'ludera', companyLink: null, role: 'software engineer intern', date: 'Jan – Apr 2026', description: 'built an AI flashcard pipeline and semantic search for an RPG that uses your notes to power the experience.', articleLink: null },
-  { company: 'mova realities', companyLink: 'https://www.movarts.com/', role: 'product manager intern', date: 'Jan – Apr 2025', description: 'led requirements analysis, system architecture, and phased roadmap for an AI-powered platform MVP.', articleLink: null },
-  { company: 'mcmaster engineering competition', companyLink: null, role: 'winner (consulting)', date: 'Nov 2025', description: 'first place consulting solution focused on the future of healthcare in canada.', articleLink: '/blog/mec2025' },
+function Gallery({ onClose }) {
+  useEffect(() => {
+    const onKey = (e) => e.key === 'Escape' && onClose()
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  return (
+    <div className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
+      <div className="max-w-2xl w-full" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-sm text-white/80 font-mono-desc">gallery</span>
+          <button onClick={onClose} className="text-white/70 hover:text-white cursor-pointer" aria-label="Close gallery">
+            <FiX className="w-5 h-5" />
+          </button>
+        </div>
+        <div className="grid grid-cols-2 gap-3 max-h-[75vh] overflow-y-auto">
+          {galleryImages.map((img, i) => (
+            <img key={i} src={img.src} alt={img.alt} className="w-full aspect-square object-cover rounded-lg" />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/** Single flat work list, arlan.me-style: current roles first, previous below. */
+const work = [
+  { company: 'backboard', companyLink: 'https://backboard.io', role: 'member of technical staff', date: '2026 –', description: 'building backboard studio, backboard\'s desktop app for orchestrating and managing AI agents.', articleLink: null },
+  { company: 'mcmaster', companyLink: null, role: 'teaching assistant', date: '2026 –', description: 'TA for compsci 2me3 (software development) — running tutorials and supporting students through software design fundamentals.', articleLink: null },
+  { company: 'obotz robotics', companyLink: null, role: 'robotics instructor', date: '2025 –', description: 'teaching kids robotics, electronics, and programming fundamentals.', articleLink: null },
+  { company: 'ludera', companyLink: null, role: 'software engineer intern', date: '2026', description: 'built an AI flashcard pipeline and semantic search for an RPG that uses your notes to power the experience.', articleLink: null },
+  { company: 'mova realities', companyLink: 'https://www.movarts.com/', role: 'product manager intern', date: '2025', description: 'led requirements analysis, system architecture, and phased roadmap for an AI-powered platform MVP.', articleLink: null },
 ]
 
+/** One line each: name (single link) + short description + optional article link. */
 const projects = [
-  { name: 'frontline', description: 'triage dashboard: camera vitals + gemini vision + AI first-aid.', href: 'https://github.com/seifotefa/deltahacks-12', articleLink: '/blog/frontline', badge: 'best use of presage SDK @ deltahacks12', winner: true },
-  { name: 'notipply', description: 'job alerts via text when new positions match your preferences.', href: 'https://www.notipply.com/', articleLink: null, badge: null, winner: false },
-  { name: 'mcmaster webring', description: 'network of founders, builders and engineers at mac.', href: 'https://www.mcmasterwebring.xyz/', articleLink: null, badge: null, winner: false },
-  { name: 'jinsa', description: 'blockchain platform for trackable, verifiable products.', href: 'https://usejinsa.co', articleLink: '/blog/jinsa', badge: 'spurhacks accelerator', winner: true },
-  { name: 'resumock', description: 'behavioral interview simulator from your resume + gemini.', href: 'https://github.com/seifotefa/deltahackslite', articleLink: '/blog/resumock', badge: 'deltahacks lite 2025', winner: false },
-  { name: 'spark and prepper', description: 'study guides, mock exam, flashcards, AI tutor from notes.', href: 'https://github.com/seifotefa/sparkandprepper', articleLink: '/blog/sparkandprepper', badge: 'gdsc hacks 2025', winner: false },
+  { name: 'frontline', description: '🏆 triage dashboard: camera vitals + gemini vision + AI first-aid.', href: 'https://github.com/seifotefa/deltahacks-12', articleLink: '/blog/frontline' },
+  { name: 'notipply', description: 'job alerts via text when new positions match your preferences.', href: 'https://www.notipply.com/' },
+  { name: 'mcmaster webring', description: 'network of founders, builders and engineers at mac.', href: 'https://www.mcmasterwebring.xyz/' },
+  { name: 'jinsa', description: '🏆 blockchain platform for trackable, verifiable products.', href: 'https://usejinsa.co', articleLink: '/blog/jinsa' },
+  { name: 'mec consulting', description: '🏆 won the mcmaster engineering competition, now leading it.', href: '/blog/mec2025', internal: true },
+  { name: 'resumock', description: 'behavioral interview simulator from your resume + gemini.', href: 'https://github.com/seifotefa/deltahackslite', articleLink: '/blog/resumock' },
+  { name: 'spark and prepper', description: 'study guides, mock exam, flashcards, AI tutor from notes.', href: 'https://github.com/seifotefa/sparkandprepper', articleLink: '/blog/sparkandprepper' },
 ]
 
 const highlightedArticles = [
@@ -38,17 +74,17 @@ function ExperienceRows({ items }) {
     <div className="space-y-0.5">
       {items.map((w, i) => (
         <div key={i} className="group">
-          <div className="flex items-baseline justify-between gap-2 text-sm py-2 px-2 -mx-2 cursor-default">
+          <div className="flex items-baseline justify-between gap-2 text-sm py-1.5 px-2 -mx-2 cursor-default">
             <span className="min-w-0">
               {w.companyLink ? (
-                <a href={w.companyLink} target="_blank" rel="noreferrer" className="font-satoshi font-medium text-[#111] hover:underline inline-flex items-center gap-0.5">
+                <a href={w.companyLink} target="_blank" rel="noreferrer" className="hl-quiet font-[500] text-[#111] inline-flex items-center gap-0.5">
                   {w.company}
                   <FiExternalLink className="w-3 h-3 opacity-60 shrink-0" />
                 </a>
               ) : (
-                <span className="font-satoshi font-medium text-[#111]">{w.company}</span>
+                <span className="font-[500] text-[#111]">{w.company}</span>
               )}
-              <span className="text-gray-500 ml-1 font-satoshi">{w.role}</span>
+              <span className="text-gray-500 ml-1">{w.role}</span>
             </span>
             <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{w.date}</span>
           </div>
@@ -58,7 +94,7 @@ function ExperienceRows({ items }) {
               {w.articleLink && (
                 <>
                   {' '}
-                  <Link to={w.articleLink} className="text-gray-500 hover:text-[#111] underline">article</Link>
+                  <Link to={w.articleLink} className="hl text-gray-500">article</Link>
                 </>
               )}
             </p>
@@ -70,40 +106,89 @@ function ExperienceRows({ items }) {
 }
 
 export const Home = () => {
+  const [galleryOpen, setGalleryOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-white text-[#111]">
+      {galleryOpen && <Gallery onClose={() => setGalleryOpen(false)} />}
       <div className="max-w-2xl mx-auto px-5 md:px-8 pt-10 md:pt-14 pb-16">
         {/* Header */}
         <header className="mb-8">
-          <Link
-            to="/about"
-            className="font-satoshi text-xl md:text-2xl text-[#111] hover:opacity-80 inline-flex items-center gap-1.5"
+          <button
+            onClick={() => setGalleryOpen(true)}
+            className="font-[600] text-base md:text-lg text-[#111] hover:opacity-80 inline-flex items-center gap-1.5 bg-transparent border-0 p-0 cursor-pointer"
           >
             seif otefa
             <FiArrowRight className="w-4 h-4 text-gray-400 shrink-0" />
-          </Link>
-          <p className="mt-1.5 text-sm md:text-base text-gray-600 leading-snug font-mono-desc">
-            cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">mcmaster</a>. member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="underline hover:text-[#111]">backboard.io</a>. building at the frontier of tech and innovation.
-          </p>
+          </button>
+          <div className="mt-2 space-y-3 text-sm text-gray-600 leading-relaxed font-mono-desc">
+            <p>
+              third-year cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="hl">mcmaster</a>. member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="hl">backboard.io</a>, building backboard studio — a desktop app for orchestrating AI agents.
+            </p>
+            <p>
+              interested in ai, developer tools, and software design — and how tech intersects with education, finance, and fun. off the clock: soccer, travel, and the gym.
+            </p>
+            <p>
+              reach me on <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="hl">linkedin</a> or by <a href="mailto:seifotefa@gmail.com" className="hl">email</a>.
+            </p>
+          </div>
         </header>
 
-        {/* highlighted articles */}
+        {/* work – single flat list, arlan.me-style */}
         <section className="mb-10 md:mb-12">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-light text-[#111] font-satoshi">highlighted articles</h2>
-            <Link to="/blog" className="text-xs text-gray-500 hover:text-[#111] underline font-mono-desc">view blog</Link>
+          <h2 className="text-sm text-gray-400 mb-3 font-mono-desc">work</h2>
+          <ExperienceRows items={work} />
+        </section>
+
+        {/* projects */}
+        <section className="mb-10 md:mb-12">
+          <h2 className="text-sm text-gray-400 mb-3 font-mono-desc">projects</h2>
+          <div className="space-y-2">
+            {projects.map((p, i) => (
+              <div key={i} className="text-sm leading-relaxed">
+                {p.internal ? (
+                  <Link to={p.href} className="hl-quiet font-[500] text-[#111] whitespace-nowrap">
+                    {p.name}
+                  </Link>
+                ) : (
+                  <a href={p.href} target="_blank" rel="noreferrer" className="hl-quiet font-[500] text-[#111] whitespace-nowrap">
+                    {p.name}
+                    <FiExternalLink className="w-3 h-3 opacity-60 inline ml-0.5 align-[-1px]" />
+                  </a>
+                )}{' '}
+                <span className="text-xs text-gray-600 font-mono-desc font-light">
+                  {p.description}
+                  {p.articleLink && (
+                    <>
+                      {' '}
+                      <Link to={p.articleLink} className="hl text-gray-400">article</Link>
+                    </>
+                  )}
+                </span>
+              </div>
+            ))}
+          </div>
+          <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="hl-quiet inline-flex items-center gap-1.5 text-xs text-gray-500 mt-3 font-mono-desc">
+            more on <FaGithub className="w-3.5 h-3.5" />
+          </a>
+        </section>
+
+        {/* writing */}
+        <section className="mb-10 md:mb-12">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-sm text-gray-400 font-mono-desc">writing</h2>
+            <Link to="/blog" className="hl text-xs text-gray-500 font-mono-desc">view blog</Link>
           </div>
           <div className="space-y-2.5">
             {highlightedArticles.map((post, i) => (
               <div key={i} className="text-sm">
                 <div className="flex items-baseline justify-between gap-2">
-                  <Link to={post.link} className="font-satoshi font-medium text-[#111] hover:opacity-80 inline-flex items-center gap-0.5">
+                  <Link to={post.link} className="font-[500] text-[#111] hover:opacity-80 inline-flex items-center gap-0.5">
                     {post.title}
                     <FiArrowRight className="w-3 h-3 opacity-60 shrink-0" />
                   </Link>
                   <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{post.date}</span>
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed font-mono-desc font-light mt-0.5">{post.description}</p>
               </div>
             ))}
           </div>
@@ -112,66 +197,19 @@ export const Home = () => {
         {/* Quote */}
         <div className="mb-10 md:mb-12">
           <div className="pl-4 border-l-2 border-gray-200">
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed font-mono-desc" style={{ fontWeight: 300 }}>
+            <p className="text-sm text-gray-600 leading-relaxed font-mono-desc" style={{ fontWeight: 300 }}>
               knowledge without action is <em>wastefulness</em> and action without knowledge is <em>foolishness</em>.
             </p>
           </div>
         </div>
 
-        {/* Currently / previously – same hover pattern as before */}
-        <section className="mb-10">
-          <h2 className="text-2xl font-light text-[#111] mb-4 font-satoshi">currently</h2>
-          <ExperienceRows items={currently} />
-          <h2 className="text-2xl font-light text-[#111] mb-4 mt-10 font-satoshi">previously</h2>
-          <ExperienceRows items={previously} />
-        </section>
-
-        {/* Projects – no boxes, description + Article inline */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-light text-[#111] mb-4 font-satoshi">projects</h2>
-          <div className="space-y-2.5">
-            {projects.map((p, i) => (
-              <div key={i} className="text-sm">
-                <div className="flex flex-col mobile:flex-row mobile:items-start mobile:justify-between gap-1 mobile:gap-2">
-                  <div className="min-w-0">
-                    {p.href ? (
-                      <a href={p.href} target="_blank" rel="noreferrer" className="font-satoshi font-medium text-[#111] hover:opacity-80 inline-flex items-center gap-0.5">
-                        {p.name}
-                        <FiExternalLink className="w-3 h-3 opacity-60 shrink-0" />
-                      </a>
-                    ) : (
-                      <span className="font-satoshi font-medium text-[#111]">{p.name}</span>
-                    )}
-                  </div>
-                  {p.badge && (
-                    <span className={`text-xs px-1.5 py-0.5 rounded border font-mono-desc self-start mobile:self-auto max-w-full break-words whitespace-normal ${p.winner ? 'bg-amber-50 border-amber-200 text-amber-800' : 'bg-gray-100 border-gray-200 text-gray-600'}`}>
-                      {p.winner && '🏆 '}{p.badge}
-                    </span>
-                  )}
-                </div>
-                <div className="flex items-baseline gap-2 mt-0.5 flex-wrap">
-                  <span className="text-xs text-gray-600 leading-relaxed font-mono-desc font-light">{p.description}</span>
-                  {p.articleLink && (
-                    <Link to={p.articleLink} className="text-xs text-gray-500 hover:text-[#111] underline shrink-0">article</Link>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-          <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs text-gray-500 hover:text-[#111] mt-3 font-mono-desc">
-            view all on github <FiExternalLink className="w-3 h-3" />
-          </a>
-        </section>
-
         {/* Footer: mono font; name link without underlined space */}
         <footer className="pt-6 border-t border-gray-200 font-mono-desc">
           <div className="grid grid-cols-1 mobile:grid-cols-3 gap-4 items-center text-sm text-gray-600">
             <div className="flex items-center gap-1.5 justify-center mobile:justify-start order-2 mobile:order-1">
-              <Link to="/about" className="underline hover:text-[#111]">about</Link>
+              <Link to="/links" className="hl">links</Link>
               <span className="text-gray-300">|</span>
-              <Link to="/links" className="underline hover:text-[#111]">links</Link>
-              <span className="text-gray-300">|</span>
-              <Link to="/blog" className="underline hover:text-[#111]">blog</Link>
+              <Link to="/blog" className="hl">blog</Link>
             </div>
             <div className="flex justify-center order-1 mobile:order-2">
               <WebringLinks variant="footer" />

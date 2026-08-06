@@ -2,6 +2,38 @@
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-mobile: 550px;
+}
+
+/* Pill-highlight links: subtle underline, rounded background on hover */
+.hl {
+  text-decoration: underline;
+  text-decoration-color: #d1d5db;
+  text-underline-offset: 3px;
+  border-radius: 6px;
+  padding: 1px 4px;
+  margin: -1px -4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.hl:hover {
+  background-color: #f3f4f6;
+  text-decoration: none;
+  color: #111;
+}
+
+/* Same pill hover, no resting underline (for name-style links) */
+.hl-quiet {
+  border-radius: 6px;
+  padding: 1px 4px;
+  margin: -1px -4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.hl-quiet:hover {
+  background-color: #f3f4f6;
+  color: #111;
+}
+
 html, body {
   margin: 0;
   padding: 0;

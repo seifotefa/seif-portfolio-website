@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { About } from './components/sections/About';
 import { Home } from './components/sections/Home';
 import { Resume } from './components/sections/Resume';
 import { HorizontalNav } from './components/HorizontalNav';
@@ -40,7 +39,6 @@ const App = () => {
         <div style={{ flex: 1, overflowY: 'auto' }}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
             <Route path="/resume" element={<PageWrapper><Resume /></PageWrapper>} />
             <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
             <Route path="/blog/frontline" element={<PageWrapper><Frontline /></PageWrapper>} />
