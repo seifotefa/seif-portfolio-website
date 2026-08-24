@@ -3,11 +3,11 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { WebringLinks } from '../WebringLinks'
-import { FiExternalLink, FiArrowRight, FiX } from 'react-icons/fi'
-import profilePic from '../../assets/seifstatueliberty.jpg'
-import torontoPic from '../../assets/toronto.jpg'
-import fujiPic from '../../assets/fujiii.jpg'
-import arsenalPic from '../../assets/arsenal.jpg'
+import { FiExternalLink, FiArrowRight, FiX, FiChevronDown } from 'react-icons/fi'
+import profilePic from '../../assets/seifstatueliberty-web.jpg'
+import torontoPic from '../../assets/toronto-web.jpg'
+import fujiPic from '../../assets/fujiii-web.jpg'
+import arsenalPic from '../../assets/arsenal-web.jpg'
 
 const galleryImages = [
   { src: profilePic, alt: 'statue of liberty' },
@@ -42,22 +42,28 @@ function Gallery({ onClose }) {
   )
 }
 
-/** Single flat work list, arlan.me-style: current roles first, previous below. */
-const work = [
+/** Present roles always visible; previous ones behind the toggle. */
+const workNow = [
   { company: 'backboard', companyLink: 'https://backboard.io', role: 'member of technical staff', date: '2026 –', description: 'building backboard studio, backboard\'s desktop app for orchestrating and managing AI agents.', articleLink: null },
   { company: 'mcmaster', companyLink: null, role: 'teaching assistant', date: '2026 –', description: 'TA for compsci 2me3 (software development) — running tutorials and supporting students through software design fundamentals.', articleLink: null },
   { company: 'obotz robotics', companyLink: null, role: 'robotics instructor', date: '2025 –', description: 'teaching kids robotics, electronics, and programming fundamentals.', articleLink: null },
+]
+
+const workBefore = [
   { company: 'ludera', companyLink: null, role: 'software engineer intern', date: '2026', description: 'built an AI flashcard pipeline and semantic search for an RPG that uses your notes to power the experience.', articleLink: null },
   { company: 'mova realities', companyLink: 'https://www.movarts.com/', role: 'product manager intern', date: '2025', description: 'led requirements analysis, system architecture, and phased roadmap for an AI-powered platform MVP.', articleLink: null },
 ]
 
-/** One line each: name (single link) + short description + optional article link. */
-const projects = [
+/** Highlighted projects always visible; the rest behind "show more". */
+const projectsHighlighted = [
   { name: 'frontline', description: '🏆 triage dashboard: camera vitals + gemini vision + AI first-aid.', href: 'https://github.com/seifotefa/deltahacks-12', articleLink: '/blog/frontline' },
-  { name: 'notipply', description: 'job alerts via text when new positions match your preferences.', href: 'https://www.notipply.com/' },
   { name: 'mcmaster webring', description: 'network of founders, builders and engineers at mac.', href: 'https://www.mcmasterwebring.xyz/' },
-  { name: 'jinsa', description: '🏆 blockchain platform for trackable, verifiable products.', href: 'https://usejinsa.co', articleLink: '/blog/jinsa' },
   { name: 'mec consulting', description: '🏆 won the mcmaster engineering competition, now leading it.', href: '/blog/mec2025', internal: true },
+]
+
+const projectsMore = [
+  { name: 'notipply', description: 'job alerts via text when new positions match your preferences.', href: 'https://www.notipply.com/' },
+  { name: 'jinsa', description: '🏆 blockchain platform for trackable, verifiable products.', href: 'https://usejinsa.co', articleLink: '/blog/jinsa' },
   { name: 'resumock', description: 'behavioral interview simulator from your resume + gemini.', href: 'https://github.com/seifotefa/deltahackslite', articleLink: '/blog/resumock' },
   { name: 'spark and prepper', description: 'study guides, mock exam, flashcards, AI tutor from notes.', href: 'https://github.com/seifotefa/sparkandprepper', articleLink: '/blog/sparkandprepper' },
 ]
@@ -74,7 +80,7 @@ function ExperienceRows({ items }) {
     <div className="space-y-0.5">
       {items.map((w, i) => (
         <div key={i} className="group">
-          <div className="flex items-baseline justify-between gap-2 text-sm py-1.5 px-2 -mx-2 cursor-default">
+          <div className="flex items-baseline justify-between gap-2 text-sm py-0.5 px-2 -mx-2 cursor-default">
             <span className="min-w-0">
               {w.companyLink ? (
                 <a href={w.companyLink} target="_blank" rel="noreferrer" className="hl-quiet font-[500] text-[#111] inline-flex items-center gap-0.5">
@@ -105,15 +111,43 @@ function ExperienceRows({ items }) {
   )
 }
 
+function ProjectRow({ p }) {
+  return (
+    <div className="text-sm leading-relaxed">
+      {p.internal ? (
+        <Link to={p.href} className="hl-quiet font-[500] text-[#111] whitespace-nowrap">
+          {p.name}
+        </Link>
+      ) : (
+        <a href={p.href} target="_blank" rel="noreferrer" className="hl-quiet font-[500] text-[#111] whitespace-nowrap">
+          {p.name}
+          <FiExternalLink className="w-3 h-3 opacity-60 inline ml-0.5 align-[-1px]" />
+        </a>
+      )}{' '}
+      <span className="text-xs text-gray-600 font-mono-desc font-light">
+        {p.description}
+        {p.articleLink && (
+          <>
+            {' '}
+            <Link to={p.articleLink} className="hl text-gray-400">article</Link>
+          </>
+        )}
+      </span>
+    </div>
+  )
+}
+
 export const Home = () => {
   const [galleryOpen, setGalleryOpen] = useState(false)
+  const [showPrevWork, setShowPrevWork] = useState(false)
+  const [showAllProjects, setShowAllProjects] = useState(false)
 
   return (
-    <div className="min-h-screen bg-white text-[#111]">
+    <div className="min-h-screen text-[#111] py-7 flex flex-col justify-center">
       {galleryOpen && <Gallery onClose={() => setGalleryOpen(false)} />}
-      <div className="max-w-2xl mx-auto px-5 md:px-8 pt-10 md:pt-14 pb-16">
+      <div className="max-w-2xl mx-auto rounded-2xl px-5 md:px-8 pt-6 md:pt-8 pb-8 bg-white/60">
         {/* Header */}
-        <header className="mb-8">
+        <header className="mb-6">
           <button
             onClick={() => setGalleryOpen(true)}
             className="font-[600] text-base md:text-lg text-[#111] hover:opacity-80 inline-flex items-center gap-1.5 bg-transparent border-0 p-0 cursor-pointer"
@@ -121,65 +155,64 @@ export const Home = () => {
             seif otefa
             <FiArrowRight className="w-4 h-4 text-gray-400 shrink-0" />
           </button>
-          <div className="mt-2 space-y-3 text-sm text-gray-600 leading-relaxed font-mono-desc">
+          <div className="mt-2 space-y-2 text-sm text-gray-600 leading-normal font-mono-desc">
             <p>
               third-year cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="hl">mcmaster</a>. member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="hl">backboard.io</a>, building backboard studio — a desktop app for orchestrating AI agents.
             </p>
             <p>
-              interested in ai, developer tools, and software design — and how tech intersects with education, finance, and fun. off the clock: soccer, travel, and the gym.
-            </p>
-            <p>
-              reach me on <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="hl">linkedin</a> or by <a href="mailto:seifotefa@gmail.com" className="hl">email</a>.
+              interested in ai, developer tools, and software design — and how tech intersects with education, finance, and fun. off the clock: soccer, travel, and the gym. reach me on <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="hl">linkedin</a> or by <a href="mailto:seifotefa@gmail.com" className="hl">email</a>.
             </p>
           </div>
         </header>
 
         {/* work – single flat list, arlan.me-style */}
-        <section className="mb-10 md:mb-12">
-          <h2 className="text-sm text-gray-400 mb-3 font-mono-desc">work</h2>
-          <ExperienceRows items={work} />
+        <section className="mb-7">
+          <h2 className="text-sm text-gray-400 mb-2 font-mono-desc">work</h2>
+          <ExperienceRows items={workNow} />
+          {showPrevWork && <ExperienceRows items={workBefore} />}
+          <button
+            onClick={() => setShowPrevWork((v) => !v)}
+            className="hl-quiet inline-flex items-center gap-1 text-xs text-gray-400 mt-1.5 font-mono-desc bg-transparent border-0 p-0 cursor-pointer"
+          >
+            previously
+            <FiChevronDown className={`w-3 h-3 transition-transform ${showPrevWork ? 'rotate-180' : ''}`} />
+          </button>
         </section>
 
         {/* projects */}
-        <section className="mb-10 md:mb-12">
-          <h2 className="text-sm text-gray-400 mb-3 font-mono-desc">projects</h2>
-          <div className="space-y-2">
-            {projects.map((p, i) => (
-              <div key={i} className="text-sm leading-relaxed">
-                {p.internal ? (
-                  <Link to={p.href} className="hl-quiet font-[500] text-[#111] whitespace-nowrap">
-                    {p.name}
-                  </Link>
-                ) : (
-                  <a href={p.href} target="_blank" rel="noreferrer" className="hl-quiet font-[500] text-[#111] whitespace-nowrap">
-                    {p.name}
-                    <FiExternalLink className="w-3 h-3 opacity-60 inline ml-0.5 align-[-1px]" />
-                  </a>
-                )}{' '}
-                <span className="text-xs text-gray-600 font-mono-desc font-light">
-                  {p.description}
-                  {p.articleLink && (
-                    <>
-                      {' '}
-                      <Link to={p.articleLink} className="hl text-gray-400">article</Link>
-                    </>
-                  )}
-                </span>
-              </div>
+        <section className="mb-7">
+          <h2 className="text-sm text-gray-400 mb-2 font-mono-desc">projects</h2>
+          <div className="space-y-1.5">
+            {projectsHighlighted.map((p, i) => (
+              <ProjectRow key={i} p={p} />
+            ))}
+            {showAllProjects && projectsMore.map((p, i) => (
+              <ProjectRow key={`m${i}`} p={p} />
             ))}
           </div>
-          <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="hl-quiet inline-flex items-center gap-1.5 text-xs text-gray-500 mt-3 font-mono-desc">
-            more on <FaGithub className="w-3.5 h-3.5" />
-          </a>
+          <div className="flex items-center gap-4 mt-1.5">
+            <button
+              onClick={() => setShowAllProjects((v) => !v)}
+              className="hl-quiet inline-flex items-center gap-1 text-xs text-gray-400 font-mono-desc bg-transparent border-0 p-0 cursor-pointer"
+            >
+              {showAllProjects ? 'show less' : 'show more'}
+              <FiChevronDown className={`w-3 h-3 transition-transform ${showAllProjects ? 'rotate-180' : ''}`} />
+            </button>
+            {showAllProjects && (
+              <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="hl-quiet inline-flex items-center gap-1.5 text-xs text-gray-500 font-mono-desc">
+                more on <FaGithub className="w-3.5 h-3.5" />
+              </a>
+            )}
+          </div>
         </section>
 
         {/* writing */}
-        <section className="mb-10 md:mb-12">
-          <div className="flex items-center justify-between mb-3">
+        <section className="mb-7">
+          <div className="flex items-center justify-between mb-2">
             <h2 className="text-sm text-gray-400 font-mono-desc">writing</h2>
             <Link to="/blog" className="hl text-xs text-gray-500 font-mono-desc">view blog</Link>
           </div>
-          <div className="space-y-2.5">
+          <div className="space-y-1.5">
             {highlightedArticles.map((post, i) => (
               <div key={i} className="text-sm">
                 <div className="flex items-baseline justify-between gap-2">
@@ -195,9 +228,9 @@ export const Home = () => {
         </section>
 
         {/* Quote */}
-        <div className="mb-10 md:mb-12">
-          <div className="pl-4 border-l-2 border-gray-200">
-            <p className="text-sm text-gray-600 leading-relaxed font-mono-desc" style={{ fontWeight: 300 }}>
+        <div className="mb-6">
+          <div className="pl-3 border-l-2 border-gray-200">
+            <p className="text-xs text-gray-500 leading-relaxed font-mono-desc" style={{ fontWeight: 300 }}>
               knowledge without action is <em>wastefulness</em> and action without knowledge is <em>foolishness</em>.
             </p>
           </div>
@@ -214,7 +247,7 @@ export const Home = () => {
             <div className="flex justify-center order-1 mobile:order-2">
               <WebringLinks variant="footer" />
             </div>
-            <div className="flex items-center justify-center mobile:justify-end gap-4 text-gray-500 order-3">
+            <div className="flex items-center justify-center mobile:justify-end gap-3 text-gray-500 order-3">
               <a href="https://github.com/seifotefa" target="_blank" rel="noreferrer" className="hover:text-[#111]"><FaGithub className="w-4 h-4" /></a>
               <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="hover:text-[#111]"><FaLinkedin className="w-4 h-4" /></a>
               <a href="https://x.com/0xseifo" target="_blank" rel="noreferrer" className="hover:text-[#111]"><FaXTwitter className="w-4 h-4" /></a>
