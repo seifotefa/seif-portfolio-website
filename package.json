@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "medium:push": "node scripts/publish-medium.mjs",
+    "medium:pull": "node scripts/pull-medium.mjs"
   },
   "dependencies": {
     "@designcodeio/threeui": "^1.0.0",

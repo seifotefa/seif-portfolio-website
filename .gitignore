@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Secrets (Medium API token lives here)
+.env
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
