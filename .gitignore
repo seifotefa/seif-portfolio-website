@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 
-# Secrets (Medium API token lives here)
+# Secrets
 .env
 
 # Editor directories and files

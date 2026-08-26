@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "medium:push": "node scripts/publish-medium.mjs",
+    "medium:export": "node scripts/export-medium.mjs",
     "medium:pull": "node scripts/pull-medium.mjs"
   },
   "dependencies": {
