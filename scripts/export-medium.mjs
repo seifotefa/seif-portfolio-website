@@ -142,7 +142,16 @@ const html = `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>${title} — medium export</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${title}</title>
+<meta name="author" content="Seif Otefa">
+<meta name="description" content="${(frontmatter.summary || title).replace(/"/g, '&quot;')}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="${title.replace(/"/g, '&quot;')}">
+<meta property="og:description" content="${(frontmatter.summary || title).replace(/"/g, '&quot;')}">
+<meta property="og:url" content="${SITE_URL}/medium/${slug}.html">
+<meta property="article:author" content="Seif Otefa">
+${frontmatter.date ? `<meta property="article:published_time" content="${frontmatter.date}">` : ''}
 <link rel="canonical" href="${SITE_URL}/blog/${slug}">
 <style>
   body { max-width: 680px; margin: 40px auto; padding: 0 20px; font: 18px/1.6 Georgia, serif; color: #1a1a1a; }
