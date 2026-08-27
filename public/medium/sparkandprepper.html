@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spark and Prepper</title>
+<meta name="author" content="Seif Otefa">
+<meta name="description" content="AI study platform turning notes into guides, flashcards, exams, and an AI tutor.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark and Prepper">
+<meta property="og:description" content="AI study platform turning notes into guides, flashcards, exams, and an AI tutor.">
+<meta property="og:url" content="https://seifotefa.com/medium/sparkandprepper.html">
+<meta property="article:author" content="Seif Otefa">
+<meta property="article:published_time" content="2025-02-02">
+<link rel="canonical" href="https://seifotefa.com/blog/sparkandprepper">
+<style>
+  body { max-width: 680px; margin: 40px auto; padding: 0 20px; font: 18px/1.6 Georgia, serif; color: #1a1a1a; }
+  img { max-width: 100%; height: auto; }
+  figure { margin: 24px 0; }
+  figcaption { font: 14px/1.4 system-ui, sans-serif; color: #6b6b6b; text-align: center; margin-top: 6px; }
+</style>
+</head>
+<body>
+<article>
+<h1>Spark and Prepper</h1>
+<p><em>Building an AI-powered study app that turns your notes into interactive learning tools.</em></p>
+<p><a href="https://devpost.com/software/sparkandprepper">devpost</a> · <a href="https://github.com/seifotefa/sparkandprepper">github</a></p>
+<figure><img src="https://seifotefa.com/assets/sparkandprepper.png" alt="Spark and Prepper interface"><figcaption>Spark and Prepper interface</figcaption></figure>
+<p>During GDSC Hacks 2025 at the University of Guelph, I teamed up with Youseph El Khouly and Ahmed Aly to build Spark and Prepper—an AI-powered study app designed to make studying more organized, efficient, and interactive.</p>
+<h2>The Problem</h2>
+<p>As students, we all deal with scattered notes, endless slides, and last-minute cramming. It's easy to feel lost in all the material and not know where to start.</p>
+<p>We wanted to build something that would make that process simpler—an all-in-one platform to organize, summarize, and personalize your study experience.</p>
+<p>Our goal was straightforward: make studying smarter, not harder.</p>
+<h2>The Solution</h2>
+<p>Spark and Prepper lets students upload their notes, syllabi, or slides, and automatically turns them into interactive study tools:</p>
+<ul>
+<li>Condensed study guides</li>
+<li>Flashcards</li>
+<li>Mock exams</li>
+<li>Cheat sheets</li>
+<li>An AI tutor chatbot</li>
+</ul>
+<p>All powered by Google's Gemini API.</p>
+<p>The idea was to create something practical and immediate—a tool that could take what you already have and turn it into something you can actually learn from.</p>
+<figure><img src="https://seifotefa.com/assets/s&phome.jpg" alt="Mock exam example"><figcaption>Mock exam example</figcaption></figure>
+<p><em>A mock exam based on slides for "Intro to Software Development using Java"</em></p>
+<h2>The Tech Stack</h2>
+<p>React, Vite, Tailwind CSS, and React Router on the frontend; Node.js and Express on the backend with Firebase for storage and auth; and Google's Gemini API as the AI engine.</p>
+<p>We divided our work naturally: I focused on full-stack development and AI integration, connecting the backend and frontend; Youseph worked on Firebase and Gemini integration; and Ahmed designed the interface and handled the frontend structure.</p>
+<p>We built and shipped the entire prototype in less than 24 hours.</p>
+<h2>How It Works</h2>
+<ol>
+<li>A user uploads their study materials (PDFs, docs, or slides)</li>
+<li>The backend sends those files to Gemini for processing</li>
+<li>The AI generates study guides, flashcards, and other learning resources</li>
+<li>Firebase stores everything, and the frontend displays it interactively</li>
+<li>Users can then study, test themselves, or chat with the AI tutor</li>
+</ol>
+<h2>Challenges Faced</h2>
+<p>Integrating the Gemini API across different file types wasn't easy.</p>
+<p>Handling file uploads securely with Firebase storage took trial and error.</p>
+<p>Building a responsive, intuitive interface under hackathon pressure tested our design instincts.</p>
+<p>Git merge conflicts—we lost progress multiple times due to lack of experience with Git.</p>
+<p>Each challenge forced us to think about balance—between function and simplicity, speed and polish.</p>
+<h2>What I Learned</h2>
+<p>I learned how to connect frontend and backend logic in a way that feels seamless to the user.</p>
+<p>I got more comfortable with Firebase and cloud file handling.</p>
+<p>I saw how generative AI can be applied to real academic workflows.</p>
+<p>Git, Git, and more Git.</p>
+<p>And I learned that building under pressure means focusing on what matters most—clarity, teamwork, and shipping something that works.</p>
+<h2>The Outcome</h2>
+<p>By the end of the weekend, we had a working prototype that impressed students and mentors alike. It reaffirmed my interest in building AI tools for learning, and reminded me that the best products often start as small, scrappy ideas.</p>
+</article>
+</body>
+</html>

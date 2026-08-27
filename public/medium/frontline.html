@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frontline</title>
+<meta name="author" content="Seif Otefa">
+<meta name="description" content="AI-powered emergency triage system using camera-based vitals monitoring and real-time injury detection.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Frontline">
+<meta property="og:description" content="AI-powered emergency triage system using camera-based vitals monitoring and real-time injury detection.">
+<meta property="og:url" content="https://seifotefa.com/medium/frontline.html">
+<meta property="article:author" content="Seif Otefa">
+<meta property="article:published_time" content="2026-01-11">
+<link rel="canonical" href="https://seifotefa.com/blog/frontline">
+<style>
+  body { max-width: 680px; margin: 40px auto; padding: 0 20px; font: 18px/1.6 Georgia, serif; color: #1a1a1a; }
+  img { max-width: 100%; height: auto; }
+  figure { margin: 24px 0; }
+  figcaption { font: 14px/1.4 system-ui, sans-serif; color: #6b6b6b; text-align: center; margin-top: 6px; }
+</style>
+</head>
+<body>
+<article>
+<h1>Frontline</h1>
+<p><em>AI-powered emergency triage system using camera-based vitals monitoring and real-time injury detection with voice-guided first aid instructions.</em></p>
+<p><a href="https://devpost.com/software/frontline-noyxp0">devpost</a> · <a href="https://github.com/seifotefa/deltahacks-12">github</a></p>
+<figure><img src="https://seifotefa.com/assets/frontline.png" alt="Frontline dashboard showing patient vitals and triage information"><figcaption>Frontline dashboard showing patient vitals and triage information</figcaption></figure>
+<p>Frontline won Best Use of Presage SDK at DeltaHacks12, and was recognized by the CEO of Presage as a featured project. It combines computer vision, vital signs monitoring, and AI guidance to help first responders make faster decisions during emergencies.</p>
+<h2>The Problem</h2>
+<p>First responders face critical challenges: limited patient information, decision paralysis under pressure, difficult resource allocation in mass casualties, and communication barriers with unconscious or shocked victims. Traditional triage relies on manual assessment which is time-consuming and error-prone.</p>
+<h2>The Solution</h2>
+<p><a href="https://seifotefa.com/assets/frontlinedemo.mp4">Demo of Frontline in action</a></p>
+<h3>SmartSpectra (Presage SDK)</h3>
+<p>Camera-based vital signs monitoring measuring heart rate, respiratory rate, blood pressure, and oxygen saturation in real-time—no physical contact needed.</p>
+<h3>Gemini Vision AI</h3>
+<p>Analyzes camera feed to detect visible injuries (burns, lacerations, fractures) and assesses severity based on appearance and vital signs correlation.</p>
+<h3>ElevenLabs Voice Assistant</h3>
+<p>AI-powered conversational agent providing step-by-step first aid instructions, answering questions, and guiding responders through procedures hands-free.</p>
+<h2>Tech Stack</h2>
+<p>React and Tailwind CSS on the frontend with real-time data visualization; Node.js and Express on the backend with C++ for the Presage SDK integration; and the Presage SmartSpectra SDK, Google Gemini Vision API, and ElevenLabs API for the AI layer.</p>
+<h2>Impact</h2>
+<p>Built in under 36 hours at DeltaHacks12, Frontline won Best Use of Presage SDK and demonstrated how camera-based vitals monitoring combined with AI can transform emergency medical response. The project showed the practical potential of these technologies in high-pressure scenarios where every second counts.</p>
+</article>
+</body>
+</html>

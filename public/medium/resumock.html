@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ResuMock</title>
+<meta name="author" content="Seif Otefa">
+<meta name="description" content="AI-powered mock interview coach generating tailored behavioral questions from resumes.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ResuMock">
+<meta property="og:description" content="AI-powered mock interview coach generating tailored behavioral questions from resumes.">
+<meta property="og:url" content="https://seifotefa.com/medium/resumock.html">
+<meta property="article:author" content="Seif Otefa">
+<meta property="article:published_time" content="2025-11-06">
+<link rel="canonical" href="https://seifotefa.com/blog/resumock">
+<style>
+  body { max-width: 680px; margin: 40px auto; padding: 0 20px; font: 18px/1.6 Georgia, serif; color: #1a1a1a; }
+  img { max-width: 100%; height: auto; }
+  figure { margin: 24px 0; }
+  figcaption { font: 14px/1.4 system-ui, sans-serif; color: #6b6b6b; text-align: center; margin-top: 6px; }
+</style>
+</head>
+<body>
+<article>
+<h1>ResuMock</h1>
+<p><em>Building an AI-powered mock interview coach that turns your resume into tailored behavioral interview practice in under 2 hours.</em></p>
+<p><a href="https://devpost.com/software/resumock">devpost</a> · <a href="https://github.com/seifotefa/deltahackslite">github</a></p>
+<figure><img src="https://seifotefa.com/assets/resumock.png" alt="ResuMock interface"><figcaption>ResuMock interface</figcaption></figure>
+<p>During DeltaHacks Lite 2025, I teamed up with Ahmed Aly, Youseph E., and Omar Mzyan to create ResuMock, an AI-powered mock interview coach that helps users prepare for behavioral job interviews. We built it in just an hour and a half.</p>
+<h2>The Problem</h2>
+<p>Preparing for behavioral interviews is tough. Most people rely on generic questions online that don't reflect their real experiences. We wanted to make something more personal—a tool that tailors practice questions directly from your own resume.</p>
+<p>Our goal: make interview prep smarter, faster, and more relevant to <em>you</em>.</p>
+<h2>The Solution</h2>
+<p>ResuMock lets users upload their resume and enter the company and role they're applying for. Using Google's Gemini API, the app generates custom behavioral interview questions based on their personal experiences.</p>
+<p>Users can type short answers to each question, and the AI instantly gives feedback on clarity, confidence, and structure, helping them refine their responses in real time.</p>
+<p>It's like having a personal interview coach, available anytime, helping you spin and understand your own story.</p>
+<h2>Demo</h2>
+<p><a href="https://seifotefa.com/assets/resumock-demo.mp4">Demo video</a></p>
+<h2>The Tech Stack</h2>
+<p>React, Tailwind CSS, and Vite on the frontend; Node.js and Express on the backend; and Google's Gemini API for the AI integration. Total development time: 90 minutes.</p>
+<h2>How It Works</h2>
+<ol>
+<li>Users upload their resume (PDF or text)</li>
+<li>They input the target company and role</li>
+<li>The backend sends this info to the Gemini API</li>
+<li>The AI generates behavioral interview questions tailored to the resume</li>
+<li>Users type responses and get instant AI feedback on performance</li>
+</ol>
+<h2>Challenges Faced</h2>
+<p>Of course, time was our biggest constraint. Implementing audio response support was on our roadmap but didn't make it into the MVP.</p>
+<p>We also had to balance generating useful questions while keeping AI calls efficient and the UI responsive. Debugging Express routes and aligning frontend-backend responses took some quick teamwork under pressure.</p>
+<h2>What I Learned</h2>
+<p>This project reinforced the importance of building lean and shipping fast. I learned how to structure AI-based feedback loops efficiently, improved my teamwork speed during a hackathon, and gained confidence working with the Gemini API for real-world AI integrations.</p>
+<p>And maybe most importantly, that great ideas don't need a whole weekend. Sometimes 90 minutes is enough to prove what's possible.</p>
+<h2>The Outcome</h2>
+<p>By the end of the hackathon, ResuMock worked exactly as we envisioned: users could upload their resumes and instantly start an interactive AI-powered interview session. Mentors loved the idea's simplicity and real-world potential.</p>
+<p>Next up: adding voice-based answers so users can practice speaking naturally, not just typing—turning ResuMock into a full simulation experience.</p>
+</article>
+</body>
+</html>
