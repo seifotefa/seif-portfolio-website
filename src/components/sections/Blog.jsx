@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiArrowRight } from 'react-icons/fi';
+import { FiArrowRight, FiChevronDown } from 'react-icons/fi';
 
 export const Blog = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [showArchive, setShowArchive] = useState(false);
 
   const blogPosts = [
     {
@@ -30,6 +31,7 @@ export const Blog = () => {
       summary: "AI-powered emergency triage system using camera-based vitals monitoring and real-time injury detection.",
       category: "project",
       link: "/blog/frontline",
+      archived: true,
     },
     {
       title: "project phoenix (MEC 2025)",
@@ -38,6 +40,7 @@ export const Blog = () => {
       summary: "first place consulting solution focused on the future of healthcare in canada.",
       category: "competition",
       link: "/blog/mec2025",
+      archived: true, // rewrite before un-archiving
     },
     {
       title: "resumock",
@@ -46,6 +49,7 @@ export const Blog = () => {
       summary: "AI-powered mock interview coach generating tailored behavioral questions from resumes.",
       category: "project",
       link: "/blog/resumock",
+      archived: true,
     },
     {
       title: "jinsa",
@@ -54,6 +58,7 @@ export const Blog = () => {
       summary: "blockchain-based product authentication platform from hackathon to accelerator.",
       category: "project",
       link: "/blog/jinsa",
+      archived: true, // rewrite before un-archiving
     },
     {
       title: "code in place",
@@ -70,6 +75,7 @@ export const Blog = () => {
       summary: "requirements analysis, system architecture and design for AI-powered VR platform MVP.",
       category: "experience",
       link: "/blog/mova",
+      archived: true,
     },
     {
       title: "spark and prepper",
@@ -78,14 +84,31 @@ export const Blog = () => {
       summary: "AI study platform turning notes into guides, flashcards, exams, and an AI tutor.",
       category: "project",
       link: "/blog/sparkandprepper",
+      archived: true,
     },
   ];
 
   const categories = ['all', 'project', 'experience', 'competition', 'writing'];
 
-  const filteredPosts = blogPosts
-    .filter(post => selectedCategory === 'all' || post.category === selectedCategory)
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+  const byCategory = (post) => selectedCategory === 'all' || post.category === selectedCategory;
+  const byDate = (a, b) => new Date(b.date) - new Date(a.date);
+  const filteredPosts = blogPosts.filter(p => !p.archived).filter(byCategory).sort(byDate);
+  const archivedPosts = blogPosts.filter(p => p.archived).filter(byCategory).sort(byDate);
+
+  const PostRow = ({ post, muted }) => (
+    <div className="text-sm">
+      <div className="flex items-baseline justify-between gap-2">
+        <Link to={post.link} className={`hl-quiet font-[500] inline-flex items-center gap-0.5 min-w-0 ${muted ? 'text-gray-500' : 'text-[#111]'}`}>
+          {post.title}
+          <FiArrowRight className="w-3 h-3 opacity-60 shrink-0" />
+        </Link>
+        <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{post.displayDate}</span>
+      </div>
+      <p className="text-xs text-gray-600 leading-relaxed font-mono-desc font-light mt-0.5">
+        {post.summary}
+      </p>
+    </div>
+  );
 
   return (
     <div className="min-h-screen text-[#111] py-7 flex flex-col justify-center">
@@ -123,24 +146,33 @@ export const Blog = () => {
 
         {/* Posts */}
         <div className="space-y-3">
-          {filteredPosts.map((post, index) => (
-            <div key={index} className="text-sm">
-              <div className="flex items-baseline justify-between gap-2">
-                <Link to={post.link} className="hl-quiet font-[500] text-[#111] inline-flex items-center gap-0.5 min-w-0">
-                  {post.title}
-                  <FiArrowRight className="w-3 h-3 opacity-60 shrink-0" />
-                </Link>
-                <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{post.displayDate}</span>
-              </div>
-              <p className="text-xs text-gray-600 leading-relaxed font-mono-desc font-light mt-0.5">
-                {post.summary}
-              </p>
-            </div>
+          {filteredPosts.map((post) => (
+            <PostRow key={post.link} post={post} />
           ))}
         </div>
 
-        {filteredPosts.length === 0 && (
+        {filteredPosts.length === 0 && archivedPosts.length === 0 && (
           <p className="text-xs text-gray-500 font-mono-desc py-6">no posts found in this category.</p>
+        )}
+
+        {/* Archive */}
+        {archivedPosts.length > 0 && (
+          <>
+            <button
+              onClick={() => setShowArchive((v) => !v)}
+              className="hl-quiet inline-flex items-center gap-1 text-xs text-gray-400 mt-5 font-mono-desc bg-transparent border-0 p-0 cursor-pointer"
+            >
+              archive ({archivedPosts.length})
+              <FiChevronDown className={`w-3 h-3 transition-transform ${showArchive ? 'rotate-180' : ''}`} />
+            </button>
+            {showArchive && (
+              <div className="space-y-3 mt-3">
+                {archivedPosts.map((post) => (
+                  <PostRow key={post.link} post={post} muted />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

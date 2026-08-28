@@ -70,9 +70,8 @@ const projectsMore = [
 
 const highlightedArticles = [
   { title: 'lessons from joining an early stage startup', date: "summer '26", link: '/blog/startup-lessons', description: 'ambiguity, structure, and agency — what my first month at backboard.io taught me.' },
-  { title: 'winning the mcmaster engineer competition', date: "fall '25", link: '/blog/mec2025', description: 'first place consulting solution focused on the future of healthcare in canada.' },
+  { title: 'OEC 2026 — carleton', date: "winter '26", link: '/blog/oec2026', description: 'representing mcmaster at the ontario engineering competition in ottawa.' },
   { title: "teaching stanford's cs106A", date: "summer '25", link: '/blog/cip2025', description: 'teaching python fundamentals to students as a section leader.' },
-  { title: 'winning at deltahacks12 using presage technologies', date: "winter '26", link: '/blog/frontline', description: 'building frontline, an ai-powered emergency triage with camera vitals and real-time injury detection.' },
 ]
 
 function ExperienceRows({ items }) {
