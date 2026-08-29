@@ -3,39 +3,54 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { WebringLinks } from '../WebringLinks'
-import { FiExternalLink, FiArrowRight, FiX, FiChevronDown } from 'react-icons/fi'
-import profilePic from '../../assets/seifstatueliberty-web.jpg'
-import torontoPic from '../../assets/toronto-web.jpg'
-import fujiPic from '../../assets/fujiii-web.jpg'
-import arsenalPic from '../../assets/arsenal-web.jpg'
+import { FiExternalLink, FiArrowRight, FiX, FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import fieldnoteFuji from '../../assets/fieldnote-fuji.jpg'
+import fieldnoteNara from '../../assets/fieldnote-nara.jpg'
+import fieldnoteIstanbul from '../../assets/fieldnote-istanbul.jpg'
 
 const galleryImages = [
-  { src: profilePic, alt: 'statue of liberty' },
-  { src: torontoPic, alt: 'toronto' },
-  { src: fujiPic, alt: 'mt. fuji' },
-  { src: arsenalPic, alt: 'arsenal' },
+  { src: fieldnoteFuji, alt: 'Fujikawaguchiko, Japan — mount fuji, countryside, calm' },
+  { src: fieldnoteNara, alt: 'Nara, Japan — temple, heritage, serenity' },
+  { src: fieldnoteIstanbul, alt: 'Istanbul, Turkey — mosque, domes, minarets' },
 ]
 
 function Gallery({ onClose }) {
+  const [index, setIndex] = useState(0)
+  const prev = () => setIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length)
+  const next = () => setIndex((i) => (i + 1) % galleryImages.length)
+
   useEffect(() => {
-    const onKey = (e) => e.key === 'Escape' && onClose()
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose()
+      if (e.key === 'ArrowLeft') prev()
+      if (e.key === 'ArrowRight') next()
+    }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [onClose])
 
   return (
     <div className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
-      <div className="max-w-2xl w-full" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-sm text-white/80 font-mono-desc">gallery</span>
+      <div className="max-w-3xl w-full" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-sm text-white/80 font-mono-desc">field notes</span>
           <button onClick={onClose} className="text-white/70 hover:text-white cursor-pointer" aria-label="Close gallery">
             <FiX className="w-5 h-5" />
           </button>
         </div>
-        <div className="grid grid-cols-2 gap-3 max-h-[75vh] overflow-y-auto">
-          {galleryImages.map((img, i) => (
-            <img key={i} src={img.src} alt={img.alt} className="w-full aspect-square object-cover rounded-lg" />
-          ))}
+        <img
+          src={galleryImages[index].src}
+          alt={galleryImages[index].alt}
+          className="w-full max-h-[75vh] object-contain rounded-lg"
+        />
+        <div className="flex items-center justify-center gap-6 mt-3 text-white/70 font-mono-desc text-xs">
+          <button onClick={prev} className="hover:text-white cursor-pointer" aria-label="Previous">
+            <FiChevronLeft className="w-5 h-5" />
+          </button>
+          <span>{index + 1} / {galleryImages.length}</span>
+          <button onClick={next} className="hover:text-white cursor-pointer" aria-label="Next">
+            <FiChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </div>
