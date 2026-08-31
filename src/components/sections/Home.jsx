@@ -208,7 +208,7 @@ export const Home = () => {
           </button>
           <div className="mt-2 space-y-2 text-sm text-gray-600 leading-normal font-mono-desc">
             <p>
-              third-year cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="hl">mcmaster</a>. building <a href="https://notchii.xyz" target="_blank" rel="noreferrer" className="hl">notchii</a> and <a href="https://www.notipply.com/" target="_blank" rel="noreferrer" className="hl">notipply</a>. previously member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="hl">backboard.io</a>, building backboard studio — a desktop app for orchestrating AI agents.
+              third-year cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="hl">mcmaster</a>. building <a href="https://notchii.xyz" target="_blank" rel="noreferrer" className="hl">notchii</a> and <a href="https://www.notipply.com/" target="_blank" rel="noreferrer" className="hl">notipply</a>. previously member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="hl">backboard.io</a>.
             </p>
             <p>
               interested in ai, developer tools, and software design — and how tech intersects with education, finance, and fun. off the clock: soccer, travel, and the gym. reach me on <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="hl">linkedin</a> or by <a href="mailto:seifotefa@gmail.com" className="hl">email</a>.
