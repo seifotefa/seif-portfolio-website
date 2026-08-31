@@ -62,7 +62,7 @@ const workNow = [
   {
     company: 'backboard', companyLink: 'https://backboard.io',
     roles: [
-      { role: 'ambassador lead', date: '2026 –', description: 'volunteering — continuing to lead the ambassador programme that i built.' },
+      { role: 'ambassador lead', date: '2026 –', description: 'continuing to lead the ambassador programme that i built.' },
       { role: 'member of technical staff', date: '2026', description: 'built backboard studio, backboard\'s desktop app for orchestrating and managing AI agents. also built the ambassador programme.' },
     ],
   },
