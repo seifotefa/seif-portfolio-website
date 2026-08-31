@@ -59,7 +59,13 @@ function Gallery({ onClose }) {
 
 /** Present roles always visible; previous ones behind the toggle. */
 const workNow = [
-  { company: 'backboard', companyLink: 'https://backboard.io', role: 'member of technical staff', date: '2026 –', description: 'building backboard studio, backboard\'s desktop app for orchestrating and managing AI agents.', articleLink: null },
+  {
+    company: 'backboard', companyLink: 'https://backboard.io',
+    roles: [
+      { role: 'ambassador lead', date: '2026 –', description: 'volunteering — continuing to lead the ambassador programme that i built.' },
+      { role: 'member of technical staff', date: '2026', description: 'built backboard studio, backboard\'s desktop app for orchestrating and managing AI agents. also built the ambassador programme.' },
+    ],
+  },
   { company: 'mcmaster', companyLink: null, role: 'teaching assistant', date: '2026 –', description: 'TA for compsci 2me3 (software development) — running tutorials and supporting students through software design fundamentals.', articleLink: null },
   { company: 'obotz robotics', companyLink: null, role: 'robotics instructor', date: '2025 –', description: 'teaching kids robotics, electronics, and programming fundamentals.', articleLink: null },
 ]
@@ -93,6 +99,36 @@ function ExperienceRows({ items }) {
   return (
     <div className="space-y-0.5">
       {items.map((w, i) => (
+        w.roles ? (
+          /* LinkedIn-style: one company, stacked roles flowing into each other */
+          <div key={i} className="py-0.5">
+            <div className="text-sm px-2 -mx-2">
+              {w.companyLink ? (
+                <a href={w.companyLink} target="_blank" rel="noreferrer" className="hl-quiet font-[500] text-[#111] inline-flex items-center gap-0.5">
+                  {w.company}
+                  <FiExternalLink className="w-3 h-3 opacity-60 shrink-0" />
+                </a>
+              ) : (
+                <span className="font-[500] text-[#111]">{w.company}</span>
+              )}
+            </div>
+            <div className="ml-1.5 pl-3 border-l border-gray-200">
+              {w.roles.map((r, j) => (
+                <div key={j} className="group">
+                  <div className="flex items-baseline justify-between gap-2 text-sm py-0.5 cursor-default">
+                    <span className="text-gray-500 min-w-0">{r.role}</span>
+                    <span className="text-gray-400 text-xs shrink-0 font-mono-desc">{r.date}</span>
+                  </div>
+                  <div className="max-h-0 overflow-hidden transition-[max-height] duration-200 ease-out group-hover:max-h-32">
+                    <p className="text-xs text-gray-600 leading-relaxed pb-1 pt-0 font-mono-desc font-light">
+                      {r.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
         <div key={i} className="group">
           <div className="flex items-baseline justify-between gap-2 text-sm py-0.5 px-2 -mx-2 cursor-default">
             <span className="min-w-0">
@@ -120,6 +156,7 @@ function ExperienceRows({ items }) {
             </p>
           </div>
         </div>
+        )
       ))}
     </div>
   )
@@ -171,7 +208,7 @@ export const Home = () => {
           </button>
           <div className="mt-2 space-y-2 text-sm text-gray-600 leading-normal font-mono-desc">
             <p>
-              third-year cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="hl">mcmaster</a>. member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="hl">backboard.io</a>, building backboard studio — a desktop app for orchestrating AI agents.
+              third-year cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="hl">mcmaster</a>. building <a href="https://notchii.xyz" target="_blank" rel="noreferrer" className="hl">notchii</a> and <a href="https://www.notipply.com/" target="_blank" rel="noreferrer" className="hl">notipply</a>. previously member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="hl">backboard.io</a>, building backboard studio — a desktop app for orchestrating AI agents.
             </p>
             <p>
               interested in ai, developer tools, and software design — and how tech intersects with education, finance, and fun. off the clock: soccer, travel, and the gym. reach me on <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="hl">linkedin</a> or by <a href="mailto:seifotefa@gmail.com" className="hl">email</a>.
