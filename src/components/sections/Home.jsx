@@ -62,8 +62,8 @@ const workNow = [
   {
     company: 'backboard', companyLink: 'https://backboard.io',
     roles: [
-      { role: 'ambassador lead', date: '2026 –', description: 'continuing to lead the ambassador programme that i built.' },
-      { role: 'member of technical staff', date: '2026', description: 'built backboard studio, backboard\'s desktop app for orchestrating and managing AI agents. also built the ambassador programme.' },
+      { role: 'member of technical staff', date: '2026 –', description: 'continuing to lead the ambassador programme that i built.' },
+      { role: 'member of technical staff (intern)', date: '2026', description: 'built backboard studio, backboard\'s desktop app for orchestrating and managing AI agents. also built the ambassador programme.' },
     ],
   },
   { company: 'mcmaster', companyLink: null, role: 'teaching assistant', date: '2026 –', description: 'TA for compsci 2me3 (software development) — running tutorials and supporting students through software design fundamentals.', articleLink: null },
@@ -208,7 +208,7 @@ export const Home = () => {
           </button>
           <div className="mt-2 space-y-2 text-sm text-gray-600 leading-normal font-mono-desc">
             <p>
-              third-year cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="hl">mcmaster</a>. building <a href="https://notchii.xyz" target="_blank" rel="noreferrer" className="hl">notchii</a> and <a href="https://www.notipply.com/" target="_blank" rel="noreferrer" className="hl">notipply</a>. previously member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="hl">backboard.io</a>.
+              third-year cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="hl">mcmaster</a>. member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="hl">backboard.io</a>.
             </p>
             <p>
               interested in ai, developer tools, and software design — and how tech intersects with education, finance, and fun. off the clock: soccer, travel, and the gym. reach me on <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="hl">linkedin</a> or by <a href="mailto:seifotefa@gmail.com" className="hl">email</a>.
