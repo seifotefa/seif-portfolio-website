@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiArrowRight, FiChevronDown } from 'react-icons/fi';
+import { BottomBar } from '../BottomBar';
 
 export const Blog = () => {
   const navigate = useNavigate();
@@ -175,6 +176,7 @@ export const Blog = () => {
           </>
         )}
       </div>
+      <BottomBar />
     </div>
   );
 };

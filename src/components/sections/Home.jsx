@@ -1,61 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { WebringLinks } from '../WebringLinks'
-import { FiExternalLink, FiArrowRight, FiX, FiChevronDown, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
-import fieldnoteFuji from '../../assets/fieldnote-fuji.jpg'
-import fieldnoteNara from '../../assets/fieldnote-nara.jpg'
-import fieldnoteIstanbul from '../../assets/fieldnote-istanbul.jpg'
-
-const galleryImages = [
-  { src: fieldnoteFuji, alt: 'Fujikawaguchiko, Japan — mount fuji, countryside, calm' },
-  { src: fieldnoteNara, alt: 'Nara, Japan — temple, heritage, serenity' },
-  { src: fieldnoteIstanbul, alt: 'Istanbul, Turkey — mosque, domes, minarets' },
-]
-
-function Gallery({ onClose }) {
-  const [index, setIndex] = useState(0)
-  const prev = () => setIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length)
-  const next = () => setIndex((i) => (i + 1) % galleryImages.length)
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === 'Escape') onClose()
-      if (e.key === 'ArrowLeft') prev()
-      if (e.key === 'ArrowRight') next()
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [onClose])
-
-  return (
-    <div className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" onClick={onClose}>
-      <div className="max-w-3xl w-full" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-white/80 font-mono-desc">field notes</span>
-          <button onClick={onClose} className="text-white/70 hover:text-white cursor-pointer" aria-label="Close gallery">
-            <FiX className="w-5 h-5" />
-          </button>
-        </div>
-        <img
-          src={galleryImages[index].src}
-          alt={galleryImages[index].alt}
-          className="w-full max-h-[75vh] object-contain rounded-lg"
-        />
-        <div className="flex items-center justify-center gap-6 mt-3 text-white/70 font-mono-desc text-xs">
-          <button onClick={prev} className="hover:text-white cursor-pointer" aria-label="Previous">
-            <FiChevronLeft className="w-5 h-5" />
-          </button>
-          <span>{index + 1} / {galleryImages.length}</span>
-          <button onClick={next} className="hover:text-white cursor-pointer" aria-label="Next">
-            <FiChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+import { VisitorCount } from '../VisitorCount'
+import { FiExternalLink, FiArrowRight, FiChevronDown } from 'react-icons/fi'
 
 /** Present roles always visible; previous ones behind the toggle. */
 const workNow = [
@@ -77,13 +26,14 @@ const workBefore = [
 
 /** Highlighted projects always visible; the rest behind "show more". */
 const projectsHighlighted = [
+  { name: 'notipply', description: 'job alerts via text when new positions match your preferences.', href: 'https://www.notipply.com/' },
+  { name: 'notchii', description: 'building a better way to share and discover what you are listening to.', href: 'https://notchii.xyz' },
   { name: 'frontline', description: '🏆 triage dashboard: camera vitals + gemini vision + AI first-aid.', href: 'https://github.com/seifotefa/deltahacks-12', articleLink: '/blog/frontline' },
   { name: 'mcmaster webring', description: 'network of founders, builders and engineers at mac.', href: 'https://www.mcmasterwebring.xyz/' },
   { name: 'mec consulting', description: '🏆 won the mcmaster engineering competition, now leading it.', href: '/blog/mec2025', internal: true },
 ]
 
 const projectsMore = [
-  { name: 'notipply', description: 'job alerts via text when new positions match your preferences.', href: 'https://www.notipply.com/' },
   { name: 'jinsa', description: '🏆 blockchain platform for trackable, verifiable products.', href: 'https://usejinsa.co', articleLink: '/blog/jinsa' },
   { name: 'resumock', description: 'behavioral interview simulator from your resume + gemini.', href: 'https://github.com/seifotefa/deltahackslite', articleLink: '/blog/resumock' },
   { name: 'spark and prepper', description: 'study guides, mock exam, flashcards, AI tutor from notes.', href: 'https://github.com/seifotefa/sparkandprepper', articleLink: '/blog/sparkandprepper' },
@@ -189,23 +139,18 @@ function ProjectRow({ p }) {
 }
 
 export const Home = () => {
-  const [galleryOpen, setGalleryOpen] = useState(false)
   const [showPrevWork, setShowPrevWork] = useState(false)
   const [showAllProjects, setShowAllProjects] = useState(false)
 
   return (
     <div className="min-h-screen text-[#111] py-7 flex flex-col justify-center">
-      {galleryOpen && <Gallery onClose={() => setGalleryOpen(false)} />}
       <div className="max-w-2xl mx-auto rounded-2xl px-5 md:px-8 pt-6 md:pt-8 pb-8 bg-white/60">
         {/* Header */}
         <header className="mb-6">
-          <button
-            onClick={() => setGalleryOpen(true)}
-            className="font-[600] text-base md:text-lg text-[#111] hover:opacity-80 inline-flex items-center gap-1.5 bg-transparent border-0 p-0 cursor-pointer"
-          >
+          <Link to="/gallery" className="font-[600] text-base md:text-lg text-[#111] hover:opacity-80 inline-flex items-center gap-1.5">
             seif otefa
             <FiArrowRight className="w-4 h-4 text-gray-400 shrink-0" />
-          </button>
+          </Link>
           <div className="mt-2 space-y-2 text-sm text-gray-600 leading-normal font-mono-desc">
             <p>
               third-year cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="hl">mcmaster</a>. member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="hl">backboard.io</a>. building <a href="https://notchii.xyz" target="_blank" rel="noreferrer" className="hl">notchii</a> and <a href="https://www.notipply.com/" target="_blank" rel="noreferrer" className="hl">notipply</a>.
@@ -294,6 +239,8 @@ export const Home = () => {
               <Link to="/links" className="hl">links</Link>
               <span className="text-gray-300">|</span>
               <Link to="/blog" className="hl">blog</Link>
+              <span className="text-gray-300">|</span>
+              <Link to="/gallery" className="hl">gallery</Link>
             </div>
             <div className="flex justify-center order-1 mobile:order-2">
               <WebringLinks variant="footer" />
@@ -305,6 +252,9 @@ export const Home = () => {
               <a href="mailto:seifotefa@gmail.com" className="hover:text-[#111]" aria-label="Email"><FaEnvelope className="w-4 h-4" /></a>
               <a href="https://seifotefa.com/resume" target="_blank" rel="noreferrer" className="hover:text-[#111]" aria-label="Resume"><FaRegFileAlt className="w-4 h-4" /></a>
             </div>
+          </div>
+          <div className="mt-4 text-center text-xs text-gray-400">
+            <VisitorCount />
           </div>
         </footer>
       </div>

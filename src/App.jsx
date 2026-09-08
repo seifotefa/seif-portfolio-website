@@ -14,6 +14,7 @@ import { ResuMock } from './components/sections/blog/ResuMock';
 import { SparkAndPrepper } from './components/sections/blog/SparkAndPrepper';
 import { StartupLessons } from './components/sections/blog/StartupLessons';
 import { Links } from './components/sections/Links';
+import { Gallery } from './components/sections/Gallery';
 
 // Wrapper component to conditionally show HorizontalNav
 const PageWrapper = ({ children }) => {
@@ -51,6 +52,7 @@ const App = () => {
             <Route path="/blog/sparkandprepper" element={<PageWrapper><SparkAndPrepper /></PageWrapper>} />
             <Route path="/blog/startup-lessons" element={<PageWrapper><StartupLessons /></PageWrapper>} />
             <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
+            <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
             <Route path="/links" element={<PageWrapper><Links /></PageWrapper>} />
           </Routes>
         </div>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaEnvelope, FaRegFileAlt } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { WebringLinks } from './WebringLinks';
+import { VisitorCount } from './VisitorCount';
 
 export const BottomBar = () => {
   return (
@@ -21,6 +22,11 @@ export const BottomBar = () => {
           <Link to="/links" className="underline underline-offset-2 hover:text-black">links</Link>{' '}
           <span className="mx-1">|</span>{' '}
           <Link to="/blog" className="underline underline-offset-2 hover:text-black">blog</Link>
+          <span className="mx-1">|</span>{' '}
+          <Link to="/gallery" className="underline underline-offset-2 hover:text-black">gallery</Link>
+        </p>
+        <p className="text-[0.75rem] md:text-[0.8rem] text-gray-400 whitespace-nowrap">
+          <VisitorCount />
         </p>
       </div>
     </div>

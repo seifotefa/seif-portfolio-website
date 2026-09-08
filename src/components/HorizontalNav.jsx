@@ -1,11 +1,9 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 export const HorizontalNav = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Handle back navigation - for blog posts, go to /blog first, then home
   const handleBackClick = (e) => {
@@ -23,6 +21,7 @@ export const HorizontalNav = () => {
   const pages = [
     { path: '/', name: 'home' },
     { path: '/blog', name: 'blog' },
+    { path: '/gallery', name: 'gallery' },
     { path: '/links', name: 'links' },
     { path: '/resume', name: 'resume' },
   ]

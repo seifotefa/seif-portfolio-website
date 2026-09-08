@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BottomBar } from '../BottomBar';
 
 export const Resume = () => {
   const [pdfUrl, setPdfUrl] = useState('/assets/SeifOtefaResume.pdf');
@@ -28,8 +29,9 @@ export const Resume = () => {
             className="w-full h-full border-0"
             title="resume PDF"
           />
-        </div>
       </div>
+      <BottomBar />
+    </div>
     </div>
   );
 };
