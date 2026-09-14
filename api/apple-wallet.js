@@ -61,14 +61,11 @@ export default async function handler(req, res) {
       teamIdentifier: process.env.APPLE_TEAM_IDENTIFIER,
       organizationName: 'Seif Otefa',
       description: 'Seif Otefa digital business card',
-      logoText: 'Seif Otefa',
-      foregroundColor: 'rgb(17, 17, 17)',
-      backgroundColor: 'rgb(255, 255, 255)',
-      labelColor: 'rgb(107, 114, 128)',
+      foregroundColor: 'rgb(255, 255, 255)',
+      backgroundColor: 'rgb(71, 85, 105)',
+      labelColor: 'rgb(226, 232, 240)',
       generic: {
-        primaryFields: [{ key: 'name', label: 'NAME', value: 'Seif Otefa' }],
-        secondaryFields: [{ key: 'website', label: 'WEBSITE', value: 'seifotefa.com' }],
-        auxiliaryFields: [{ key: 'purpose', label: 'CONNECT', value: 'Scan the QR code' }],
+        primaryFields: [{ key: 'name', label: '', value: 'SEIF OTEFA', textAlignment: 'PKTextAlignmentCenter' }],
         backFields: [{ key: 'links', label: 'LINKS', value: QR_DESTINATION }],
       },
     };
