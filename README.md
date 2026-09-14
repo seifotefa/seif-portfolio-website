@@ -40,7 +40,7 @@ npm run build
 
 ## Apple Wallet digital business card
 
-The `/links` page includes a protected “Add to Apple Wallet” button. It asks for a private access code before calling the Netlify Function at `/api/apple-wallet`. The pass contains a QR code linking to `https://seifotefa.com/links`.
+The site exposes a protected manual Apple Wallet download route at `/api/apple-wallet`. The pass contains a QR code linking to `https://seifotefa.com/links`; the public `/links` page does not display the download control.
 
 ### Apple Developer setup
 
@@ -62,7 +62,7 @@ Paste PEM values into Netlify exactly, including the `BEGIN`/`END` lines. Do not
 ### One-time download and deployment
 
 1. Deploy with `APPLE_WALLET_ENABLED=true` and the signing variables configured.
-2. Open `/links`, click “Add to Apple Wallet,” enter the private access code, and install the downloaded pass on your iPhone.
+2. Open `/api/apple-wallet?token=YOUR_PRIVATE_ACCESS_TOKEN` manually, then install the downloaded pass on your iPhone.
 3. Set `APPLE_WALLET_ENABLED=false` in Netlify and redeploy. The endpoint then returns 404, so the website no longer issues passes.
 
 The pass is signed only when the endpoint is called. Apple Developer account setup, certificate creation/export, Netlify environment variables, and the final deployment remain manual because the signing credentials must stay private. Anyone who obtains the downloaded `.pkpass` file could still share that file; disabling the endpoint prevents new downloads.
