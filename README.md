@@ -44,13 +44,13 @@ The `/links` page includes a protected “Add to Apple Wallet” button. It asks
 
 ### Apple Developer setup
 
-Create a Pass Type ID in Apple Developer (for example, `pass.com.seifotefa.businesscard`) and create a Pass Type ID certificate for it. Export the certificate and private key as PEM text. You also need Apple’s current Worldwide Developer Relations (WWDR) certificate in PEM format.
+Create a Pass Type ID in Apple Developer and create a Pass Type ID certificate for it. Export the certificate and private key as PEM text. You also need Apple’s current Worldwide Developer Relations (WWDR) certificate in PEM format.
 
 Add these Netlify environment variables under **Site configuration → Environment variables**. Use the **Production** scope (and Deploy Previews only if you intentionally want to test there):
 
 - `APPLE_WALLET_ENABLED=true` while downloading the pass; change it to `false` immediately afterward.
 - `APPLE_WALLET_ACCESS_TOKEN` — a long, random private code that is not committed to Git.
-- `APPLE_PASS_TYPE_IDENTIFIER` — the exact Pass Type ID, such as `pass.com.seifotefa.businesscard`.
+- `APPLE_PASS_TYPE_IDENTIFIER` — the exact Pass Type ID from Apple Developer.
 - `APPLE_TEAM_IDENTIFIER` — your 10-character Apple Developer Team ID.
 - `APPLE_WWDR_CERTIFICATE` — the complete WWDR PEM contents.
 - `APPLE_SIGNER_CERTIFICATE` — the complete Pass Type ID certificate PEM contents.
