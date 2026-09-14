@@ -15,7 +15,14 @@ const workNow = [
       { role: 'member of technical staff (intern)', date: '2026', description: 'built backboard studio, backboard\'s desktop app for orchestrating and managing AI agents. also built the ambassador programme.' },
     ],
   },
-  { company: 'mcmaster', companyLink: null, role: 'teaching assistant', date: '2026 –', description: 'TA for compsci 2me3 (software development) — running tutorials and supporting students through software design fundamentals.', articleLink: null },
+  {
+    company: 'mcmaster', companyLink: null,
+    roles: [
+      { role: 'computer science, b.a.sc.', date: '2024 – 2028', description: 'honours bachelor of applied science in computer science.' },
+      { role: 'teaching assistant', date: '2026 –', description: 'TA for compsci 2me3 (software development) — running tutorials and supporting students through software design fundamentals.' },
+      { role: 'engineering competition consulting lead', date: '2025 –', description: 'leading the consulting division at the McMaster Engineering Competition.' },
+    ],
+  },
   { company: 'obotz robotics', companyLink: null, role: 'robotics instructor', date: '2025 –', description: 'teaching kids robotics, electronics, and programming fundamentals.', articleLink: null },
 ]
 
@@ -26,17 +33,17 @@ const workBefore = [
 
 /** Highlighted projects always visible; the rest behind "show more". */
 const projectsHighlighted = [
-  { name: 'notipply', description: 'job alerts via text when new positions match your preferences.', href: 'https://www.notipply.com/' },
-  { name: 'notchii', description: 'building a better way to share and discover what you are listening to.', href: 'https://notchii.xyz' },
-  { name: 'frontline', description: '🏆 triage dashboard: camera vitals + gemini vision + AI first-aid.', href: 'https://github.com/seifotefa/deltahacks-12', articleLink: '/blog/frontline' },
-  { name: 'mcmaster webring', description: 'network of founders, builders and engineers at mac.', href: 'https://www.mcmasterwebring.xyz/' },
-  { name: 'mec consulting', description: '🏆 won the mcmaster engineering competition, now leading it.', href: '/blog/mec2025', internal: true },
+  { name: 'notipply', logo: 'https://www.notipply.com/assets/notiplyimagenobackground-9o6yGObD.png', description: 'job alerts via text when new positions match your preferences.', href: 'https://www.notipply.com/' },
+  { name: 'notchii', logo: 'https://notchii.xyz/mascot.png', description: 'building a better way to share and discover what you are listening to.', href: 'https://notchii.xyz' },
+  { name: 'frontline', logo: '/assets/frontline.png', description: '🏆 triage dashboard: camera vitals + gemini vision + AI first-aid.', href: 'https://github.com/seifotefa/deltahacks-12', articleLink: '/blog/frontline' },
+  { name: 'mcmaster webring', logo: '/assets/mcmaster.jpg', description: 'network of founders, builders and engineers at mac.', href: 'https://www.mcmasterwebring.xyz/' },
+  { name: 'mec consulting', logo: '/assets/mcmaster.jpg', description: '🏆 won the mcmaster engineering competition, now leading it.', href: '/blog/mec2025', internal: true },
 ]
 
 const projectsMore = [
-  { name: 'jinsa', description: '🏆 blockchain platform for trackable, verifiable products.', href: 'https://usejinsa.co', articleLink: '/blog/jinsa' },
-  { name: 'resumock', description: 'behavioral interview simulator from your resume + gemini.', href: 'https://github.com/seifotefa/deltahackslite', articleLink: '/blog/resumock' },
-  { name: 'spark and prepper', description: 'study guides, mock exam, flashcards, AI tutor from notes.', href: 'https://github.com/seifotefa/sparkandprepper', articleLink: '/blog/sparkandprepper' },
+  { name: 'jinsa', logo: '/assets/jinsalogo.png', description: '🏆 blockchain platform for trackable, verifiable products.', href: 'https://usejinsa.co', articleLink: '/blog/jinsa' },
+  { name: 'resumock', logo: '/assets/resumock.png', description: 'behavioral interview simulator from your resume + gemini.', href: 'https://github.com/seifotefa/deltahackslite', articleLink: '/blog/resumock' },
+  { name: 'spark and prepper', logo: '/assets/sparkandprepper.png', description: 'study guides, mock exam, flashcards, AI tutor from notes.', href: 'https://github.com/seifotefa/sparkandprepper', articleLink: '/blog/sparkandprepper' },
 ]
 
 const highlightedArticles = [
@@ -44,6 +51,32 @@ const highlightedArticles = [
   { title: 'OEC 2026 — carleton', date: "winter '26", link: '/blog/oec2026', description: 'representing mcmaster at the ontario engineering competition in ottawa.' },
   { title: "teaching stanford's cs106A", date: "summer '25", link: '/blog/cip2025', description: 'teaching python fundamentals to students as a section leader.' },
 ]
+
+const BIO_HIGHLIGHT_STYLES = {
+  university: 'bg-[#f3e5ea] hover:bg-[#ead2dc] ring-1 ring-[#7a003c]/15',
+  company: 'bg-[#edf0ed] hover:bg-[#e1e6e1]',
+  project: 'bg-[#f0f0f0] hover:bg-[#e5e5e5]',
+}
+
+function BioHighlight({ href, label, logo, kind = 'project' }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className={`inline-flex items-center gap-1 rounded-sm px-1 py-0.5 text-[#333] transition-colors ${BIO_HIGHLIGHT_STYLES[kind]}`}
+    >
+      <span>{label}</span>
+      {logo ? (
+        <img src={logo} alt="" aria-hidden="true" className="w-4 h-4 rounded-[2px] object-contain bg-white/80" />
+      ) : (
+        <span className="inline-flex w-4 h-4 items-center justify-center rounded-[2px] bg-black text-[8px] font-semibold leading-none text-white" aria-hidden="true">
+          {label.slice(0, 1).toUpperCase()}
+        </span>
+      )}
+    </a>
+  )
+}
 
 function ExperienceRows({ items }) {
   return (
@@ -113,14 +146,20 @@ function ExperienceRows({ items }) {
 }
 
 function ProjectRow({ p }) {
+  const logo = p.logo ? (
+    <img src={p.logo} alt="" aria-hidden="true" className="w-4 h-4 rounded-[2px] object-contain bg-white/80 inline-block mr-1 align-[-3px]" />
+  ) : null
+
   return (
     <div className="text-sm leading-relaxed">
       {p.internal ? (
         <Link to={p.href} className="hl-quiet font-[500] text-[#111] whitespace-nowrap">
+          {logo}
           {p.name}
         </Link>
       ) : (
         <a href={p.href} target="_blank" rel="noreferrer" className="hl-quiet font-[500] text-[#111] whitespace-nowrap">
+          {logo}
           {p.name}
           <FiExternalLink className="w-3 h-3 opacity-60 inline ml-0.5 align-[-1px]" />
         </a>
@@ -147,13 +186,17 @@ export const Home = () => {
       <div className="max-w-2xl mx-auto rounded-2xl px-5 md:px-8 pt-6 md:pt-8 pb-8 bg-white/60">
         {/* Header */}
         <header className="mb-6">
-          <Link to="/gallery" className="font-[600] text-base md:text-lg text-[#111] hover:opacity-80 inline-flex items-center gap-1.5">
+          <Link to="/archive" className="font-[600] text-base md:text-lg text-[#111] hover:opacity-80 inline-flex items-center gap-1.5">
             seif otefa
             <FiArrowRight className="w-4 h-4 text-gray-400 shrink-0" />
           </Link>
           <div className="mt-2 space-y-2 text-sm text-gray-600 leading-normal font-mono-desc">
             <p>
-              third-year cs @ <a href="https://future.mcmaster.ca/programs/computer-science/" target="_blank" rel="noreferrer" className="hl">mcmaster</a>. member of technical staff @ <a href="https://backboard.io" target="_blank" rel="noreferrer" className="hl">backboard.io</a>. building <a href="https://notchii.xyz" target="_blank" rel="noreferrer" className="hl">notchii</a> and <a href="https://www.notipply.com/" target="_blank" rel="noreferrer" className="hl">notipply</a>.
+              third-year cs @{' '}
+              <BioHighlight href="https://future.mcmaster.ca/programs/computer-science/" label="mcmaster" logo="/assets/mcmaster.jpg" kind="university" />. member of technical staff @{' '}
+              <BioHighlight href="https://backboard.io" label="backboard.io" logo="/assets/backboard_io_logo.jpg" kind="company" />. building{' '}
+              <BioHighlight href="https://notchii.xyz" label="notchii" logo="https://notchii.xyz/mascot.png" kind="project" /> and{' '}
+              <BioHighlight href="https://www.notipply.com/" label="notipply" logo="https://www.notipply.com/assets/notiplyimagenobackground-9o6yGObD.png" kind="project" />.
             </p>
             <p>
               interested in ai, developer tools, and software design — and how tech intersects with education, finance, and fun. off the clock: soccer, travel, and the gym. reach me on <a href="https://linkedin.com/in/seif-otefa" target="_blank" rel="noreferrer" className="hl">linkedin</a> or by <a href="mailto:seifotefa@gmail.com" className="hl">email</a>.
@@ -165,7 +208,6 @@ export const Home = () => {
         <section className="mb-7">
           <h2 className="text-sm text-gray-400 mb-2 font-mono-desc">work</h2>
           <ExperienceRows items={workNow} />
-          {showPrevWork && <ExperienceRows items={workBefore} />}
           <button
             onClick={() => setShowPrevWork((v) => !v)}
             className="hl-quiet inline-flex items-center gap-1 text-xs text-gray-400 mt-1.5 font-mono-desc bg-transparent border-0 p-0 cursor-pointer"
@@ -173,6 +215,7 @@ export const Home = () => {
             previously
             <FiChevronDown className={`w-3 h-3 transition-transform ${showPrevWork ? 'rotate-180' : ''}`} />
           </button>
+          {showPrevWork && <div className="mt-2"><ExperienceRows items={workBefore} /></div>}
         </section>
 
         {/* projects */}
@@ -202,10 +245,10 @@ export const Home = () => {
           </div>
         </section>
 
-        {/* writing */}
+        {/* reading */}
         <section className="mb-7">
           <div className="flex items-center justify-between mb-2">
-            <h2 className="text-sm text-gray-400 font-mono-desc">writing</h2>
+            <h2 className="text-sm text-gray-400 font-mono-desc">reading</h2>
             <Link to="/blog" className="hl text-xs text-gray-500 font-mono-desc">view blog</Link>
           </div>
           <div className="space-y-1.5">
@@ -235,12 +278,14 @@ export const Home = () => {
         {/* Footer: mono font; name link without underlined space */}
         <footer className="pt-6 border-t border-gray-200 font-mono-desc">
           <div className="grid grid-cols-1 mobile:grid-cols-3 gap-4 items-center text-sm text-gray-600">
-            <div className="flex items-center gap-1.5 justify-center mobile:justify-start order-2 mobile:order-1">
+            <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 justify-center mobile:justify-start order-2 mobile:order-1">
+              <Link to="/" className="hl">home</Link>
+              <span className="text-gray-300">|</span>
               <Link to="/links" className="hl">links</Link>
               <span className="text-gray-300">|</span>
               <Link to="/blog" className="hl">blog</Link>
               <span className="text-gray-300">|</span>
-              <Link to="/gallery" className="hl">gallery</Link>
+              <Link to="/archive" className="hl">archive</Link>
             </div>
             <div className="flex justify-center order-1 mobile:order-2">
               <WebringLinks variant="footer" />

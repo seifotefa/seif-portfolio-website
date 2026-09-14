@@ -1,7 +1,6 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Home } from './components/sections/Home';
 import { Resume } from './components/sections/Resume';
-import { HorizontalNav } from './components/HorizontalNav';
 import { Blog } from './components/sections/Blog';
 import { BlogPost } from './components/sections/BlogPost';
 import { Frontline } from './components/sections/blog/Frontline';
@@ -16,18 +15,7 @@ import { StartupLessons } from './components/sections/blog/StartupLessons';
 import { Links } from './components/sections/Links';
 import { Gallery } from './components/sections/Gallery';
 
-// Wrapper component to conditionally show HorizontalNav
-const PageWrapper = ({ children }) => {
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
-  
-  return (
-    <>
-      {!isHomePage && <HorizontalNav />}
-      {children}
-    </>
-  );
-};
+const PageWrapper = ({ children }) => children;
 
 // Home is now a long single page — allow scroll everywhere
 const ScrollHandler = () => null;
@@ -52,7 +40,8 @@ const App = () => {
             <Route path="/blog/sparkandprepper" element={<PageWrapper><SparkAndPrepper /></PageWrapper>} />
             <Route path="/blog/startup-lessons" element={<PageWrapper><StartupLessons /></PageWrapper>} />
             <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
-            <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
+            <Route path="/archive" element={<PageWrapper><Gallery /></PageWrapper>} />
+            <Route path="/gallery" element={<Navigate to="/archive" replace />} />
             <Route path="/links" element={<PageWrapper><Links /></PageWrapper>} />
           </Routes>
         </div>

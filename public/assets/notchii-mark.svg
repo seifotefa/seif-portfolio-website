@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Notchii logo">
+  <rect width="64" height="64" rx="14" fill="#e8eef2"/>
+  <path d="M17 18h8v17c0 5 3 8 7 8s7-3 7-8V18h8v17c0 10-6 16-15 16s-15-6-15-16z" fill="#253746"/>
+  <circle cx="48" cy="17" r="5" fill="#d48465"/>
+</svg>

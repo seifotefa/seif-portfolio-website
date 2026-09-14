@@ -16,14 +16,14 @@ export const BottomBar = () => {
           <a href="https://seifotefa.com/resume" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-black" aria-label="Resume"><FaRegFileAlt className="w-5 h-5 md:w-6 md:h-6" /></a>
         </div>
         <WebringLinks variant="footer" />
-        <p className="text-[0.85rem] md:text-[0.95rem] text-gray-600 leading-snug">
-          <Link to="/" className="underline underline-offset-2 hover:text-black">home</Link>{' '}
-          <span className="mx-1">|</span>{' '}
-          <Link to="/links" className="underline underline-offset-2 hover:text-black">links</Link>{' '}
-          <span className="mx-1">|</span>{' '}
+        <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[0.8rem] md:text-[0.95rem] text-gray-600 leading-snug">
+          <Link to="/" className="underline underline-offset-2 hover:text-black">home</Link>
+          <span>|</span>
+          <Link to="/links" className="underline underline-offset-2 hover:text-black">links</Link>
+          <span>|</span>
           <Link to="/blog" className="underline underline-offset-2 hover:text-black">blog</Link>
-          <span className="mx-1">|</span>{' '}
-          <Link to="/gallery" className="underline underline-offset-2 hover:text-black">gallery</Link>
+          <span>|</span>
+          <Link to="/archive" className="underline underline-offset-2 hover:text-black">archive</Link>
         </p>
         <p className="text-[0.75rem] md:text-[0.8rem] text-gray-400 whitespace-nowrap">
           <VisitorCount />
