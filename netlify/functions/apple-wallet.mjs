@@ -13,10 +13,13 @@ const requiredEnvironment = [
   'APPLE_SIGNER_PRIVATE_KEY',
 ];
 
-const jsonResponse = (statusCode, payload) => ({
-  statusCode,
-  headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store, private' },
-  body: JSON.stringify(payload),
+const jsonResponse = (status, payload, extraHeaders = {}) => new Response(JSON.stringify(payload), {
+  status,
+  headers: {
+    'Content-Type': 'application/json',
+    'Cache-Control': 'no-store, private',
+    ...extraHeaders,
+  },
 });
 
 const isAuthorized = (providedToken) => {
@@ -28,16 +31,16 @@ const isAuthorized = (providedToken) => {
   return provided.length === expected.length && timingSafeEqual(provided, expected);
 };
 
-export async function handler(event) {
-  if (event.httpMethod !== 'GET') {
-    return { ...jsonResponse(405, { error: 'Method not allowed' }), headers: { Allow: 'GET' } };
+export default async function handler(request) {
+  if (request.method !== 'GET') {
+    return jsonResponse(405, { error: 'Method not allowed' }, { Allow: 'GET' });
   }
 
   if (process.env.APPLE_WALLET_ENABLED !== 'true') {
     return jsonResponse(404, { error: 'Apple Wallet download is disabled' });
   }
 
-  const token = event.queryStringParameters?.token || '';
+  const token = new URL(request.url).searchParams.get('token') || '';
   if (!isAuthorized(token)) {
     return jsonResponse(401, { error: 'A valid private Apple Wallet access code is required' });
   }
@@ -93,16 +96,14 @@ export async function handler(event) {
       altText: 'seifotefa.com/links',
     });
 
-    return {
-      statusCode: 200,
+    return new Response(pass.getAsBuffer(), {
+      status: 200,
       headers: {
         'Content-Type': 'application/vnd.apple.pkpass',
         'Content-Disposition': 'attachment; filename="seif-otefa-business-card.pkpass"',
         'Cache-Control': 'no-store, private',
       },
-      isBase64Encoded: true,
-      body: pass.getAsBuffer().toString('base64'),
-    };
+    });
   } catch (error) {
     console.error('Apple Wallet pass generation failed:', error instanceof Error ? error.message : error);
     return jsonResponse(500, { error: 'Apple Wallet pass generation failed' });
