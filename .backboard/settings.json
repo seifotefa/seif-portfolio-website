@@ -1,0 +1,7 @@
+{
+	"permissions": {
+		"allow": [
+			"execute(npx remotion render Backboard exported.mp4 --concurrency=1)"
+		]
+	}
+}

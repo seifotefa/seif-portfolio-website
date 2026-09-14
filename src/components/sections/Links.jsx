@@ -6,6 +6,14 @@ import profilePic from '../../assets/seifstatueliberty.jpg';
 const LINK_BUTTON_CLASS =
   'w-full flex items-center justify-center gap-3 py-3.5 px-4 rounded-lg bg-white border border-gray-300 text-gray-700 font-medium transition-all duration-300 ease-out hover:bg-gray-100 hover:text-black hover:border-gray-400 active:scale-[0.98]';
 
+const handleAppleWalletDownload = () => {
+  const accessCode = window.prompt('Enter your private Apple Wallet access code:');
+  if (!accessCode) return;
+
+  const walletUrl = `/api/apple-wallet?token=${encodeURIComponent(accessCode.trim())}`;
+  window.location.assign(walletUrl);
+};
+
 export const Links = () => {
   useEffect(() => {
     document.title = 'Seif Otefa | Links';
@@ -88,6 +96,13 @@ export const Links = () => {
           >
             Personal Website (seifotefa.com)
           </a>
+          <button
+            type="button"
+            onClick={handleAppleWalletDownload}
+            className={LINK_BUTTON_CLASS}
+          >
+            Add to Apple Wallet
+          </button>
         </div>
 
         {/* Footer */}

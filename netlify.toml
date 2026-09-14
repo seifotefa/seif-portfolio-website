@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "/api/apple-wallet"
+  to = "/.netlify/functions/apple-wallet"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
