@@ -14,6 +14,7 @@ import { SparkAndPrepper } from './components/sections/blog/SparkAndPrepper';
 import { StartupLessons } from './components/sections/blog/StartupLessons';
 import { Links } from './components/sections/Links';
 import { Gallery } from './components/sections/Gallery';
+import { BackboardLogbook } from './components/sections/BackboardLogbook';
 
 const PageWrapper = ({ children }) => children;
 
@@ -39,6 +40,7 @@ const App = () => {
             <Route path="/blog/resumock" element={<PageWrapper><ResuMock /></PageWrapper>} />
             <Route path="/blog/sparkandprepper" element={<PageWrapper><SparkAndPrepper /></PageWrapper>} />
             <Route path="/blog/startup-lessons" element={<PageWrapper><StartupLessons /></PageWrapper>} />
+            <Route path="/blog/backboard" element={<PageWrapper><BackboardLogbook /></PageWrapper>} />
             <Route path="/blog/:slug" element={<PageWrapper><BlogPost /></PageWrapper>} />
             <Route path="/archive" element={<PageWrapper><Gallery /></PageWrapper>} />
             <Route path="/gallery" element={<Navigate to="/archive" replace />} />

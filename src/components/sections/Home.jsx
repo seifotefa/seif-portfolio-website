@@ -47,6 +47,7 @@ const projectsMore = [
 ]
 
 const highlightedArticles = [
+  { title: 'my summer at backboard', date: "summer '26", link: '/blog/backboard', description: 'building backboard studio and launching the ambassador program.' },
   { title: 'lessons from joining an early stage startup', date: "summer '26", link: '/blog/startup-lessons', description: 'ambiguity, structure, and agency — what my first month at backboard.io taught me.' },
   { title: 'OEC 2026 — carleton', date: "winter '26", link: '/blog/oec2026', description: 'representing mcmaster at the ontario engineering competition in ottawa.' },
   { title: "teaching stanford's cs106A", date: "summer '25", link: '/blog/cip2025', description: 'teaching python fundamentals to students as a section leader.' },

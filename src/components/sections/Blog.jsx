@@ -10,6 +10,14 @@ export const Blog = () => {
 
   const blogPosts = [
     {
+      title: "my summer at backboard",
+      date: "2026-08-06",
+      displayDate: "summer '26",
+      summary: "building backboard studio, launching the ambassador program, and the work around it.",
+      category: "experience",
+      link: "/blog/backboard",
+    },
+    {
       title: "lessons from joining an early stage startup",
       date: "2026-06-12",
       displayDate: "summer '26",
