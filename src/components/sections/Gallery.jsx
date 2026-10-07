@@ -18,7 +18,7 @@ const outerImages = [
   },
 ]
 
-const filters = ['reading', 'video', 'photo']
+const filters = ['reading', 'video']
 const photoSections = ['outer', 'inner', 'travel']
 
 const reading = [
@@ -52,7 +52,7 @@ const videos = [
 ]
 
 export const Gallery = () => {
-  const [activeFilter, setActiveFilter] = useState('photo')
+  const [activeFilter, setActiveFilter] = useState('reading')
   const [activePhotoSection, setActivePhotoSection] = useState('travel')
 
   useEffect(() => {
