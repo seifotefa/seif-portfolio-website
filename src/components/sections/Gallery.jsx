@@ -23,6 +23,10 @@ const photoSections = ['outer', 'inner', 'travel']
 
 const reading = [
   {
+    name: 'meditations — marcus aurelius',
+    href: 'https://www.goodreads.com/book/show/662925.Meditations',
+  },
+  {
     name: 'notes from the underground',
     href: 'https://www.goodreads.com/book/show/22128791-notes-from-the-underground',
   },
@@ -36,15 +40,15 @@ const reading = [
   },
 ]
 
-const video = [
+const videos = [
   {
     name: 'building a company in stealth | travis kalanick with a16z',
     href: 'https://www.youtube.com/watch?v=z6gH_v0buUc',
   },
   {
-    name: 'the psychology of sin',
+    name: 'the psychology of sin | eternalised',
     href: 'https://www.youtube.com/watch?v=QX51rwMicWY',
-  }
+  },
 ]
 
 export const Gallery = () => {
@@ -139,14 +143,19 @@ export const Gallery = () => {
         )}
 
         {activeFilter === 'video' && (
-          <a
-            href={video.href}
-            target="_blank"
-            rel="noreferrer"
-            className="block text-sm text-[#111] hover:text-gray-500 transition-colors font-mono-desc"
-          >
-            {video.name}
-          </a>
+          <div className="space-y-3">
+            {videos.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="block text-sm text-[#111] hover:text-gray-500 transition-colors font-mono-desc"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
         )}
       </div>
 
