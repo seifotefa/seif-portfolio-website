@@ -36,10 +36,16 @@ const reading = [
   },
 ]
 
-const video = {
-  name: 'building a company in stealth | travis kalanick with a16z',
-  href: 'https://www.youtube.com/watch?v=z6gH_v0buUc',
-}
+const video = [
+  {
+    name: 'building a company in stealth | travis kalanick with a16z',
+    href: 'https://www.youtube.com/watch?v=z6gH_v0buUc',
+  },
+  {
+    name: 'the psychology of sin',
+    href: 'https://www.youtube.com/watch?v=QX51rwMicWY',
+  }
+]
 
 export const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState('photo')
