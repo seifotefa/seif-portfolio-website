@@ -184,16 +184,9 @@ body {
   justify-content: space-between;
   gap: 8px 24px;
 }
-.home-footer-meta {
-  margin-top: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  color: #777;
-  font-size: 11px;
-}
-.home-footer-meta p { margin: 0; }
+.home-webring { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.home-webring-logo { display: inline-flex; align-items: center; }
+.home-webring-logo img { display: block; width: auto; height: 24px; max-width: 32px; object-fit: contain; filter: grayscale(1); }
 
 .partnerships-main {
   min-height: 100vh;

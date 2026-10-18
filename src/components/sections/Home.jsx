@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { WebringLinks } from '../WebringLinks'
-import { VisitorCount } from '../VisitorCount'
 
 const work = [
   { name: 'backboard', href: 'https://backboard.io', role: 'member of technical staff · intern, now part-time' },
@@ -105,8 +104,8 @@ export const Home = () => {
       <footer className="home-footer">
         <nav aria-label="Site pages" className="home-footer-nav">
           <Link to="/">home</Link><Link to="/links">links</Link><Link to="/blog">blog</Link><Link to="/archive">archive</Link><Link to="/resume">resume</Link>
+          <WebringLinks variant="compact" />
         </nav>
-        <div className="home-footer-meta"><WebringLinks variant="footer" /><VisitorCount /></div>
       </footer>
     </div>
   </main>

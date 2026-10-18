@@ -4,10 +4,25 @@ const WEBRING_LOGO = `${WEBRING_URL}assets/Uni_mcmaster_logo.svg.png`;
 
 /**
  * McMaster CS & SE Webring links (embed: ← logo →).
- * @param {{ variant: 'inline' | 'footer' }} props - inline: logo next to resume; footer: arrow · logo · arrow in bar
+ * @param {{ variant: 'inline' | 'footer' | 'compact' }} props
  */
 export const WebringLinks = ({ variant = "footer" }) => {
   const linkClass = "text-inherit no-underline hover:underline";
+  if (variant === "compact") {
+    return (
+      <span className="home-webring" aria-label="McMaster CS & SE Webring">
+        <a href={`${WEBRING_URL}#${MY_SITE}?nav=prev`} title="Previous site in the webring" aria-label="Previous site in the webring">←</a>
+        <a href={WEBRING_URL} title="McMaster CS & SE Webring" className="home-webring-logo">
+          <img
+            src={WEBRING_LOGO}
+            alt="McMaster CS & SE Webring"
+            style={{ display: 'block', height: 24, width: 'auto', maxWidth: 32, objectFit: 'contain', filter: 'grayscale(1)' }}
+          />
+        </a>
+        <a href={`${WEBRING_URL}#${MY_SITE}?nav=next`} title="Next site in the webring" aria-label="Next site in the webring">→</a>
+      </span>
+    );
+  }
   if (variant === "inline") {
     const arrowClass = "text-gray-600 hover:text-black transition-colors text-xl md:text-2xl lg:text-3xl leading-none";
     return (
