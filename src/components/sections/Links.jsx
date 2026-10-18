@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 import profilePic from '../../assets/seifstatueliberty.jpg';
 
 const LINK_BUTTON_CLASS =
@@ -44,14 +45,17 @@ export const Links = () => {
 
         {/* Link buttons - card container with subtle shadow */}
         <div className="w-full space-y-3 rounded-xl p-4 sm:p-5 bg-white border border-gray-200 shadow-sm">
+          <Link to="/partnerships" className={LINK_BUTTON_CLASS}>
+            Partnerships / @seifoai
+          </Link>
         <a
-            href="https://instagram.com/0xseifo"
+            href="https://www.instagram.com/seifoai/"
             target="_blank"
             rel="noopener noreferrer"
             className={LINK_BUTTON_CLASS}
           >
             <FaInstagram className="w-5 h-5" aria-hidden />
-            Instagram
+            Instagram (@seifoai)
           </a>
           <a
             href="https://linkedin.com/in/seif-otefa"

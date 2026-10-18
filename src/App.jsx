@@ -15,6 +15,7 @@ import { StartupLessons } from './components/sections/blog/StartupLessons';
 import { Links } from './components/sections/Links';
 import { Gallery } from './components/sections/Gallery';
 import { BackboardLogbook } from './components/sections/BackboardLogbook';
+import { Partnerships } from './components/sections/Partnerships';
 
 const PageWrapper = ({ children }) => children;
 
@@ -45,6 +46,7 @@ const App = () => {
             <Route path="/archive" element={<PageWrapper><Gallery /></PageWrapper>} />
             <Route path="/gallery" element={<Navigate to="/archive" replace />} />
             <Route path="/links" element={<PageWrapper><Links /></PageWrapper>} />
+            <Route path="/partnerships" element={<PageWrapper><Partnerships /></PageWrapper>} />
           </Routes>
         </div>
       </div>
