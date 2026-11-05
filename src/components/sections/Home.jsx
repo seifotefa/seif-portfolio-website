@@ -13,6 +13,7 @@ const work = [
 const projects = [
   { name: 'notipply', href: 'https://www.notipply.com/', description: 'job alerts sent by text.' },
   { name: 'notchii', href: 'https://notchii.xyz', description: 'share and discover what people are listening to.' },
+  { name: 'gta toronto', href: 'https://gta-the-6.onrender.com/', description: 'a GTA-inspired Toronto project.' },
   { name: 'frontline', href: 'https://github.com/seifotefa/deltahacks-12', description: 'AI first-aid triage from camera vitals and vision.' },
   { name: 'mcmaster webring', href: 'https://www.mcmasterwebring.xyz/', description: 'a network of builders at mcmaster.' },
   { name: 'mec consulting', to: '/blog/mec2025', description: 'our winning engineering competition project.' },
