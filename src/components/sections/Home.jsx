@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { FaTrophy } from 'react-icons/fa'
 import { WebringLinks } from '../WebringLinks'
 
 const work = [
@@ -13,8 +14,8 @@ const work = [
 const projects = [
   { name: 'notipply', href: 'https://www.notipply.com/', description: 'job alerts sent by text.' },
   { name: 'notchii', href: 'https://notchii.xyz', description: 'share and discover what people are listening to.' },
-  { name: 'gta toronto', href: 'https://gta-the-6.onrender.com/', description: 'a GTA-inspired Toronto project.' },
-  { name: 'frontline', href: 'https://github.com/seifotefa/deltahacks-12', description: 'AI first-aid triage from camera vitals and vision.' },
+  { name: 'gta toronto', href: 'https://gta-the-6.onrender.com/', description: 'a GTA-inspired Toronto project.', trophy: true },
+  { name: 'frontline', href: 'https://github.com/seifotefa/deltahacks-12', description: 'AI first-aid triage from camera vitals and vision.', trophy: true },
   { name: 'mcmaster webring', href: 'https://www.mcmasterwebring.xyz/', description: 'a network of builders at mcmaster.' },
   { name: 'mec consulting', to: '/blog/mec2025', description: 'our winning engineering competition project.' },
   { name: 'jinsa', href: 'https://usejinsa.co', description: 'trackable, verifiable products.' },
@@ -41,10 +42,11 @@ function WorkItem({ item }) {
 }
 
 function ProjectItem({ item }) {
+  const label = <>{item.name}{item.trophy && <FaTrophy className="home-project-trophy" aria-hidden="true" />}</>
   return <div className="home-list-item home-project-item">
     {item.to
-      ? <Link to={item.to}>{item.name}</Link>
-      : <a href={item.href} target="_blank" rel="noreferrer">{item.name}</a>}
+      ? <Link className="home-project-link" to={item.to}>{label}</Link>
+      : <a className="home-project-link" href={item.href} target="_blank" rel="noreferrer">{label}</a>}
     <span className="home-project-description">{item.description}</span>
   </div>
 }

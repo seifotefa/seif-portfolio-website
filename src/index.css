@@ -121,6 +121,8 @@ body {
   text-underline-offset: 3px;
 }
 .home-list-item, .home-work-item { min-height: 23px; }
+.home-project-link { display: inline-flex; align-items: baseline; gap: 5px; }
+.home-project-trophy { width: 10px; height: 10px; }
 .home-work-item:focus-visible { outline: 1px solid #666; outline-offset: 3px; }
 .home-work-role {
   display: block;
