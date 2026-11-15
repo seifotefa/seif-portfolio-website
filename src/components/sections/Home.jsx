@@ -4,6 +4,7 @@ import { FaTrophy } from 'react-icons/fa'
 import { WebringLinks } from '../WebringLinks'
 
 const work = [
+  { name: 'td bank', role: 'quality engineer (winter 27)' },
   { name: 'backboard', href: 'https://backboard.io', role: 'member of technical staff · intern, now part-time' },
   { name: 'mcmaster', href: 'https://future.mcmaster.ca/programs/computer-science/', role: 'computer science · teaching assistant · engineering competition consulting lead' },
   { name: 'obotz robotics', role: 'robotics instructor' },
@@ -16,8 +17,10 @@ const projects = [
   { name: 'notchii', href: 'https://notchii.xyz', description: 'share and discover what people are listening to.' },
   { name: 'gta toronto', href: 'https://gta-the-6.onrender.com/', description: 'a GTA-inspired Toronto project.', trophy: true },
   { name: 'frontline', href: 'https://github.com/seifotefa/deltahacks-12', description: 'AI first-aid triage from camera vitals and vision.', trophy: true },
+  { name: 'alsatlas', href: 'https://github.com/seifotefa/alsatlas', description: 'accessible ALS symptom tracking for progression research.', trophy: 2 },
+  { name: 'bountic', href: 'https://github.com/Youseph-Elkhouly/Bountic', description: 'a bounty marketplace for autonomous AI agents.', trophy: true },
   { name: 'mcmaster webring', href: 'https://www.mcmasterwebring.xyz/', description: 'a network of builders at mcmaster.' },
-  { name: 'mec consulting', to: '/blog/mec2025', description: 'our winning engineering competition project.' },
+  { name: 'phoenix', to: '/blog/mec2025', description: 'our winning engineering competition project.', trophy: true },
   { name: 'jinsa', href: 'https://usejinsa.co', description: 'trackable, verifiable products.' },
   { name: 'resumock', href: 'https://github.com/seifotefa/deltahackslite', description: 'practice interviews from your résumé.' },
   { name: 'spark and prepper', href: 'https://github.com/seifotefa/sparkandprepper', description: 'study tools generated from your notes.' },
@@ -42,7 +45,7 @@ function WorkItem({ item }) {
 }
 
 function ProjectItem({ item }) {
-  const label = <>{item.name}{item.trophy && <FaTrophy className="home-project-trophy" aria-hidden="true" />}</>
+  const label = <>{item.name}{Array.from({ length: Number(item.trophy) || 0 }, (_, i) => <FaTrophy key={i} className="home-project-trophy" aria-hidden="true" />)}</>
   return <div className="home-list-item home-project-item">
     {item.to
       ? <Link className="home-project-link" to={item.to}>{label}</Link>
@@ -71,7 +74,9 @@ export const Home = () => {
 
   return <main className="home-main">
     <div className="home-directory">
-      <Section title="seif otefa" primary />
+      <Section title="seif otefa" primary>
+        <div className="home-list-item">3rd year cs @ mcmaster, td bank, backboard.io, 6x hackathon winner, engineer and creator</div>
+      </Section>
 
       <Section title="work">
         {work.slice(0, 2).map((item) => <WorkItem key={item.name} item={item} />)}
