@@ -1,11 +1,8 @@
 import React from 'react';
-import { BackToHome } from '../../BackToHome';
-import { BottomBar } from '../../BottomBar';
 
 export const StartupLessons = () => {
   return (
     <>
-      <BackToHome />
       <section className="min-h-screen bg-white text-gray-700 pt-24 pb-32 px-8 md:px-16">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
@@ -108,7 +105,6 @@ export const StartupLessons = () => {
         </div>
       </section>
 
-      <BottomBar />
     </>
   );
 };

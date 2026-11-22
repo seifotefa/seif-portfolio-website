@@ -1,13 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const socialLinks = [
-  { label: 'instagram', href: 'https://www.instagram.com/seifoai/' },
-  { label: 'linkedin', href: 'https://www.linkedin.com/in/seif-otefa/' },
-  { label: 'x', href: 'https://x.com/0xseifo' },
-  { label: 'github', href: 'https://github.com/seifotefa' },
-]
-
 const insights = [
   { value: '753,023', label: 'views' },
   { value: '465,470', label: 'viewers' },
@@ -23,10 +16,6 @@ export const Partnerships = () => {
   return (
     <main className="partnerships-main">
       <div className="partnerships-directory">
-        <header className="partnerships-header">
-          <Link to="/" className="partnerships-back">seif otefa</Link>
-          <span>partnerships / @seifoai</span>
-        </header>
 
         <section className="partnerships-hero" aria-labelledby="partnerships-title">
           <h1 id="partnerships-title">ai content,<br />from a builder&apos;s perspective.</h1>
@@ -96,13 +85,6 @@ export const Partnerships = () => {
           <p>For partnerships, product demos, or technical storytelling, get in touch.</p>
           <a className="partnerships-email" href="mailto:partnerships.seif@gmail.com?subject=Partnership%20inquiry">partnerships.seif@gmail.com</a>
         </section>
-
-        <footer className="partnerships-footer">
-          <Link to="/">home</Link>
-          <nav aria-label="Social profiles">
-            {socialLinks.map(({ label, href }) => <a href={href} target="_blank" rel="noreferrer" key={label}>{label}</a>)}
-          </nav>
-        </footer>
       </div>
     </main>
   )
