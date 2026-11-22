@@ -1,20 +1,23 @@
 import React from 'react';
-import { BackToHome } from '../../BackToHome';
-import { BottomBar } from '../../BottomBar';
 
-export const MEC2025 = () => {
+// Project Phoenix: MEC 2026 (first place, consulting) and the OEC 2026 trip it earned.
+// Combines the former /blog/mec2025 and /blog/oec2026 posts; both routes redirect here.
+export const Phoenix = () => {
   return (
     <>
-      <BackToHome />
       <section className="min-h-screen bg-white text-gray-700 pt-24 pb-32 px-8 md:px-16">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl font-light text-black mb-4">Project Phoenix (McMaster Engineering Competition 2025)</h1>
-            <p className="text-sm text-gray-500 mb-4">November 27, 2025</p>
+            <h1 className="text-4xl md:text-5xl font-light text-black mb-4">Project Phoenix — MEC &amp; OEC 2026</h1>
+            <p className="text-sm text-gray-500 mb-4">November 2025 – February 2026</p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              From a rocky start to first place, and a ticket to OEC.
+              From a rocky start to first place at MEC, and a ticket to OEC at Carleton.
             </p>
+          </div>
+
+          <div className="mb-12">
+            <p className="text-sm text-gray-500">Part 1 — McMaster Engineering Competition 2026</p>
           </div>
 
           {/* Main Image */}
@@ -40,15 +43,6 @@ export const MEC2025 = () => {
                 The challenge prompt focused on something massive and deeply relevant: the future of healthcare in Canada. From demographics to digital infrastructure, we were analyzing a system that affects millions of people every day.
               </p>
             </div>
-          </div>
-
-          {/* Teamwork Image */}
-          <div className="mb-12">
-            <img
-              src="/assets/mec2.jpg"
-              alt="Teamwork during competition"
-              className="w-full border border-gray-300"
-            />
           </div>
 
           {/* The Challenge */}
@@ -132,12 +126,74 @@ export const MEC2025 = () => {
               </p>
             </div>
           </div>
+          <div className="mb-12">
+            <p className="text-sm text-gray-500">Part 2 — Ontario Engineering Competition 2026, Carleton</p>
+          </div>
+
+          {/* Opening Ceremonies Image */}
+          <div className="mb-12">
+            <img
+              src={encodeURI("/assets/Screenshot 2026-02-24 235121.png")}
+              alt="OEC 2026 Opening Ceremonies at Carleton University"
+              className="w-full border border-gray-300"
+            />
+            <p className="text-sm text-gray-500 mt-2">OEC 2026 Opening Ceremonies — Carleton University</p>
+          </div>
+
+          {/* How I Got There */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-light text-black mb-6">How I Got There</h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                After winning first in the consulting category at the McMaster Engineering Competition, our team got the chance to compete at the <strong>Ontario Engineering Competition (OEC)</strong> at Carleton University in Ottawa.
+              </p>
+              <p>
+                Everything was covered including hotel and travel so we could focus on the competition and on meeting other teams from across the province.
+              </p>
+            </div>
+          </div>
+
+          {/* Campus Image */}
+          <div className="mb-12">
+            <img
+              src={encodeURI("/assets/Screenshot 2026-02-24 234959.png")}
+              alt="Carleton University campus in winter"
+              className="w-full border border-gray-300"
+            />
+            <p className="text-sm text-gray-500 mt-2">Carleton University, Ottawa — winter 2026</p>
+          </div>
+
+          {/* The Theme */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-light text-black mb-6">The Theme</h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                This year’s consulting challenge was <strong>aerospace-themed</strong>: tackling the problem of <strong>cleaning up debris in Low Earth Orbit (LEO)</strong>. It was a cool, real-world prompt, space junk is a growing issue, and we got to think through how engineering and policy could help address it. I had 0 exposure to aerospace eng, and learned so much in such a short time.
+              </p>
+              <p>
+                We didn’t go super deep into the technical weeds; the focus was on framing the problem, proposing sensible approaches, and presenting clearly, exactly what you’d expect from a consulting-style competition.
+              </p>
+            </div>
+          </div>
+
+          {/* The Experience */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-light text-black mb-6">The Experience</h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                We didn’t end up winning at OEC, but that wasn’t the only point. The opening ceremonies, the venue at Carleton, and the chance to compete and hang out with other engineering students made the whole trip memorable.
+              </p>
+              <p>
+                If you get the chance to go to OEC after MEC, whether you win or just want the experience, go for it. The trip, the theme, and the people made it a blast. Even though it was the coldest weekend in decades, and our train was delayed 8 hours due to the snowstorm, we still had a great time and I can't wait to be back next year.
+              </p>
+            </div>
+          </div>
+
+         
         </div>
       </section>
-
-      <BottomBar />
     </>
   );
 };
 
-export default MEC2025;
+export default Phoenix;

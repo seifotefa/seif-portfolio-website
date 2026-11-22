@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BackToHome } from '../BackToHome';
-import { BottomBar } from '../BottomBar';
 
 const work = [
   { id: 'studio', title: 'Backboard Studio', description: 'A three-person effort to make one desktop app work for first-time builders and experienced engineers.' },
@@ -23,7 +21,6 @@ function Photo({ src, alt, caption, narrow = false }) {
 
 export const BackboardLogbook = () => (
   <>
-    <BackToHome />
     <article className="min-h-screen bg-white text-gray-700 pt-24 pb-32 px-8 md:px-16">
       <div className="max-w-4xl mx-auto">
         <header className="mb-12">
@@ -179,7 +176,6 @@ export const BackboardLogbook = () => (
         </section>
       </div>
     </article>
-    <BottomBar />
   </>
 );
 

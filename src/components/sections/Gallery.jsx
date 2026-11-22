@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { BottomBar } from '../BottomBar'
 import fieldnoteFuji from '../../assets/fieldnote-fuji.jpg'
 import fieldnoteNara from '../../assets/fieldnote-nara.jpg'
 import fieldnoteIstanbul from '../../assets/fieldnote-istanbul.jpg'
@@ -57,109 +56,54 @@ export const Gallery = () => {
 
   useEffect(() => {
     document.title = 'Seif Otefa | Archive'
+    return () => { document.title = 'Seif Otefa' }
   }, [])
 
+  const Tabs = ({ items, active, onChange, label }) => (
+    <div className="filter" role="group" aria-label={label}>
+      {items.map((f) => (
+        <button key={f} type="button" aria-pressed={active === f} onClick={() => onChange(f)}>{f}</button>
+      ))}
+    </div>
+  )
+
+  const ExternalList = ({ items }) => (
+    <ul className="rows">
+      {items.map((item) => (
+        <li key={item.href} className="row">
+          <a href={item.href} target="_blank" rel="noreferrer" className="row-main">{item.name}</a>
+        </li>
+      ))}
+    </ul>
+  )
+
+  const Photos = ({ items }) => (
+    <div className="photos">
+      {items.map((item) => (
+        <figure key={item.src}>
+          <img src={item.src} alt={item.alt} loading="lazy" />
+          <figcaption className="meta">{item.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  )
+
   return (
-    <main className="min-h-screen px-5 pt-24 pb-32 md:px-8 md:pt-28">
-      <div className="max-w-5xl mx-auto">
-        <header className="mb-10">
-          <h1 className="text-3xl md:text-5xl font-light text-[#111]">archive</h1>
-        </header>
+    <>
+      <h1 className="page-title">Archive</h1>
+      <Tabs items={filters} active={activeFilter} onChange={setActiveFilter} label="Archive sections" />
 
-        <nav className="flex gap-6 mb-10">
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActiveFilter(f)}
-              className={`text-sm uppercase tracking-wider font-mono-desc transition-colors ${
-                activeFilter === f
-                  ? 'text-[#111]'
-                  : 'text-gray-400 hover:text-gray-600'
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </nav>
+      {activeFilter === 'photo' && (
+        <div>
+          <Tabs items={photoSections} active={activePhotoSection} onChange={setActivePhotoSection} label="Photo collections" />
+          {activePhotoSection === 'travel' && <Photos items={images} />}
+          {activePhotoSection === 'outer' && <Photos items={outerImages} />}
+          {activePhotoSection === 'inner' && <p className="meta">inner images coming soon.</p>}
+        </div>
+      )}
 
-        {activeFilter === 'photo' && (
-          <div>
-            <nav className="flex flex-wrap gap-x-6 gap-y-2 mb-8" aria-label="Photo collections">
-              {photoSections.map((section) => (
-                <button
-                  key={section}
-                  onClick={() => setActivePhotoSection(section)}
-                  className={`text-xs uppercase tracking-wider font-mono-desc transition-colors ${
-                    activePhotoSection === section
-                      ? 'text-[#111]'
-                      : 'text-gray-400 hover:text-gray-600'
-                  }`}
-                >
-                  {section}
-                </button>
-              ))}
-            </nav>
-
-            {activePhotoSection === 'travel' ? (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                {images.map((item) => (
-                  <figure key={item.src} className="m-0">
-                    <img src={item.src} alt={item.alt} className="w-full aspect-[4/3] object-cover rounded-lg" />
-                    <figcaption className="mt-2 text-xs text-gray-500 font-mono-desc">{item.caption}</figcaption>
-                  </figure>
-                ))}
-              </div>
-            ) : activePhotoSection === 'outer' ? (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                {outerImages.map((item) => (
-                  <figure key={item.src} className="m-0">
-                    <img src={item.src} alt={item.alt} className="w-full aspect-[4/3] object-cover rounded-lg" />
-                    <figcaption className="mt-2 text-xs text-gray-500 font-mono-desc">{item.caption}</figcaption>
-                  </figure>
-                ))}
-              </div>
-            ) : (
-              <p className="text-sm text-gray-400 font-mono-desc">
-                {activePhotoSection === 'outer' ? 'outer images coming soon.' : 'inner images coming soon.'}
-              </p>
-            )}
-          </div>
-        )}
-
-        {activeFilter === 'reading' && (
-          <div className="space-y-3">
-            {reading.map((book) => (
-              <a
-                key={book.name}
-                href={book.href}
-                target="_blank"
-                rel="noreferrer"
-                className="block text-sm text-[#111] hover:text-gray-500 transition-colors font-mono-desc"
-              >
-                {book.name}
-              </a>
-            ))}
-          </div>
-        )}
-
-        {activeFilter === 'video' && (
-          <div className="space-y-3">
-            {videos.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                className="block text-sm text-[#111] hover:text-gray-500 transition-colors font-mono-desc"
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <BottomBar />
-    </main>
+      {activeFilter === 'reading' && <ExternalList items={reading} />}
+      {activeFilter === 'video' && <ExternalList items={videos} />}
+    </>
   )
 }
