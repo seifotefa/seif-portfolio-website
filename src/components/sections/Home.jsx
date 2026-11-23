@@ -61,6 +61,30 @@ export const Home = () => {
           Outside engineering, I write about technology, startups and culture, and create{' '}
           <a href="https://www.instagram.com/seifoai/" {...ext}>AI-focused content</a>.
         </p>
+        <details className="previously">
+          <summary>previously</summary>
+          <div className="previously-body">
+            <p>
+              Previously, I worked at{' '}
+              {previousWork.map((w, i) => (
+                <span key={w.name}>
+                  <Org name={w.name} logo={w.logo} to={w.to} /> as {w.role}
+                  {i < previousWork.length - 2 ? ', ' : i === previousWork.length - 2 ? ', and ' : '.'}
+                </span>
+              ))}
+            </p>
+            <p>
+              I&apos;ve also built{' '}
+              {moreLinks.map((l, i) => (
+                <span key={l.name}>
+                  {l.to ? <Link to={l.to}>{l.name}</Link> : <a href={l.href} {...ext}>{l.name}</a>}
+                  {i < moreLinks.length - 2 ? ', ' : i === moreLinks.length - 2 ? ' and ' : '.'}
+                </span>
+              ))}
+            </p>
+          </div>
+        </details>
+
         <ul className="socials">
           {socials.map((s) => (
             <li key={s.label}>
@@ -88,26 +112,6 @@ export const Home = () => {
 
         {entries.map((e) => <Card key={e.title} e={e} />)}
 
-        <div className="more-links">
-          <p>
-            Previously, I worked at{' '}
-            {previousWork.map((w, i) => (
-              <span key={w.name}>
-                <Org name={w.name} logo={w.logo} to={w.to} /> as {w.role}
-                {i < previousWork.length - 2 ? ', ' : i === previousWork.length - 2 ? ', and ' : '.'}
-              </span>
-            ))}
-          </p>
-          <p>
-            I&apos;ve also built{' '}
-            {moreLinks.map((l, i) => (
-              <span key={l.name}>
-                {l.to ? <Link to={l.to}>{l.name}</Link> : <a href={l.href} {...ext}>{l.name}</a>}
-                {i < moreLinks.length - 2 ? ', ' : i === moreLinks.length - 2 ? ' and ' : '.'}
-              </span>
-            ))}
-          </p>
-        </div>
       </section>
     </>
   )

@@ -222,8 +222,6 @@ export const previousWork = [
 
 // Projects without a write-up (or with one still being rewritten): plain links under the feed.
 export const moreLinks = [
-  { name: 'GTA: THE 6', href: 'https://gta-the-6.onrender.com/' },
-  { name: 'Notipply', href: 'https://www.notipply.com/' },
   { name: 'Notchii', href: 'https://notchii.xyz' },
   { name: 'alsatlas', href: 'https://github.com/seifotefa/alsatlas' },
   { name: 'Bountic', href: 'https://github.com/Youseph-Elkhouly/Bountic' },
